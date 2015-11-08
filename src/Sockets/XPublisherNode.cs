@@ -18,5 +18,10 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             return Context.CreateXPublisherSocket();
         }
 
+        public override bool IsBindDefaultTrue()
+        {
+            return true;
+        }
+
     }
 }

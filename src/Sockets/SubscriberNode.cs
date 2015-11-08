@@ -11,7 +11,7 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     #region PluginInfo
     [PluginInfo(Name = "Subscriber", Category = "0qm Socket", Help = "Creates a socket, use in conjunction with Publisher", Tags = "", Author = "velcrome")]
     #endregion PluginInfo
-    public class SubscriberSocketNode : AbstractSocketNode<SubscriberSocket>
+    public class SubscriberSocketNode : AbstractFlexibleSocketNode<SubscriberSocket>
     {
         #region fields & pins
         [Input("Topic", DefaultString = "Event")]
@@ -68,5 +68,10 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             return Context.CreateSubscriberSocket();
         }
 
+
+        public override bool IsBindDefaultTrue()
+        {
+            return false;
+        }
     }
 }

@@ -32,5 +32,10 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             return Context.CreatePushSocket();
         }
 
+        public override bool IsBindDefaultTrue()
+        {
+            return true;
+        }
+
     }
 }

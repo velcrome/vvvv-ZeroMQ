@@ -7,7 +7,7 @@ using System.Text;
 using VVVV.Core.Logging;
 using VVVV.PluginInterfaces.V2;
 
-namespace VVVV.Nodes
+namespace VVVV.ZeroMQ
 {
     #region PluginInfo
     [PluginInfo(Name = "Receive", AutoEvaluate = true, Category = "0qm", Help = "Receives from a socket", Tags = "", Author = "velcrome")]
@@ -58,18 +58,6 @@ namespace VVVV.Nodes
 
                 FOutput[i].SliceCount = 0;
                 FOnData[i] = socket.HasIn;
-
-                //try
-                //{
-                //    var valid = socket.HasIn;
-                //}
-                //catch (System.Net.Sockets.SocketException e)
-                //{
-                //    FLogger.Log(LogType.Error, "\nvvvv.ZeroMQ: Cannot receive data from socket. Full?: " + e);
-                //    return;
-
-                //} 
-
 
                 while (socket.HasIn)
                 {

@@ -7,7 +7,7 @@ using System.Text;
 using VVVV.Core.Logging;
 using VVVV.PluginInterfaces.V2;
 
-namespace VVVV.Nodes
+namespace VVVV.ZeroMQ
 {
     #region PluginInfo
     [PluginInfo(Name = "Send", AutoEvaluate = true, Category = "0qm", Help = "Sends to a socket", Tags = "", Author = "velcrome")]
@@ -80,7 +80,7 @@ namespace VVVV.Nodes
                             FSuccess[i] &= socket.TrySendFrameEmpty(more);
                         }
                     }
-                    catch (FiniteStateMachineException e)
+                    catch (FiniteStateMachineException)
                     {
                         // likely cause: your send is blocked because nothing received yet.
                         // todo: FiniteStateMachineException under watch
@@ -92,14 +92,14 @@ namespace VVVV.Nodes
                     {
                         FSuccess[i] = false;
                         FLogger.Log(LogType.Error, "\nvvvv-ZeroMQ: "+socket.GetType() +" does not supoort Send. NotSupportedException.");
-
+                        throw e;
                     }
                     
                     catch (Exception e)
                     {
                         FSuccess[i] = false;
                         FLogger.Log(LogType.Error, "\nvvvv-ZeroMQ: Problem in Send. \n" + e);
-    //                    throw e; // internal error. escalate to node level?
+                        throw e; // internal error. escalate to node level?
                     }
                 }
             }

@@ -11,6 +11,9 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     public abstract class AbstractSocketNode<T> : IPluginEvaluate, IPartImportsSatisfiedNotification, IDisposable where T:NetMQSocket
     {
         #region fields & pins
+        [Input("Context", Visibility=PinVisibility.OnlyInspector)]
+        public IDiffSpread<NetMQContext> FContext;
+        
         [Input("Protocol", DefaultEnumEntry = "tcp")]
         public IDiffSpread<TransportProtocolEnum> FProtocol;
 
@@ -42,7 +45,10 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
         {
             get
             {
-                return NetMQContext.Create();
+                if (FContext.SliceCount > 0 && FContext[0] != null)
+                    return FContext[0];
+
+                else return NetMQContextDictionary.GetContext();
             }
         }
 
@@ -182,9 +188,33 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
         {
             var context = NetMQContext.Create();
 
-             FPort.Changed += UpdatePort;
+            FPort.Changed += UpdatePort;
             FProtocol.Changed += UpdateProtocol;
             FAddress.Changed += UpdateAddress;
+            FContext.Changed += UpdateContext;
+        }
+
+        private void UpdateContext(IDiffSpread<NetMQContext> spread)
+        {
+            // ALL sockets need to go now. 
+            foreach (var address in Sockets.Keys.ToArray())
+            {
+                try
+                {
+                    var socket = Sockets[address];
+                    EnableSocket(false, socket, address);
+                    Sockets[address].Dispose();
+                }
+                catch (Exception e)
+                {
+                    FLogger.Log(e, LogType.Warning);
+                }
+                Sockets.Remove(address);
+                WorkingSockets.Remove(address);
+            }
+            
+            // recreate anew with new context
+            UpdateSockets();
         }
 
         private void UpdateAddress(IDiffSpread<string> spread)
@@ -233,8 +263,6 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
                 select address
                 ).ToArray();
 
-
-
             foreach (var address in remove)
             {
                 try
@@ -273,7 +301,7 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
                 {
                     EnableSocket(false, Sockets[address], address); // disable
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     FLogger.Log(LogType.Warning, "vvvv.ZeroMQ: Could not disable "+address);
                 }
@@ -282,7 +310,7 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
 
                 try {
                     Sockets[address].Dispose();
-                } catch (Exception e) {
+                } catch (Exception) {
                     FLogger.Log(LogType.Warning, "vvvv.ZeroMQ: Could not dispose socket " + address);
                 }
 

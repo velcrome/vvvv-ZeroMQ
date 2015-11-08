@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\request.v4p" systemname="request" filename="C:\dev\vvvv\vvvv-ZeroMQ\request.v4p" scrollx="0" scrolly="1365">
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\request.v4p" systemname="request" filename="C:\dev\vvvv\vvvv-ZeroMQ\request.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="225" top="2700" width="15210" height="9135">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
@@ -123,7 +123,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="990" top="2325" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="tcp">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="inproc">
    </PIN>
    <PIN pinname="Output Enum" visible="1">
    </PIN>
@@ -135,7 +135,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="6165" top="2055" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input Enum" slicecount="1" visible="1" values="tcp">
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="inproc">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="23" systemname="IOBox (Value Advanced)">
@@ -173,9 +173,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="25" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="405" top="3405" width="2400" height="750">
+   <BOUNDS type="Box" left="15" top="2955" width="2400" height="750">
    </BOUNDS>
-   <BOUNDS type="Node" left="405" top="3405" width="0" height="0">
+   <BOUNDS type="Node" left="15" top="2955" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input String" slicecount="3" visible="1" values="hello,|whats up with milliseconds|,äöß">
    </PIN>
@@ -293,6 +293,10 @@
    </PIN>
    <BOUNDS type="Box" left="2985" top="4155">
    </BOUNDS>
+   <PIN pinname="Bind" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Context" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Enable">
    </LINK>
@@ -317,6 +321,10 @@
    </PIN>
    <BOUNDS type="Box" left="6165" top="4155">
    </BOUNDS>
+   <PIN pinname="Bind" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Context" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <LINK srcnodeid="30" srcpinname="Output String" dstnodeid="17" dstpinname="Server">
    </LINK>
@@ -738,14 +746,6 @@
    </LINK>
    <LINK srcnodeid="86" srcpinname="Output" dstnodeid="8" dstpinname="Send">
    </LINK>
-   <NODE systemname="AsString (Object)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="AsString (Object)" componentmode="Hidden" id="87">
-   <BOUNDS type="Node" left="10545" top="6495" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Object" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="String" visible="1">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="88" systemname="IOBox (String)">
    <BOUNDS type="Box" left="10530" top="6930" width="3375" height="525">
    </BOUNDS>
@@ -757,9 +757,9 @@
    </PIN>
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
+   <PIN pinname="Input String" slicecount="1" values="NetMQ.NetMQContext">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="87" srcpinname="String" dstnodeid="88" dstpinname="Input String">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="89" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="1005" top="7665" width="285" height="240">
    </BOUNDS>
@@ -800,8 +800,6 @@
    </LINK>
    <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="84" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="19" srcpinname="Sockets" dstnodeid="87" dstpinname="Object">
-   </LINK>
    <LINK srcnodeid="71" srcpinname="Output" dstnodeid="89" dstpinname="Y Input Value">
    </LINK>
    <LINK srcnodeid="7" srcpinname="OnData" dstnodeid="90" dstpinname="Y Input Value">
@@ -837,5 +835,45 @@
    <LINK srcnodeid="93" srcpinname="Millisecond" dstnodeid="94" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="94" srcpinname="Output" dstnodeid="80" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Context (0qm)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Context (0qm)" componentmode="Hidden" id="95">
+   <BOUNDS type="Node" left="5910" top="1410" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Context" visible="1">
+   </PIN>
+   <PIN pinname="Context ID" slicecount="1" visible="1" values="Defa">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="96" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="5970" top="840" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5970" top="840" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="ab">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="Default">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="96" srcpinname="Output String" dstnodeid="95" dstpinname="Context ID">
+   </LINK>
+   <LINK srcnodeid="95" srcpinname="Context" dstnodeid="17" dstpinname="Context">
+   </LINK>
+   <LINK srcnodeid="95" srcpinname="Context" dstnodeid="19" dstpinname="Context">
+   </LINK>
+   <NODE systemname="AsString (Object)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="AsString (Object)" componentmode="Hidden" id="87">
+   <BOUNDS type="Node" left="10545" top="6495" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Object" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="String" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="87" srcpinname="String" dstnodeid="88" dstpinname="Input String">
+   </LINK>
+   <LINK srcnodeid="95" srcpinname="Context" dstnodeid="87" dstpinname="Object">
    </LINK>
    </PATCH>

@@ -33,5 +33,10 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             return Context.CreatePullSocket();
         }
 
+        public override bool IsBindDefaultTrue()
+        {
+            return false;
+        }
+
     }
 }

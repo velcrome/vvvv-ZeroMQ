@@ -11,14 +11,13 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     #region PluginInfo
     [PluginInfo(Name = "Router", Category = "0qm Socket", Help = "Creates a socket, use in conjunction with Dealer", Tags = "", Author = "velcrome")]
     #endregion PluginInfo
-    public class RouterSocketNode : AbstractSocketNode<RouterSocket>
+    public class RouterSocketNode : AbstractFlexibleSocketNode<RouterSocket>
     {
         #region fields & pins
         #endregion fields & pins
 
         public override void OnImportsSatisfied()
         {
-            Bind = true;
             base.OnImportsSatisfied();
         }
 
@@ -33,5 +32,10 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             return Context.CreateRouterSocket();
         }
 
+
+        public override bool IsBindDefaultTrue()
+        {
+           return true;
+        }
     }
 }

@@ -33,5 +33,10 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             return Context.CreatePairSocket();
         }
 
+        public override bool IsBindDefaultTrue()
+        {
+            return false;
+        }
+
     }
 }
