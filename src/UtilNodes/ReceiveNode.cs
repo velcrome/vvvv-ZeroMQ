@@ -19,10 +19,16 @@ namespace VVVV.ZeroMQ
         [Input("Socket")]
         public ISpread<IReceivingSocket> FSocket;
 
-        [Output("Data")]
-        public ISpread<ISpread<Stream>> FOutput;
+        [Output("Frames", AutoFlush=false)]
+        public ISpread<Stream> FOutput;
 
-        [Output("OnData", IsBang=true)]
+        [Output("Frames Bin Size")]
+        public ISpread<int> FMessageBin;
+
+        [Output("Message Count")]
+        public ISpread<int> FSocketBin;
+
+        [Output("OnData", IsBang = true, IsSingle = true)]
         public ISpread<bool> FOnData;
 
         [Import()]
@@ -34,34 +40,38 @@ namespace VVVV.ZeroMQ
         {
             if (FSocket.SliceCount == 0 || (FSocket.SliceCount == 1 && FSocket[0] == null))
             {
-                FOutput.SliceCount = 1;
-                FOutput[0].SliceCount = 0;
-                FOnData.SliceCount = 1;
+                FOutput.SliceCount = 0;
+                FOutput.Flush();
+
+                FSocketBin.SliceCount = FMessageBin.SliceCount = 1;
+                FSocketBin[0] = FMessageBin[0] = 0;
+                
                 FOnData[0] = false;
                 return;
             }
 
+            FSocketBin.SliceCount = SpreadMax;
             FOutput.SliceCount =
-            FOnData.SliceCount = SpreadMax;
+            FMessageBin.SliceCount = 0;
 
-            //            var timeout = new TimeSpan(0, 0, 0, 1); // 1 sec
-
-            for (int i = 0; i < SpreadMax; i++)
+            for (int socketid = 0; socketid < SpreadMax; socketid++)
             {
-                var socket = (NetMQSocket) FSocket[i];
+                var socket = (NetMQSocket) FSocket[socketid];
                 if (socket == null)
                 {
-                    FOutput[i].SliceCount = 0;
-                    FOnData[i] = false;
+                    FOnData[socketid] = false;
+                    FSocketBin[socketid] = 0;
                     continue;
                 }
 
-                FOutput[i].SliceCount = 0;
-                FOnData[i] = socket.HasIn;
+                bool more = socket.HasIn;
+                var sBin = 0;
+                FOnData[socketid] = more;
 
-                while (socket.HasIn)
+                while (more)
                 {
-                    var more = true;
+                    var mBin = 0;
+                    
                     while (more)
                     {
                         var buffer = socket.ReceiveFrameBytes(out more);
@@ -69,10 +79,28 @@ namespace VVVV.ZeroMQ
                         var stream = new MemoryStream();
                         stream.Write(buffer, 0, buffer.Length);
 
-                        FOutput[i].Add(stream);
+                        FOutput.Add(stream);
+                        mBin++;
                     }
+
+                    FMessageBin.Add(mBin);
+                    sBin++;                    
+                    more = socket.HasIn;
                 }
+
+                FSocketBin[socketid] = sBin;
             }
+
+            if (FMessageBin.SliceCount == 0)
+            {
+                FMessageBin.SliceCount = 1;
+                FMessageBin[0] = 0;
+
+                FOnData[0] = false;
+            }
+            else FOnData[0] = true;
+
+            FOutput.Flush();
         }
     }
 }

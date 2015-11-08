@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\publish.v4p" systemname="publish" filename="C:\dev\vvvv\vvvv-ZeroMQ\publish.v4p" scrollx="0" scrolly="225">
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\publish.v4p" systemname="publish" filename="C:\dev\vvvv\vvvv-ZeroMQ\publish.v4p" scrollx="0" scrolly="120">
    <BOUNDS type="Window" left="1320" top="7545" width="28575" height="6000">
    </BOUNDS>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="1" systemname="IOBox (Node)">
@@ -9,7 +9,7 @@
    </BOUNDS>
    <PIN pinname="Output Node" visible="1">
    </PIN>
-   <PIN pinname="Input Node" slicecount="1" values="||" visible="1">
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
@@ -71,6 +71,8 @@
    </PIN>
    <PIN pinname="OnData" visible="1">
    </PIN>
+   <PIN pinname="Frames" visible="1">
+   </PIN>
    </NODE>
    <NODE systemname="Send (0qm)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Send (0qm)" componentmode="Hidden" id="8">
    <BOUNDS type="Node" left="2325" top="3750" width="100" height="100">
@@ -85,13 +87,15 @@
    </PIN>
    <PIN pinname="Send" visible="1" slicecount="1" values="0">
    </PIN>
+   <PIN pinname="Frames" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7500" top="750" width="480" height="480">
    </BOUNDS>
    <BOUNDS type="Node" left="7500" top="750" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -101,7 +105,7 @@
    </PIN>
    <PIN pinname="Behavior" slicecount="1" values="Toggle">
    </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
+   <PIN pinname="X Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
    <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InABox" id="11">
@@ -181,7 +185,7 @@
    </PIN>
    <PIN pinname="Sockets" visible="1">
    </PIN>
-   <PIN pinname="Server" visible="1">
+   <PIN pinname="Server" visible="1" slicecount="1" values="*">
    </PIN>
    <PIN pinname="Topic" visible="1" slicecount="1" values="Event">
    </PIN>
@@ -326,50 +330,6 @@
    </NODE>
    <LINK srcnodeid="28" srcpinname="Output" dstnodeid="29" dstpinname="Input String">
    </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="30" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="5865" top="900" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="5865" top="900" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="1" values="*">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="localhost">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Output String" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="30" srcpinname="Output String" dstnodeid="17" dstpinname="Server">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="32" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="8745" top="480" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="8745" top="480" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Toggle">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <NODE systemname="Subscriber (0qm Socket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Subscriber (0qm Socket)" componentmode="Hidden" id="33">
-   <BOUNDS type="Node" left="8040" top="1320" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Sockets" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="32" srcpinname="Y Output Value" dstnodeid="33" dstpinname="Enable">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="37" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7890" top="2340" width="480" height="480">
    </BOUNDS>
@@ -413,15 +373,13 @@
    <NODE systemname="S+H (Raw)" nodename="S+H (Raw)" componentmode="Hidden" id="39">
    <BOUNDS type="Node" left="5760" top="3090" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Set" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="7" srcpinname="Data" dstnodeid="39" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="39" srcpinname="Output" dstnodeid="28" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="7" srcpinname="OnData" dstnodeid="39" dstpinname="Set">
@@ -493,7 +451,7 @@
    </PIN>
    <PIN pinname="Bind" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="Enable" slicecount="1" values="1" visible="1">
+   <PIN pinname="Enable" slicecount="1" visible="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="20" srcpinname="Output Enum" dstnodeid="19" dstpinname="Protocol">
@@ -511,6 +469,8 @@
    </PIN>
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="43" srcpinname="Output String" dstnodeid="19" dstpinname="Server">
    </LINK>
@@ -521,5 +481,11 @@
    <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Enable">
    </LINK>
    <LINK srcnodeid="19" srcpinname="Valid" dstnodeid="26" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="43" srcpinname="Output String" dstnodeid="17" dstpinname="Server">
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Output" dstnodeid="8" dstpinname="Frames">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Frames" dstnodeid="39" dstpinname="Input">
    </LINK>
    </PATCH>

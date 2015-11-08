@@ -19,7 +19,7 @@ namespace VVVV.ZeroMQ
         [Input("Socket")]
         public ISpread<IOutgoingSocket> FSocket; 
 
-        [Input("Data")]
+        [Input("Frames")]
         public ISpread<ISpread<Stream>> FInput;
 
         [Input("Send", IsBang = true, DefaultBoolean=true)]
@@ -41,65 +41,63 @@ namespace VVVV.ZeroMQ
                 FSuccess[0] = false;
                 return;
             }
-            //            var timeout = new TimeSpan(0, 0, 0, 1); // 1 sec
 
             SpreadMax = FSocket.CombineWith(FInput); // FSent is cut off at the amount of FSockets
             FSuccess.SliceCount = SpreadMax;
 
-            for (int i = 0; i < SpreadMax; i++)
+            for (int socketid = 0; socketid < SpreadMax; socketid++)
             {
-                var socket = FSocket[i];
-                if (socket == null || FSend[i] == false) // socket has not been enabled, nor is any sending necessary
+                var socket = FSocket[socketid];
+                if (socket == null || FSend[socketid] == false) // socket has not been enabled, nor is any sending necessary
                 {
-                    FSuccess[i] = false;
+                    FSuccess[socketid] = false;
                     continue; 
                 }
 
-                FSuccess[i] = true; // if just one frame fails, it will turn to false
+                FSuccess[socketid] = true; // if just one frame fails, it will turn to false
 
-                var dataBin = FInput[i];
+                var dataBin = FInput[socketid];
                 var binCount = dataBin.SliceCount;
-                for (int j = 0; j < binCount; j++)
+                for (int bin = 0; bin < binCount; bin++)
                 {
-                    var raw = dataBin[j];
+                    var raw = dataBin[bin];
                     var length = (int)raw.Length;
                     var buffer = new byte[length];
 
                     raw.Seek(0, SeekOrigin.Begin);
                     int c = raw.Read(buffer, 0, length);
 
-                    bool more = j + 1 < binCount;
+                    bool more = bin + 1 < binCount;
                     try
                     {
                         if (length > 0)
                         {
-                            FSuccess[i] &= socket.TrySendFrame(buffer, length, more); 
+                            FSuccess[socketid] &= socket.TrySendFrame(buffer, length, more); 
                         }
                         else
                         {
-                            FSuccess[i] &= socket.TrySendFrameEmpty(more);
+                            FSuccess[socketid] &= socket.TrySendFrameEmpty(more);
                         }
                     }
                     catch (FiniteStateMachineException)
                     {
                         // likely cause: your send is blocked because nothing received yet.
-                        // todo: FiniteStateMachineException under watch
+                        // http://api.zeromq.org/2-1:zmq-send see under Error "EFSM"
 
-                        FLogger.Log(LogType.Warning, "vvvv.ZeroMQ: Not allowed to send yet. \n");
-//                        FLogger.Log(e, LogType.Warning);
+                        FLogger.Log(LogType.Warning, "vvvv.ZeroMQ: Not allowed to send yet. Need a response first.\n");
                     }
                     catch (NotSupportedException e)
                     {
-                        FSuccess[i] = false;
-                        FLogger.Log(LogType.Error, "\nvvvv-ZeroMQ: "+socket.GetType() +" does not supoort Send. NotSupportedException.");
+                        FSuccess[socketid] = false;
+                        FLogger.Log(LogType.Error, "\nvvvv-ZeroMQ: "+socket.GetType() +" does not supoort Send.");
                         throw e;
                     }
                     
                     catch (Exception e)
                     {
-                        FSuccess[i] = false;
+                        FSuccess[socketid] = false;
                         FLogger.Log(LogType.Error, "\nvvvv-ZeroMQ: Problem in Send. \n" + e);
-                        throw e; // internal error. escalate to node level?
+                        throw e; // some unknown internal error. escalate to node level
                     }
                 }
             }

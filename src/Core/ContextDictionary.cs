@@ -6,7 +6,7 @@ using System.Text;
 
 namespace VVVV.ZeroMQ.Nodes
 {
-    public class NetMQContextDictionary
+    public class NetMQContextDictionary 
     {
         private static Dictionary<string, NetMQContext> AllContexts;
         

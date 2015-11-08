@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\dealer.v4p" systemname="dealer" filename="C:\dev\vvvv\vvvv-ZeroMQ\dealer.v4p" scrollx="120" scrolly="4005">
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\dealer.v4p" systemname="dealer" filename="C:\dev\vvvv\vvvv-ZeroMQ\dealer.v4p" scrollx="0" scrolly="5115">
    <BOUNDS type="Window" left="225" top="2700" width="21135" height="9135">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
@@ -34,6 +34,8 @@
    <PIN pinname="Data Bin Size" visible="1">
    </PIN>
    <PIN pinname="OnData" visible="1">
+   </PIN>
+   <PIN pinname="Frames" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
@@ -277,6 +279,8 @@
    </PIN>
    <BOUNDS type="Box" left="2925" top="7485">
    </BOUNDS>
+   <PIN pinname="Frames" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="46" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2910" top="7890" width="285" height="240">
@@ -379,7 +383,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2970" top="4815" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="RequestSocket">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Socket">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
@@ -391,7 +395,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="9660" top="4995" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="ResponseSocket">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Socket">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
@@ -409,17 +413,17 @@
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="7" srcpinname="Data" dstnodeid="82" dstpinname="Input Node">
-   </LINK>
    <LINK srcnodeid="82" srcpinname="Output Node" dstnodeid="47" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="37" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Set">
    </LINK>
    <NODE systemname="IOBox (Color)" nodename="IOBox (Color)" componentmode="InABox" id="83">
-   <BOUNDS type="Node" left="5325" top="4815" width="100" height="100">
+   <BOUNDS type="Node" left="9000" top="5160" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="5325" top="4815" width="285" height="7440">
+   <BOUNDS type="Box" left="9000" top="5160" width="285" height="7440">
    </BOUNDS>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="84" systemname="IOBox (Value Advanced)">
@@ -533,6 +537,8 @@
    </PIN>
    <PIN pinname="Send" visible="1">
    </PIN>
+   <PIN pinname="Frames" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="97" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="12765" top="8490" width="480" height="480">
@@ -565,6 +571,8 @@
    </PIN>
    <PIN pinname="OnData" visible="1">
    </PIN>
+   <PIN pinname="Frames" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="99" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2040" top="8250" width="285" height="240">
@@ -595,9 +603,9 @@
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="100" srcpinname="Data" dstnodeid="98" dstpinname="Input Node">
-   </LINK>
    <LINK srcnodeid="75" srcpinname="Output Node" dstnodeid="100" dstpinname="Socket">
    </LINK>
    <NODE systemname="AsString (Raw)" nodename="AsString (Raw)" componentmode="Hidden" id="103">
@@ -649,7 +657,7 @@
    <NODE systemname="CAR (Raw Bin)" filename="%VVVV%\addonpack\lib\nodes\plugins\VectorSized.dll" nodename="CAR (Raw Bin)" componentmode="Hidden" id="104">
    <BOUNDS type="Node" left="12765" top="6720" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="First Slice" visible="1">
    </PIN>
@@ -781,7 +789,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Send (0qm)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Send (0qm)" componentmode="Hidden" id="121">
-   <BOUNDS type="Node" left="7545" top="7590" width="1815" height="270">
+   <BOUNDS type="Node" left="7545" top="7590" width="885" height="270">
    </BOUNDS>
    <PIN pinname="Socket" visible="1" slicecount="1" values="||">
    </PIN>
@@ -795,6 +803,8 @@
    </PIN>
    <BOUNDS type="Box" left="7545" top="7590">
    </BOUNDS>
+   <PIN pinname="Frames" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="120" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7530" top="7995" width="285" height="240">
@@ -835,7 +845,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="7590" top="4920" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="RequestSocket">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Socket">
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
@@ -843,9 +853,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="117" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="8955" top="6210" width="480" height="480">
+   <BOUNDS type="Box" left="8130" top="6360" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="8955" top="6210" width="0" height="0">
+   <BOUNDS type="Node" left="8130" top="6360" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
@@ -905,6 +915,8 @@
    </PIN>
    <PIN pinname="OnData" visible="1">
    </PIN>
+   <PIN pinname="Frames" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="114" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7095" top="8130" width="285" height="240">
@@ -935,9 +947,9 @@
    </PIN>
    <PIN pinname="Output Node" visible="1">
    </PIN>
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="115" srcpinname="Data" dstnodeid="113" dstpinname="Input Node">
-   </LINK>
    <LINK srcnodeid="118" srcpinname="Output Node" dstnodeid="115" dstpinname="Socket">
    </LINK>
    <NODE systemname="AsString (Raw)" nodename="AsString (Raw)" componentmode="Hidden" id="112">
@@ -987,5 +999,17 @@
    <LINK srcnodeid="114" srcpinname="Y Output Value" dstnodeid="110" dstpinname="Set">
    </LINK>
    <LINK srcnodeid="15" srcpinname="Output" dstnodeid="121" dstpinname="Data">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Frames" dstnodeid="82" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="115" srcpinname="Frames" dstnodeid="113" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Output" dstnodeid="43" dstpinname="Frames">
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Output" dstnodeid="121" dstpinname="Frames">
+   </LINK>
+   <LINK srcnodeid="105" srcpinname="Output" dstnodeid="96" dstpinname="Frames">
+   </LINK>
+   <LINK srcnodeid="100" srcpinname="Frames" dstnodeid="98" dstpinname="Input Node">
    </LINK>
    </PATCH>

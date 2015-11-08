@@ -88,8 +88,14 @@
     <Compile Include="Core\TransportProtocolEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <MyFiles Include="..\assets\**\*.*" />
+    </ItemGroup>
+    <Microsoft.Build.Tasks.Copy SourceFiles="@(MyFiles)" DestinationFiles="@(MyFiles->'..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\nodes\%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

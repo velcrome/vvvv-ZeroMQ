@@ -117,8 +117,8 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             }
             catch (Exception e)
             {
-                FLogger.Log(LogType.Error, "\nvvvv.ZeroMQ: " + address + " threw an internal exception: " + e);
-                //               throw e;
+                FLogger.Log(LogType.Error, "\nvvvv.ZeroMQ: " + address + " threw an internal exception: " + e.Message+"\n");
+                throw e;
             }
 
             return false;

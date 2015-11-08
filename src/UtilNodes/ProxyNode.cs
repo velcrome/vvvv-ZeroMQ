@@ -50,7 +50,14 @@ namespace VVVV.ZeroMQ
             {
                 foreach (var p in Proxies)
                 {
-                    p.Stop();
+                    try
+                    {
+                        p.Stop();
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        FLogger.Log(LogType.Warning, "\nvvvv.ZeroMQ: Proxy cannot be stopped. " + e.Message);
+                    }
                 }
                 
             }
