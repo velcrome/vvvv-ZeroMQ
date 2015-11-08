@@ -14,28 +14,51 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     public class SubscriberSocketNode : AbstractSocketNode<SubscriberSocket>
     {
         #region fields & pins
-        [Input("Topic", DefaultString = "*")]
-        public IDiffSpread<bool> FTopic;
+        [Input("Topic", DefaultString = "Event")]
+        public IDiffSpread<string> FTopic;
+
+        protected List<string> Topic = new List<string>();
 
         #endregion fields & pins
+
+        public override void OnImportsSatisfied()
+        {
+            base.OnImportsSatisfied();
+
+            FTopic.Changed += FTopicChanged;
+         }
+
+        private void FTopicChanged(IDiffSpread<string> spread)
+        {
+            foreach (var address in WorkingSockets.ToArray())
+                Subscribe(false, Sockets[address], Topic);
+
+            Topic.Clear();
+            Topic = FTopic.ToList();
+
+            foreach (var address in WorkingSockets.ToArray())
+                Subscribe(true, Sockets[address], Topic);
+             
+        }
 
         public override void Evaluate(int SpreadMax)
         {
             base.Evaluate(SpreadMax);
-
         }
 
         protected override bool EnableSocket(bool enable, SubscriberSocket socket, string address)
         {
-            if (enable)
+            if (!enable)
             {
-                socket.Connect(address);
-                socket.Subscribe("foo");
+                Subscribe(false, socket, Topic);
             }
-            else
+
+            var success = base.EnableSocket(enable, socket, address);
+
+            Topic.AssignFrom(FTopic);
+            if (success && enable)
             {
-                socket.Unsubscribe("foo");
-                socket.Disconnect(address);
+                Subscribe(true, socket, FTopic);
             }
             return true;
         }

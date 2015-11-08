@@ -9,19 +9,18 @@ using VVVV.ZeroMQ.Nodes;
 namespace VVVV.ZeroMQ.Nodes.Sockets
 {
     #region PluginInfo
-    [PluginInfo(Name = "Response", Category = "0qm Socket", Help = "Creates a socket, use in conjunction with Request", Tags = "", Author = "velcrome")]
+    [PluginInfo(Name = "Pair", Category = "0qm Socket", Help = "Creates a socket, use in conjunction with another Pair", Tags = "", Author = "velcrome")]
     #endregion PluginInfo
-    public class ResponseSocketNode : AbstractSocketNode<ResponseSocket>
+    public class PairSocketNode : AbstractFlexibleSocketNode<PairSocket>
     {
         #region fields & pins
         #endregion fields & pins
 
         public override void OnImportsSatisfied()
         {
-            Bind = true;
+            Bind = false;
             base.OnImportsSatisfied();
         }
-
 
         public override void Evaluate(int SpreadMax)
         {
@@ -29,9 +28,9 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
 
         }
 
-        protected override ResponseSocket NewSocket()
+        protected override PairSocket NewSocket()
         {
-            return Context.CreateResponseSocket();
+            return Context.CreatePairSocket();
         }
 
     }

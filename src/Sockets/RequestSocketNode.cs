@@ -16,23 +16,16 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
         #region fields & pins
         #endregion fields & pins
 
+        public override void OnImportsSatisfied()
+        {
+            Bind = false;
+            base.OnImportsSatisfied();
+        }
+
         public override void Evaluate(int SpreadMax)
         {
             base.Evaluate(SpreadMax);
 
-        }
-
-        protected override bool EnableSocket(bool enable, RequestSocket socket, string address)
-        {
-            if (enable)
-            {
-                socket.Connect(address);
-            }
-            else
-            {
-                socket.Disconnect(address);
-            }
-            return true;
         }
 
         protected override RequestSocket NewSocket()
