@@ -67,25 +67,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextDictionary.cs" />
-    <Compile Include="ContextNode.cs" />
-    <Compile Include="ProxyNode.cs" />
-    <Compile Include="ReceiveNode.cs" />
-    <Compile Include="SendNode.cs" />
-    <Compile Include="Sockets\Abstract\AbstractFlexibleSocketNode.cs" />
-    <Compile Include="Sockets\Abstract\AbstractSocketNode.cs" />
-    <Compile Include="Sockets\DealerNode.cs" />
-    <Compile Include="Sockets\PairNode.cs" />
-    <Compile Include="Sockets\PublishNode.cs" />
-    <Compile Include="Sockets\PullNode.cs" />
-    <Compile Include="Sockets\PushNode.cs" />
-    <Compile Include="Sockets\RequestNode.cs" />
-    <Compile Include="Sockets\ResponseNode.cs" />
-    <Compile Include="Sockets\RouterNode.cs" />
-    <Compile Include="Sockets\SubscriberNode.cs" />
-    <Compile Include="Sockets\XPublisherNode.cs" />
-    <Compile Include="Sockets\XSubscriberNode.cs" />
-    <Compile Include="TransportProtocolEnum.cs" />
+    <Compile Include="Core\ContextDictionary.cs" />
+    <Compile Include="UtilNodes\ContextNode.cs" />
+    <Compile Include="UtilNodes\ProxyNode.cs" />
+    <Compile Include="UtilNodes\ReceiveNode.cs" />
+    <Compile Include="UtilNodes\SendNode.cs" />
+    <Compile Include="SocketNodes\Abstract\AbstractFlexibleSocketNode.cs" />
+    <Compile Include="SocketNodes\Abstract\AbstractSocketNode.cs" />
+    <Compile Include="SocketNodes\DealerNode.cs" />
+    <Compile Include="SocketNodes\PairNode.cs" />
+    <Compile Include="SocketNodes\PublishNode.cs" />
+    <Compile Include="SocketNodes\PullNode.cs" />
+    <Compile Include="SocketNodes\PushNode.cs" />
+    <Compile Include="SocketNodes\RequestNode.cs" />
+    <Compile Include="SocketNodes\ResponseNode.cs" />
+    <Compile Include="SocketNodes\RouterNode.cs" />
+    <Compile Include="SocketNodes\SubscriberNode.cs" />
+    <Compile Include="SocketNodes\XPublisherNode.cs" />
+    <Compile Include="SocketNodes\XSubscriberNode.cs" />
+    <Compile Include="Core\TransportProtocolEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
