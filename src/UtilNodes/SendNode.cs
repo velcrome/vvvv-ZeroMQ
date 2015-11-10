@@ -10,7 +10,7 @@ using VVVV.PluginInterfaces.V2;
 namespace VVVV.ZeroMQ
 {
     #region PluginInfo
-    [PluginInfo(Name = "Send", AutoEvaluate = true, Category = "0qm", Help = "Sends to a socket", Tags = "", Author = "velcrome")]
+    [PluginInfo(Name = "Send", AutoEvaluate = true, Category = "Network ZSocket", Help = "Sends to a socket", Tags = "ZeroMQ", Author = "velcrome")]
     #endregion PluginInfo
     public class SendNode : IPluginEvaluate
     {

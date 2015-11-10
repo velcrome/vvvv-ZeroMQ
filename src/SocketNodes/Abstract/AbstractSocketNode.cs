@@ -10,6 +10,10 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
 {
     public abstract class AbstractSocketNode<T> : IPluginEvaluate, IPartImportsSatisfiedNotification, IDisposable where T:NetMQSocket
     {
+        protected const string AUTHOR = "velcrome";
+        protected const string SOCKET_CATEGORY = "Network ZSocket";
+        protected const string TAGS = "ZeroMQ";
+
         #region fields & pins
         [Input("Context", Visibility=PinVisibility.OnlyInspector)]
         public IDiffSpread<NetMQContext> FContext;

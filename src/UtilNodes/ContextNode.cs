@@ -10,7 +10,7 @@ using VVVV.PluginInterfaces.V2;
 namespace VVVV.ZeroMQ.Nodes
 {
     #region PluginInfo
-    [PluginInfo(Name = "Context", AutoEvaluate = true, Category = "0qm", Help = "Share Context", Tags = "", Author = "velcrome")]
+    [PluginInfo(Name = "Context", Category = "Network ZSocket", Help = "Share a custom Context", Tags = "ZeroMQ", Author = "velcrome")]
     #endregion PluginInfo
     public class ContextNode : IPluginEvaluate, IPartImportsSatisfiedNotification
     {

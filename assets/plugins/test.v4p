@@ -1,15 +1,11 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\test.v4p" scrollx="165" scrolly="630" systemname="test" filename="C:\dev\vvvv\vvvv-ZeroMQ\test.v4p">
-   <BOUNDS type="Window" left="9900" top="5100" width="9000" height="6000">
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\build\vvvv-ZeroMQ_Debug_x64\nodes\plugins\test.v4p" scrollx="0" scrolly="0" systemname="test" filename="C:\dev\vvvv\vvvv-ZeroMQ\test.v4p">
+   <BOUNDS type="Window" left="7605" top="2565" width="9150" height="6000">
    </BOUNDS>
-   <NODE systemname="Publisher (0qm Socket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Publisher (0qm Socket)" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="480" top="1605" width="100" height="100">
-   </BOUNDS>
-   </NODE>
    <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InABox" id="67">
-   <BOUNDS type="Node" left="3752" top="1713" width="100" height="100">
+   <BOUNDS type="Node" left="3754" top="1716" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="3752" top="1713" width="6144" height="3636">
+   <BOUNDS type="Box" left="3754" top="1716" width="15390" height="2565">
    </BOUNDS>
    <BOUNDS type="Window" left="19016" top="3369" width="6216" height="4980">
    </BOUNDS>
@@ -70,22 +66,126 @@
    </LINK>
    <LINK srcnodeid="70" srcpinname="Y Output Value" dstnodeid="67" dstpinname="Log Messages">
    </LINK>
-   <NODE systemname="Subscriber (0qm Socket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Subscriber (0qm Socket)" componentmode="Hidden" id="71">
-   <BOUNDS type="Node" left="945" top="2535" width="100" height="100">
-   </BOUNDS>
-   </NODE>
-   <NODE systemname="XPublisher (0qm Socket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="XPublisher (0qm Socket)" componentmode="Hidden" id="72">
-   <BOUNDS type="Node" left="1380" top="3435" width="100" height="100">
-   </BOUNDS>
-   </NODE>
-   <NODE systemname="Publisher (0qm Socket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Publisher (0qm Socket)" componentmode="Hidden" id="73">
-   <BOUNDS type="Node" left="1470" top="1650" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Bind" slicecount="1" values="0">
-   </PIN>
-   </NODE>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
    <PACK Name="addonpack" Version="34.1.0">
    </PACK>
+   <NODE systemname="Context (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Context (Network ZSocket)" componentmode="Hidden" id="85">
+   <BOUNDS type="Node" left="1620" top="120" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Context" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="80" systemname="Pair (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Pair (Network ZSocket)" componentmode="Hidden">
+   <BOUNDS type="Node" left="1710" top="750" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1710" top="750">
+   </BOUNDS>
+   <PIN pinname="Sockets" visible="1">
+   </PIN>
+   <PIN pinname="Context" visible="1" pintype="Input" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE id="87" systemname="Receive (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Receive (Network ZSocket)" componentmode="Hidden">
+   <BOUNDS type="Node" left="2160" top="1350" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Socket" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="80" srcpinname="Sockets" dstnodeid="87" dstpinname="Socket">
+   </LINK>
+   <NODE id="86" systemname="Send (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Send (Network ZSocket)" componentmode="Hidden">
+   <BOUNDS type="Node" left="1305" top="1380" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Socket" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="80" srcpinname="Sockets" dstnodeid="86" dstpinname="Socket">
+   </LINK>
+   <LINK srcnodeid="85" srcpinname="Context" dstnodeid="80" dstpinname="Context">
+   </LINK>
+   <NODE systemname="Pair (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Pair (Network ZSocket)" componentmode="Hidden" id="79">
+   <BOUNDS type="Node" left="210" top="1140" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="210" top="1140">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Pull (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Pull (Network ZSocket)" componentmode="Hidden" id="78">
+   <BOUNDS type="Node" left="1260" top="1890" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1260" top="1890">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Push (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Push (Network ZSocket)" componentmode="Hidden" id="76">
+   <BOUNDS type="Node" left="210" top="1890" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="210" top="1890">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Request (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Request (Network ZSocket)" componentmode="Hidden" id="74">
+   <BOUNDS type="Node" left="210" top="2535" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="210" top="2535">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Dealer (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Dealer (Network ZSocket)" componentmode="Hidden" id="81">
+   <BOUNDS type="Node" left="210" top="3225" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="210" top="3225">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Publisher (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Publisher (Network ZSocket)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="210" top="3825" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="210" top="3825">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="XPublisher (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="XPublisher (Network ZSocket)" componentmode="Hidden" id="72">
+   <BOUNDS type="Node" left="210" top="4425" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="210" top="4425">
+   </BOUNDS>
+   <PIN pinname="Sockets" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="71" systemname="XSubscriber (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="XSubscriber (Network ZSocket)" componentmode="Hidden">
+   <BOUNDS type="Node" left="1260" top="4425" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1260" top="4425">
+   </BOUNDS>
+   <PIN pinname="Sockets" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Proxy (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Proxy (Network ZSocket)" componentmode="Hidden" id="84">
+   <BOUNDS type="Node" left="195" top="4935" width="2190" height="270">
+   </BOUNDS>
+   <PIN pinname="Frontend Socket" visible="1">
+   </PIN>
+   <PIN pinname="Backend Socket" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="72" srcpinname="Sockets" dstnodeid="84" dstpinname="Frontend Socket">
+   </LINK>
+   <LINK srcnodeid="71" srcpinname="Sockets" dstnodeid="84" dstpinname="Backend Socket">
+   </LINK>
+   <NODE id="73" systemname="Publisher (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Publisher (Network ZSocket)" componentmode="Hidden">
+   <BOUNDS type="Node" left="1260" top="3825" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bind" slicecount="1" values="0">
+   </PIN>
+   <BOUNDS type="Box" left="1260" top="3825">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Router (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Router (Network ZSocket)" componentmode="Hidden" id="82">
+   <BOUNDS type="Node" left="1260" top="3225" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1260" top="3225">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Response (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Response (Network ZSocket)" componentmode="Hidden" id="75">
+   <BOUNDS type="Node" left="1260" top="2535" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1260" top="2535">
+   </BOUNDS>
+   </NODE>
    </PATCH>

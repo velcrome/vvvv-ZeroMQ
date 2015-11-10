@@ -9,7 +9,7 @@ using VVVV.ZeroMQ.Nodes;
 namespace VVVV.ZeroMQ.Nodes.Sockets
 {
     #region PluginInfo
-    [PluginInfo(Name = "Router", Category = "0qm Socket", Help = "Creates a socket, use in conjunction with Dealer", Tags = "", Author = "velcrome")]
+    [PluginInfo(Name = "Router", Category = SOCKET_CATEGORY, Help = "Creates a socket, use in conjunction with Dealer", Tags = TAGS, Author = AUTHOR)]
     #endregion PluginInfo
     public class RouterSocketNode : AbstractFlexibleSocketNode<RouterSocket>
     {
