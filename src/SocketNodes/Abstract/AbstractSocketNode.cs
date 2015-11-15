@@ -71,7 +71,13 @@ namespace VVVV.ZeroMQ.Nodes.Core
 
 
         #region enable/disable
-        // returns success
+        /// <summary>
+        /// Enable or Disable a socket with <paramref name="address"/>.
+        /// </summary>
+        /// <param name="address">a string representing the address to enable or disable this socket with</param>
+        /// <exception cref="AddressAlreadyInUseException">The specified address is already in use.</exception>
+        /// <exception cref="NetMQException">No IO thread was found, or the protocol's listener encountered an
+        /// error during initialisation.</exception>
         protected virtual bool EnableSocket(bool enable, T socket, string address)
         {
             try
@@ -309,7 +315,7 @@ namespace VVVV.ZeroMQ.Nodes.Core
                 }
                 catch (Exception e)
                 {
-                    FLogger.Log(e, LogType.Warning);
+                    FLogger.Log(LogType.Warning, "vvvv-ZeroMQ: Internal Error while removing old socket: "+address+"\n"+e.Message);
                 }
                 Sockets.Remove(address);
                 WorkingSockets.Remove(address);
