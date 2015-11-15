@@ -12,7 +12,7 @@ namespace VVVV.ZeroMQ
     #region PluginInfo
     [PluginInfo(Name = "Proxy", AutoEvaluate = true, Category = "Network ZSocket", Help = "Proxy for XPublisher and XSubscriber", Tags = "ZeroMQ", Author = "velcrome")]
     #endregion PluginInfo
-    public class ProxyNode : IPluginEvaluate
+    public class ProxyNode : IPluginEvaluate, IDisposable
     {
         #region fields & pins
 
@@ -62,9 +62,7 @@ namespace VVVV.ZeroMQ
                 
             }
 
-
-
-            // avoid spreading. proxy must be 1:1
+            // spreading could cause weird behaviour, when multiple proxies feed on the same sockets
             SpreadMax = FFrontendSocket.CombineWith(FBackendSocket);
 
             for (int i = 0; i < SpreadMax; i++)
@@ -80,24 +78,41 @@ namespace VVVV.ZeroMQ
 
                 if (FEnable.IsChanged && FEnable[i])
                 {
+                    
+                    // FRONTEND
                     try
                     {
                         Poll.AddSocket(frontend);
-                        Poll.AddSocket(backend);
                     }
                     catch (ArgumentException)
                     {
-//                        FLogger.Log(LogType.Error, "\nvvvv.ZeroMQ: Socket already added to Poller in Proxy. Nothing to worry about.");
+                        FLogger.Log(LogType.Error, "\nvvvv.ZeroMQ: Socket already added to Poller in Proxy. Nothing to worry about.");
                     }
                     catch (ObjectDisposedException)
                     {
                         FLogger.Log(LogType.Error, "\nvvvv.ZeroMQ: Cannot add Socket to Proxy, already disposed.");
                     }
 
+                    // BACKEND                    
+                    try
+                    {
+                        Poll.AddSocket(backend);
+                    }
+                    catch (ArgumentException)
+                    {
+                        FLogger.Log(LogType.Error, "\nvvvv.ZeroMQ: Socket already added to Poller in Proxy. Nothing to worry about.");
+                    }
+                    catch (ObjectDisposedException)
+                    {
+                        FLogger.Log(LogType.Error, "\nvvvv.ZeroMQ: Cannot add Socket to Proxy, already disposed.");
+                    }
+
+
+                    // PROXY
                     try
                     {
                         var p = new Proxy(frontend, backend, null, Poll);
-                        p.Start();
+                        p.Start(); // nonblocking from now on
 
                         Proxies.Add(p);
                     }
@@ -107,6 +122,12 @@ namespace VVVV.ZeroMQ
                     }
                 }
             }
+        }
+
+        public void Dispose()
+        {
+            if (Poll.IsStarted) Poll.CancelAndJoin();
+            Poll.Dispose();
         }
     }
 }

@@ -15,6 +15,7 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
         protected const string TAGS = "ZeroMQ";
 
         #region fields & pins
+//      Changing any part of this will dispose all         
         [Input("Context", Visibility=PinVisibility.OnlyInspector)]
         public IDiffSpread<NetMQContext> FContext;
         
@@ -299,24 +300,18 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
 
         public void Dispose()
         {
-            foreach (var address in Sockets.Keys.ToArray())
+            foreach (var address in WorkingSockets.ToArray())
             {
-                try
-                {
-                    EnableSocket(false, Sockets[address], address); // disable
-                }
-                catch (Exception)
-                {
-                    FLogger.Log(LogType.Warning, "vvvv.ZeroMQ: Could not disable "+address);
-                }
+               EnableSocket(false, Sockets[address], address); // disable
+            }
 
-                Sockets.Remove(address);
-
+            foreach (var socket in Sockets.Values) {
                 try {
-                    Sockets[address].Dispose();
+                    socket.Dispose();
                 } catch (Exception) {
-                    FLogger.Log(LogType.Warning, "vvvv.ZeroMQ: Could not dispose socket " + address);
+                    FLogger.Log(LogType.Warning, "vvvv.ZeroMQ: Could not dispose socket. ");
                 }
+
 
             }
         }

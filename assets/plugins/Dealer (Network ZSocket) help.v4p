@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\build\vvvv-ZeroMQ_Debug_x64\nodes\plugins\dealer.v4p" systemname="dealer" filename="C:\dev\vvvv\vvvv-ZeroMQ\dealer.v4p" scrollx="0" scrolly="1590">
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\assets\plugins\Dealer (Network ZSocket) help.v4p" systemname="dealer" filename="C:\dev\vvvv\vvvv-ZeroMQ\dealer.v4p" scrollx="0" scrolly="2655">
    <BOUNDS type="Window" left="225" top="2700" width="21135" height="9135">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
@@ -89,6 +89,8 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
+   <PIN pinname="Encoding" slicecount="1" visible="1" values="utf-8">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="20" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="2790" top="2010" width="555" height="270">
@@ -145,11 +147,11 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="25" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="300" top="5895" width="2400" height="750">
+   <BOUNDS type="Box" left="285" top="5610" width="2400" height="750">
    </BOUNDS>
-   <BOUNDS type="Node" left="300" top="5895" width="0" height="0">
+   <BOUNDS type="Node" left="285" top="5610" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="3" visible="1" values="hello,|whats up with milliseconds|,äöß">
+   <PIN pinname="Input String" slicecount="3" visible="1" values="hello,|whats up with milliseconds|,|ༀ ༁ ༂ ༃ ༄ ༅ ༆ ༇ ༈ ༉ ༊ ་ ༌ ། ༎ ༏ ༐ ༑ ༒ ༓ ༔ ༕ ༖ ༗ ༘ ༙ ༚|">
    </PIN>
    <PIN pinname="Default" slicecount="1" values="||">
    </PIN>
@@ -190,6 +192,8 @@
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Encoding" slicecount="1" values="utf-8">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="29" systemname="IOBox (String)">
@@ -263,7 +267,7 @@
    </PIN>
    </NODE>
    <NODE systemname="S+H (Raw)" nodename="S+H (Raw)" componentmode="Hidden" id="47">
-   <BOUNDS type="Node" left="10155" top="7605" width="100" height="100">
+   <BOUNDS type="Node" left="10185" top="8400" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
@@ -378,8 +382,6 @@
    <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="82" srcpinname="Output Node" dstnodeid="47" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="37" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Set">
    </LINK>
    <NODE systemname="IOBox (Color)" nodename="IOBox (Color)" componentmode="InABox" id="83">
@@ -423,9 +425,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="97" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="12765" top="8490" width="480" height="480">
+   <BOUNDS type="Box" left="11580" top="8745" width="480" height="480">
    </BOUNDS>
-   <BOUNDS type="Node" left="12765" top="8490" width="0" height="0">
+   <BOUNDS type="Node" left="11580" top="8745" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -513,11 +515,13 @@
    <LINK srcnodeid="99" srcpinname="Y Output Value" dstnodeid="101" dstpinname="Set">
    </LINK>
    <NODE systemname="CAR (Raw Bin)" filename="%VVVV%\addonpack\lib\nodes\plugins\VectorSized.dll" nodename="CAR (Raw Bin)" componentmode="Hidden" id="104">
-   <BOUNDS type="Node" left="12765" top="6720" width="100" height="100">
+   <BOUNDS type="Node" left="9990" top="7425" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="First Slice" visible="1">
+   </PIN>
+   <PIN pinname="Remainder" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="82" srcpinname="Output Node" dstnodeid="104" dstpinname="Input">
@@ -875,7 +879,7 @@
    <LINK srcnodeid="15" srcpinname="Output" dstnodeid="121" dstpinname="Frames">
    </LINK>
    <NODE systemname="Send (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Send (Network ZSocket)" componentmode="Hidden" id="96">
-   <BOUNDS type="Node" left="12720" top="8040" width="100" height="100">
+   <BOUNDS type="Node" left="11535" top="8295" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Success" visible="1">
    </PIN>
@@ -1005,5 +1009,69 @@
    <LINK srcnodeid="74" srcpinname="Output String" dstnodeid="19" dstpinname="Server">
    </LINK>
    <LINK srcnodeid="19" srcpinname="Sockets" dstnodeid="75" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="142" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="930" top="6510" width="1590" height="270">
+   </BOUNDS>
+   <BOUNDS type="Node" left="930" top="6510" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="utf-8">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="142" srcpinname="Output Enum" dstnodeid="15" dstpinname="Encoding">
+   </LINK>
+   <NODE systemname="AsID (Raw)" filename="..\modules\AsID (Raw).v4p" nodename="AsID (Raw)" componentmode="Hidden" id="143">
+   <BOUNDS type="Node" left="14505" top="8235" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Header" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="ID" visible="1">
+   </PIN>
+   <PIN pinname="Format" slicecount="1" values="UInt32">
+   </PIN>
+   <BOUNDS type="Window" left="19770" top="6150" width="8115" height="6345">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="144" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="14445" top="9420" width="1065" height="2160">
+   </BOUNDS>
+   <BOUNDS type="Node" left="14445" top="9420" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="S+H (Animation)" nodename="S+H (Animation)" componentmode="Hidden" id="145">
+   <BOUNDS type="Node" left="14490" top="8790" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Set" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="143" srcpinname="ID" dstnodeid="145" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="145" srcpinname="Output" dstnodeid="144" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="OnData" dstnodeid="145" dstpinname="Set">
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="Remainder" dstnodeid="47" dstpinname="Input">
+   <LINKPOINT x="10155" y="8460">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="104" srcpinname="First Slice" dstnodeid="143" dstpinname="Header">
    </LINK>
    </PATCH>

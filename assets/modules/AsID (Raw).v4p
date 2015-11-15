@@ -1,0 +1,207 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\assets\modules\AsID (Raw).v4p" systemname="AsID (Raw)" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\modules\AsID (Raw).v4p" scrollx="1035" scrolly="480">
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="0" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="3675" top="1500" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3675" top="1500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Header">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE systemname="Length (Raw)" nodename="Length (Raw)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="3690" top="2685" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AsRaw (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="AsRaw (Value)" componentmode="Hidden" id="2" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2175" top="2355" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Format" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="dummy">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="3" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="5520" top="1485" width="825" height="300">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5520" top="1485" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" visible="1" values="UInt32">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Format">
+   </PIN>
+   </NODE>
+   <NODE systemname="Skip (Raw)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Skip (Raw)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="3330" top="3960" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="+ (Raw)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="+ (Raw)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="3330" top="4530" width="3240" height="270">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AsValue (Raw)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="AsValue (Raw)" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="3375" top="5130" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Format" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3375" top="5565" width="1215" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3375" top="5565" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="ID">
+   </PIN>
+   </NODE>
+   <NODE systemname="Length (Raw)" nodename="Length (Raw)" componentmode="Hidden" id="8">
+   <BOUNDS type="Node" left="2190" top="2685" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Take (Raw)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Take (Raw)" componentmode="Hidden" id="9">
+   <BOUNDS type="Node" left="4920" top="4020" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Output Enum" dstnodeid="2" dstpinname="Format" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="5520" y="2055">
+   </LINKPOINT>
+   <LINKPOINT x="3030" y="2055">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Count" dstnodeid="4" dstpinname="Count">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Output" dstnodeid="5" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Output" dstnodeid="5" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="5" srcpinname="Output" dstnodeid="6" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Output Enum" dstnodeid="6" dstpinname="Format" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINKPOINT x="5490" y="3330">
+   </LINKPOINT>
+   <LINKPOINT x="3765" y="3570">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output" dstnodeid="7" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Output Node" dstnodeid="1" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Count" dstnodeid="9" dstpinname="Count" linkstyle="Bezier">
+   <LINKPOINT x="2250" y="3473">
+   </LINKPOINT>
+   <LINKPOINT x="5325" y="3473">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Output" dstnodeid="8" dstpinname="Input">
+   </LINK>
+   <BOUNDS type="Window" left="19770" top="6150" width="8115" height="6345">
+   </BOUNDS>
+   <PACK Name="VVVV.Packs" Version="0.1.0">
+   </PACK>
+   <PACK Name="addonpack" Version="34.1.0">
+   </PACK>
+   <NODE systemname="AsRaw (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="AsRaw (Value)" componentmode="Hidden" id="13">
+   <BOUNDS type="Node" left="1995" top="3360" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Format" slicecount="1" values="Byte">
+   </PIN>
+   <PIN pinname="Input Bin Size" slicecount="1" values="1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Format Bin Size" visible="1" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Count" dstnodeid="13" dstpinname="Input Bin Size">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="4" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="2055" y="3805">
+   </LINKPOINT>
+   <LINKPOINT x="3330" y="3755">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Skip (Raw)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Skip (Raw)" componentmode="Hidden" id="14">
+   <BOUNDS type="Node" left="4920" top="3510" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Subtract (Value)" nodename="Subtract (Value)" componentmode="Hidden" id="15">
+   <BOUNDS type="Node" left="5310" top="3120" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="5">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Output" dstnodeid="14" dstpinname="Count">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Output Node" dstnodeid="14" dstpinname="Input" linkstyle="Bezier">
+   <LINKPOINT x="3735" y="2618">
+   </LINKPOINT>
+   <LINKPOINT x="4920" y="2618">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Output" dstnodeid="9" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Count" dstnodeid="15" dstpinname="Input 1" linkstyle="VHV">
+   <LINKPOINT x="3750" y="3023">
+   </LINKPOINT>
+   <LINKPOINT x="5310" y="3023">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Count" dstnodeid="15" dstpinname="Input 2" linkstyle="VHV">
+   <LINKPOINT x="2250" y="3023">
+   </LINKPOINT>
+   <LINKPOINT x="5550" y="3023">
+   </LINKPOINT>
+   </LINK>
+   </PATCH>
