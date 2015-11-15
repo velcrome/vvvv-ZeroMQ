@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Dynamic;
 using System.Linq;
 using VVVV.Core.Logging;
 using VVVV.PluginInterfaces.V2;
 
-namespace VVVV.ZeroMQ.Nodes.Sockets
+namespace VVVV.ZeroMQ.Nodes.Core
 {
     public abstract class AbstractSocketNode<T> : IPluginEvaluate, IPartImportsSatisfiedNotification, IDisposable where T:NetMQSocket
     {
@@ -18,7 +19,7 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
 //      Changing any part of this will dispose all         
         [Input("Context", Visibility=PinVisibility.OnlyInspector)]
         public IDiffSpread<NetMQContext> FContext;
-        
+
         [Input("Protocol", DefaultEnumEntry = "tcp")]
         public IDiffSpread<TransportProtocolEnum> FProtocol;
 
@@ -27,6 +28,9 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
 
         [Input("Port", DefaultValue = 4444, MinValue= 1024, MaxValue=Int16.MaxValue)]
         public IDiffSpread<int> FPort;
+
+        [Input("Options", Visibility = PinVisibility.Hidden, IsSingle = true)]
+        public IDiffSpread<Options> FOptions;
 
         // unless FEnable is last pin in node, other pins will not hold valid data whin it is first changed.
         [Input("Enable", DefaultBoolean = false, Order = int.MaxValue, IsToggle=true)]
@@ -65,6 +69,8 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
 
         #endregion abstract methods
 
+
+        #region enable/disable
         // returns success
         protected virtual bool EnableSocket(bool enable, T socket, string address)
         {
@@ -130,16 +136,24 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
 
         }
 
-        
-        // will only work for Sub and XSub
+        #endregion enable/disable
+
+        #region subscribe
+        /// <summary>
+        /// Only Subscriber and XSubscriber can use this method
+        /// </summary>
+        /// <remarks>
+        /// Use at your own risk for other socket types
+        /// </remarks>
         protected virtual bool Subscribe(bool enable, T socket, IEnumerable<string> topic)
         {
             try
             {
+            #pragma warning disable 612, 618
                 if (enable)
                     foreach (var t in topic) socket.Subscribe(t);
                 else foreach (var t in topic) socket.Unsubscribe(t);
-
+            #pragma warning restore 612, 618
                 return true;
             }
             catch (Exception e)
@@ -150,7 +164,8 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
 
             return false;
         }
-        
+        #endregion subscribe
+
         public virtual void Evaluate(int SpreadMax) {
 
             var addresses = CreateAddresses(); // in proper spread order
@@ -162,15 +177,28 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             {
                 var enabled = WorkingSockets.Contains(address);
                 var enable  = FEnable[i];
-
-                i++;
+                
+                var switchOn = false;
 
                 if (enabled != enable)
                 {
                     // bind or connect
+                    switchOn =
                     enabled = EnableSocket(enable, Sockets[address], address) && enable;
 
                 }
+
+                if (FOptions.IsChanged || switchOn)
+                {
+                    var socket = Sockets[address];
+                    var options = FOptions.SliceCount == 0 ? null : FOptions[i];
+
+                    if (options != null)
+                        options.CopyTo(socket);
+//                    else Options.Default().CopyTo(socket); // TODO: Enable this do reset options on link disconnect
+                }
+
+                i++;
             }
 
 
@@ -196,6 +224,7 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             FPort.Changed += UpdatePort;
             FProtocol.Changed += UpdateProtocol;
             FAddress.Changed += UpdateAddress;
+
             FContext.Changed += UpdateContext;
         }
 
@@ -221,6 +250,8 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             // recreate anew with new context
             UpdateSockets();
         }
+
+
 
         private void UpdateAddress(IDiffSpread<string> spread)
         {
@@ -295,6 +326,8 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             }
 
         }
+
+
 
 
 

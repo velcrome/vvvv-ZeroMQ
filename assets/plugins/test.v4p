@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\build\vvvv-ZeroMQ_Debug_x64\nodes\plugins\test.v4p" scrollx="0" scrolly="0" systemname="test" filename="C:\dev\vvvv\vvvv-ZeroMQ\test.v4p">
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\assets\plugins\test.v4p" scrollx="0" scrolly="15" systemname="test" filename="C:\dev\vvvv\vvvv-ZeroMQ\test.v4p">
    <BOUNDS type="Window" left="7605" top="2565" width="9150" height="6000">
    </BOUNDS>
    <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InABox" id="67">
@@ -181,11 +181,51 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1260" top="3225">
    </BOUNDS>
+   <PIN pinname="Options" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Sockets" visible="1">
+   </PIN>
+   <PIN pinname="Enable" slicecount="1" values="0">
+   </PIN>
    </NODE>
    <NODE systemname="Response (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Response (Network ZSocket)" componentmode="Hidden" id="75">
    <BOUNDS type="Node" left="1260" top="2535" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="1260" top="2535">
    </BOUNDS>
+   <PIN pinname="Options" visible="1">
+   </PIN>
+   <PIN pinname="Sockets" visible="1">
+   </PIN>
+   <PIN pinname="Enable" slicecount="1" values="1">
+   </PIN>
    </NODE>
+   <NODE systemname="Watermark (Options ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Watermark (Options ZSocket)" componentmode="Hidden" id="88">
+   <BOUNDS type="Node" left="2745" top="2010" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="SocketOptions" visible="1">
+   </PIN>
+   <PIN pinname="Send High Watermark" slicecount="1" values="7">
+   </PIN>
+   <PIN pinname="Receive High Watermark" slicecount="1" values="997">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="89" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2490" top="3600" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2490" top="3600" width="0" height="0">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="82" srcpinname="Sockets" dstnodeid="89" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="88" srcpinname="SocketOptions" dstnodeid="75" dstpinname="Options">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="90" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2595" top="3015" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2595" top="3015" width="0" height="0">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="75" srcpinname="Sockets" dstnodeid="90" dstpinname="Input Node">
+   </LINK>
    </PATCH>

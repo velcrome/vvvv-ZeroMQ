@@ -5,6 +5,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using VVVV.PluginInterfaces.V2;
+using VVVV.ZeroMQ.Nodes.Core;
 
 namespace VVVV.ZeroMQ.Nodes.Sockets
 {
