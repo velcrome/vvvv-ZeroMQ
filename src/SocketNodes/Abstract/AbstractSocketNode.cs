@@ -29,7 +29,7 @@ namespace VVVV.ZeroMQ.Nodes.Core
         [Input("Port", DefaultValue = 4444, MinValue= 1024, MaxValue=Int16.MaxValue)]
         public IDiffSpread<int> FPort;
 
-        [Input("Options", Visibility = PinVisibility.Hidden, IsSingle = true)]
+        [Input("Options", Visibility = PinVisibility.Hidden)]
         public IDiffSpread<Options> FOptions;
 
         // unless FEnable is last pin in node, other pins will not hold valid data whin it is first changed.
@@ -172,6 +172,112 @@ namespace VVVV.ZeroMQ.Nodes.Core
         }
         #endregion subscribe
 
+        #region Socket Lifecycle
+        public virtual void OnImportsSatisfied()
+        {
+            var context = NetMQContext.Create();
+
+            FPort.Changed += UpdatePort;
+            FProtocol.Changed += UpdateProtocol;
+            FAddress.Changed += UpdateAddress;
+
+            FContext.Changed += UpdateContext;
+        }
+
+        private void UpdateContext(IDiffSpread<NetMQContext> spread)
+        {
+            // ALL sockets need to go now. 
+            foreach (var address in Sockets.Keys.ToArray())
+            {
+                try
+                {
+                    var socket = Sockets[address];
+                    EnableSocket(false, socket, address);
+                    Sockets[address].Dispose();
+                }
+                catch (Exception e)
+                {
+                    FLogger.Log(e, LogType.Warning);
+                }
+                Sockets.Remove(address);
+                WorkingSockets.Remove(address);
+            }
+
+            // recreate anew with new context
+            UpdateSockets();
+        }
+
+        private void UpdateAddress(IDiffSpread<string> spread)
+        {
+            UpdateSockets(); 
+        }
+
+        private void UpdateProtocol(IDiffSpread<TransportProtocolEnum> spread)
+        {
+            UpdateSockets();
+        }
+
+        private void UpdatePort(IDiffSpread<int> spread)
+        {
+            UpdateSockets();
+        }
+
+        private void UpdateSockets()
+        {
+            var addresses = CreateAddresses();
+
+            var remove = (
+                from address in Sockets.Keys.ToArray()
+                where !addresses.Contains(address)
+                select address
+                ).ToArray();
+
+            foreach (var address in remove)
+            {
+                try
+                {
+                    var socket = Sockets[address];
+                    EnableSocket(false, socket, address);
+                    Sockets[address].Dispose();
+                }
+                catch (Exception e)
+                {
+                    FLogger.Log(LogType.Warning, "vvvv-ZeroMQ: Internal Error while removing old socket: " + address + "\n" + e.Message);
+                }
+                Sockets.Remove(address);
+                WorkingSockets.Remove(address);
+            }
+
+            var fresh = (
+                            from address in addresses
+                            where !Sockets.ContainsKey(address)
+                            select address
+                        ).Distinct().ToArray();
+
+            foreach (var address in fresh)
+            {
+                try
+                {
+                    var s = NewSocket();
+                    Sockets[address] = s;
+                }
+                catch (NetMQException e)
+                {
+                    FLogger.Log(LogType.Error, "vvvv-ZeroMQ: Error while creating new socket for " + address +". \n"+e.Message+"\n"+e.InnerException);
+                }
+                catch (Exception e)
+                {
+                    FLogger.Log(LogType.Error, "vvvv-ZeroMQ: Unknown Error while creating new socket for " + address);
+                    throw e;
+                }
+            }
+
+        }
+
+        #endregion Socket Lifecycle
+
+        #region Evaluate
+
         public virtual void Evaluate(int SpreadMax) {
 
             var addresses = CreateAddresses(); // in proper spread order
@@ -217,62 +323,14 @@ namespace VVVV.ZeroMQ.Nodes.Core
             var valid = from socket in Sockets
                         select WorkingSockets.Contains(socket.Key);
 
-            FValid.AssignFrom(valid);    
+            FValid.AssignFrom(valid.DefaultIfEmpty(false));    
           
         }
 
-
-
-        public virtual void OnImportsSatisfied()
-        {
-            var context = NetMQContext.Create();
-
-            FPort.Changed += UpdatePort;
-            FProtocol.Changed += UpdateProtocol;
-            FAddress.Changed += UpdateAddress;
-
-            FContext.Changed += UpdateContext;
-        }
-
-        private void UpdateContext(IDiffSpread<NetMQContext> spread)
-        {
-            // ALL sockets need to go now. 
-            foreach (var address in Sockets.Keys.ToArray())
-            {
-                try
-                {
-                    var socket = Sockets[address];
-                    EnableSocket(false, socket, address);
-                    Sockets[address].Dispose();
-                }
-                catch (Exception e)
-                {
-                    FLogger.Log(e, LogType.Warning);
-                }
-                Sockets.Remove(address);
-                WorkingSockets.Remove(address);
-            }
-            
-            // recreate anew with new context
-            UpdateSockets();
-        }
+        #endregion Evaluate
 
 
 
-        private void UpdateAddress(IDiffSpread<string> spread)
-        {
-            UpdateSockets();
-        }
-
-        private void UpdateProtocol(IDiffSpread<TransportProtocolEnum> spread)
-        {
-            UpdateSockets();
-        }
-
-        private void UpdatePort(IDiffSpread<int> spread)
-        {
-            UpdateSockets();
-        }
 
         protected IEnumerable<string> CreateAddresses()
         {
@@ -290,51 +348,10 @@ namespace VVVV.ZeroMQ.Nodes.Core
 
 
                 var p = needsPort.Contains(protocol) ? ":" + port : "";
-                                    
+
                 yield return protocol.ToString() + "://" + server + p;
             }
         }
-         
-        private void UpdateSockets()
-        {
-            var addresses = CreateAddresses();
-            
-            var remove = (
-                from address in Sockets.Keys.ToArray()
-                where !addresses.Contains(address)
-                select address
-                ).ToArray();
-
-            foreach (var address in remove)
-            {
-                try
-                {
-                    var socket = Sockets[address];
-                    EnableSocket(false, socket, address);
-                    Sockets[address].Dispose();
-                }
-                catch (Exception e)
-                {
-                    FLogger.Log(LogType.Warning, "vvvv-ZeroMQ: Internal Error while removing old socket: "+address+"\n"+e.Message);
-                }
-                Sockets.Remove(address);
-                WorkingSockets.Remove(address);
-            }
-
-
-            var fresh = from address in addresses
-                      where !Sockets.ContainsKey(address)
-                      select address;
-
-            foreach (var address in fresh)
-            {
-                var s = Sockets[address] = NewSocket();
-            }
-
-        }
-
-
-
 
 
         public void Dispose()
