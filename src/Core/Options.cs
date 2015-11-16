@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NetMQ.Core;
-using System.Dynamic;
 using NetMQ;
 
 namespace VVVV.ZeroMQ.Nodes.Core
