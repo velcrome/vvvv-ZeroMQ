@@ -224,7 +224,7 @@ namespace VVVV.ZeroMQ.Nodes.Core
 
         private void UpdateSockets()
         {
-            var addresses = CreateAddresses();
+            var addresses = CreateAddresses().ToArray();
 
             var remove = (
                 from address in Sockets.Keys.ToArray()
@@ -240,7 +240,7 @@ namespace VVVV.ZeroMQ.Nodes.Core
                     EnableSocket(false, socket, address);
                     Sockets[address].Dispose();
                 }
-                catch (Exception e)
+                catch (NetMQException e)
                 {
                     FLogger.Log(LogType.Warning, "vvvv-ZeroMQ: Internal Error while removing old socket: " + address + "\n" + e.Message);
                 }
@@ -263,7 +263,7 @@ namespace VVVV.ZeroMQ.Nodes.Core
                 }
                 catch (NetMQException e)
                 {
-                    FLogger.Log(LogType.Error, "vvvv-ZeroMQ: Error while creating new socket for " + address +". \n"+e.Message+"\n"+e.InnerException);
+                    FLogger.Log(LogType.Error, "vvvv-ZeroMQ: Error while creating new socket for " + address +". \n"+e.Message+"\n"+e.ErrorCode);
                 }
                 catch (Exception e)
                 {
