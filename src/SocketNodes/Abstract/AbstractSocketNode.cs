@@ -240,7 +240,7 @@ namespace VVVV.ZeroMQ.Nodes.Core
                     EnableSocket(false, socket, address);
                     Sockets[address].Dispose();
                 }
-                catch (NetMQException e)
+                catch (Exception e)
                 {
                     FLogger.Log(LogType.Warning, "vvvv-ZeroMQ: Internal Error while removing old socket: " + address + "\n" + e.Message);
                 }
