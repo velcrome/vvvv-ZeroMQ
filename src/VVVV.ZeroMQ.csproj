@@ -49,7 +49,7 @@
       <HintPath>packages\NetMQ.3.3.2.2\lib\net40\NetMQ.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="VVVV.Core, Version=34.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="VVVV.Core, Version=34.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\VVVV.Core.34.2.0\lib\net40\VVVV.Core.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
