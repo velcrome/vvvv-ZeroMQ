@@ -92,7 +92,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <Target Name="AfterBuild">
     <ItemGroup>
-      <MyFiles Include="..\assets\**\*.*" />
+      <MyFiles Include="..\copy\**\*.*" />
     </ItemGroup>
     <Microsoft.Build.Tasks.Copy SourceFiles="@(MyFiles)" DestinationFiles="@(MyFiles->'..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\nodes\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
