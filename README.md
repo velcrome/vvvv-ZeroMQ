@@ -29,9 +29,9 @@ For this reason, connecting many clients to one server port and still maintainin
 
 Be not afraid to experiment, the following "faults" I found so far (list extensible...)
 
- * One-directional nodes (´Subscriber´ and ´Pull´) need to be re-enabled, when the binding ZSocket drops out and comes back. 
+ * One-directional nodes (`Subscriber` and `Pull`) need to be re-enabled, when the binding ZSocket drops out and comes back. 
  * Never bind two ZSockets to the same endpoint (protocol://address[:port]). Red nodes show you when something is patched wrong, but most faults are reported with a pin and a log to tty.
- * When using InProc, you'll see connecting clients in red until you bind a fit socket. They have to be in the same vvvv instance and sharing the same ´Context´ to communicate. By default they share the one called "Default". Who'd have figured.
+ * When using InProc, you'll see connecting clients in red until you bind a fit socket. They have to be in the same vvvv instance and sharing the same `Context` to communicate. By default they share the one called "Default". Who'd have figured.
  * PGM needs admin rights for vvvv and some tinkering with windows. Maybe even special epgm network hardware?
  * When substituting ZSockets in patch, vvvv can go out, especially when Sockets are still enabled. I guess that's toward the crash-early philosopy of ØMQ. Save before changing the Protocol.
 
@@ -54,6 +54,8 @@ Authors
 
 Dependencies
 ============
+
+An install of vvvv, licensing for commercial work may apply.
 
 Nuget
 ----
