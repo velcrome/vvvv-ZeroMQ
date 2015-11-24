@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
-    <ProjectGuid>{6A0AFB1F-8219-4A08-85F7-B7F19B66AC16}</ProjectGuid>
+    <ProjectGuid>{9E115D7C-8226-4AB0-8FFE-AD0AFA9B551C}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
     <OutputType>Library</OutputType>
-    <RootNamespace>VVVV.ZeroMQ.Nodes</RootNamespace>
-    <AssemblyName>VVVV.ZeroMQ</AssemblyName>
+    <RootNamespace>VVVV.ZeroMQ.Message.Nodes</RootNamespace>
+    <AssemblyName>VVVV.ZeroMQ.Message</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <OutputPath>..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\nodes\plugins</OutputPath>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
@@ -33,6 +33,10 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.Composition.CodePlex, Version=2.5.0, Culture=neutral, processorArchitecture=MSIL">
@@ -40,16 +44,11 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="AsyncIO, Version=0.1.17.0, Culture=neutral, PublicKeyToken=44a94435bd6f33f8, processorArchitecture=MSIL">
-      <HintPath>packages\AsyncIO.0.1.17.0\lib\net40\AsyncIO.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="NetMQ, Version=3.3.2.2, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
       <HintPath>packages\NetMQ.3.3.2.2\lib\net40\NetMQ.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="VVVV.Core, Version=34.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="VVVV.Core, Version=34.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\VVVV.Core.34.2.0\lib\net40\VVVV.Core.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -58,52 +57,24 @@
       <HintPath>packages\VVVV.Utils.34.2.0\lib\net40\VVVV.Utils.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-    </Reference>
+    </Reference>    
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\ContextDictionary.cs" />
-    <Compile Include="Core\Options.cs" />
-    <Compile Include="SocketOptions\Abstract\AbstractOptionsNode.cs" />
-    <Compile Include="SocketOptions\Affinity.cs" />
-    <Compile Include="SocketOptions\Endian.cs" />
-    <Compile Include="SocketOptions\Linger.cs" />
-    <Compile Include="SocketOptions\Watermark.cs" />
-    <Compile Include="SocketOptions\KeepAlive.cs" />
-    <Compile Include="UtilNodes\ContextNode.cs" />
-    <Compile Include="UtilNodes\ProxyNode.cs" />
-    <Compile Include="UtilNodes\ReceiveNode.cs" />
-    <Compile Include="UtilNodes\SendNode.cs" />
-    <Compile Include="SocketNodes\Abstract\AbstractFlexibleSocketNode.cs" />
-    <Compile Include="SocketNodes\Abstract\AbstractSocketNode.cs" />
-    <Compile Include="SocketNodes\DealerNode.cs" />
-    <Compile Include="SocketNodes\PairNode.cs" />
-    <Compile Include="SocketNodes\PublishNode.cs" />
-    <Compile Include="SocketNodes\PullNode.cs" />
-    <Compile Include="SocketNodes\PushNode.cs" />
-    <Compile Include="SocketNodes\RequestNode.cs" />
-    <Compile Include="SocketNodes\ResponseNode.cs" />
-    <Compile Include="SocketNodes\RouterNode.cs" />
-    <Compile Include="SocketNodes\SubscriberNode.cs" />
-    <Compile Include="SocketNodes\XPublisherNode.cs" />
-    <Compile Include="SocketNodes\XSubscriberNode.cs" />
-    <Compile Include="Core\TransportProtocolEnum.cs" />
+    <Compile Include="Message\MessageReceiveNode.cs" />
+    <Compile Include="Message\MessageSendNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
-  <Target Name="AfterBuild">
-    <ItemGroup>
-      <MyFiles Include="..\assets\**\*.*" />
-    </ItemGroup>
-    <Microsoft.Build.Tasks.Copy SourceFiles="@(MyFiles)" DestinationFiles="@(MyFiles->'..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\nodes\%(RecursiveDir)%(Filename)%(Extension)')" />
-  </Target>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <Import Project="packages\VVVV.Packs.Message.2.3\build\net40\Message.targets" Condition="Exists('packages\VVVV.Packs.Message.2.3\build\net40\Message.targets')" />
   <Import Project="packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets" Condition="Exists('packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
+    <Error Condition="!Exists('packages\VVVV.Packs.Message.2.3\build\net40\Message.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.Packs.Message.2.3\build\net40\Message.targets'))" />
     <Error Condition="!Exists('packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets'))" />
   </Target>
 </Project>

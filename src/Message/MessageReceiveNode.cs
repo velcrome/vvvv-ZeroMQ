@@ -2,13 +2,12 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.IO;
-using System.Text;
 using VVVV.Core.Logging;
+using VVVV.Utils;
 using VVVV.Packs.Messaging;
 using VVVV.PluginInterfaces.V2;
+
 
 namespace VVVV.ZeroMQ
 {
@@ -41,7 +40,7 @@ namespace VVVV.ZeroMQ
             if (FSocket.SliceCount == 0 || (FSocket.SliceCount == 1 && FSocket[0] == null))
             {
                 FOutput.SliceCount = 0;
-                FOutput.Flush();
+                FOutput.Flush(); 
 
                 FSocketBin.SliceCount =  1;
                 FSocketBin[0] = 0;
