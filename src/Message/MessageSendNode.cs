@@ -86,6 +86,7 @@ namespace VVVV.ZeroMQ
                         // likely cause: your send is blocked because nothing received yet.
                         // http://api.zeromq.org/2-1:zmq-send see under Error "EFSM"
 
+                        FSuccess[socketid] = false;
                         FLogger.Log(LogType.Warning, "vvvv.ZeroMQ: Not allowed to send yet. Need a response first.\n");
                     }
                     catch (NotSupportedException e)
