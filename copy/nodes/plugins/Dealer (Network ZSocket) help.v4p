@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-zeromq\copy\plugins\Dealer (Network ZSocket) help.v4p" systemname="dealer" filename="C:\dev\vvvv\vvvv-ZeroMQ\dealer.v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\copy\plugins\Dealer (Network ZSocket) help.v4p" systemname="dealer" filename="C:\dev\vvvv\vvvv-ZeroMQ\dealer.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="-45" top="0" width="14445" height="7845">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
@@ -240,62 +240,6 @@
    </LINK>
    <LINK srcnodeid="99" srcpinname="Y Output Value" dstnodeid="101" dstpinname="Set">
    </LINK>
-   <NODE systemname="Receive (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Receive (Network ZSocket)" componentmode="Hidden" id="100">
-   <BOUNDS type="Node" left="9780" top="4065" width="1005" height="270">
-   </BOUNDS>
-   <PIN pinname="Socket" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Data" visible="1">
-   </PIN>
-   <PIN pinname="Data Bin Size" visible="1">
-   </PIN>
-   <PIN pinname="OnData" visible="1">
-   </PIN>
-   <PIN pinname="Frames" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="100" srcpinname="OnData" dstnodeid="99" dstpinname="Y Input Value">
-   </LINK>
-   <LINK srcnodeid="100" srcpinname="Frames" dstnodeid="98" dstpinname="Input Node">
-   </LINK>
-   <NODE systemname="Send (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Send (Network ZSocket)" componentmode="Hidden" id="43">
-   <BOUNDS type="Node" left="7110" top="5580" width="810" height="270">
-   </BOUNDS>
-   <PIN pinname="Socket" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Send" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Data" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Data Bin Size" visible="1" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Success" visible="1">
-   </PIN>
-   <BOUNDS type="Box" left="7110" top="5580" width="250" height="250">
-   </BOUNDS>
-   <PIN pinname="Frames" visible="1">
-   </PIN>
-   <PIN pinname="Columns" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Frames Bin Size" slicecount="1" visible="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="43" srcpinname="Success" dstnodeid="46" dstpinname="Y Input Value">
-   </LINK>
-   <LINK srcnodeid="95" srcpinname="Y Output Value" dstnodeid="43" dstpinname="Send" linkstyle="Bezier">
-   <LINKPOINT x="7245" y="4980">
-   </LINKPOINT>
-   <LINKPOINT x="7860" y="4980">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="15" srcpinname="Output" dstnodeid="43" dstpinname="Frames" linkstyle="Bezier">
-   <LINKPOINT x="4745" y="5393">
-   </LINKPOINT>
-   <LINKPOINT x="7450" y="5393">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="142" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="5370" top="4605" width="780" height="270">
    </BOUNDS>
@@ -344,7 +288,21 @@
    <PIN pinname="Size" slicecount="1" values="10">
    </PIN>
    </NODE>
-   <NODE systemname="Dealer (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Dealer (Network ZSocket)" componentmode="Hidden" id="19">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="151" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="7380" top="5190" width="285" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7380" top="5190" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <NODE systemname="Dealer (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Dealer (Network.ZeroMQ)" componentmode="Hidden" id="19">
    <BOUNDS type="Node" left="7095" top="3195" width="1935" height="270">
    </BOUNDS>
    <PIN pinname="Protocol" visible="1">
@@ -372,24 +330,78 @@
    </LINK>
    <LINK srcnodeid="74" srcpinname="Output String" dstnodeid="19" dstpinname="Server">
    </LINK>
+   <NODE systemname="Send (Network.ZeroMQ Raw)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Send (Network.ZeroMQ Raw)" componentmode="Hidden" id="43">
+   <BOUNDS type="Node" left="7110" top="5580" width="810" height="270">
+   </BOUNDS>
+   <PIN pinname="Socket" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Send" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Data" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Data Bin Size" visible="1" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Success" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="7110" top="5580" width="250" height="250">
+   </BOUNDS>
+   <PIN pinname="Frames" visible="1">
+   </PIN>
+   <PIN pinname="Columns" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Frames Bin Size" slicecount="1" visible="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="43" srcpinname="Success" dstnodeid="46" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="95" srcpinname="Y Output Value" dstnodeid="43" dstpinname="Send" linkstyle="Bezier">
+   <LINKPOINT x="7245" y="4980">
+   </LINKPOINT>
+   <LINKPOINT x="7860" y="4980">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Output" dstnodeid="43" dstpinname="Frames" linkstyle="Bezier">
+   <LINKPOINT x="4745" y="5393">
+   </LINKPOINT>
+   <LINKPOINT x="7450" y="5393">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="151" srcpinname="Y Output Value" dstnodeid="43" dstpinname="Frames Bin Size">
+   </LINK>
    <LINK srcnodeid="19" srcpinname="Sockets" dstnodeid="43" dstpinname="Socket">
+   </LINK>
+   <NODE systemname="Receive (Network.ZeroMQ Raw)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Receive (Network.ZeroMQ Raw)" componentmode="Hidden" id="100">
+   <BOUNDS type="Node" left="9780" top="4065" width="1005" height="270">
+   </BOUNDS>
+   <PIN pinname="Socket" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Data" visible="1">
+   </PIN>
+   <PIN pinname="Data Bin Size" visible="1">
+   </PIN>
+   <PIN pinname="OnData" visible="1">
+   </PIN>
+   <PIN pinname="Frames" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="100" srcpinname="OnData" dstnodeid="99" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="100" srcpinname="Frames" dstnodeid="98" dstpinname="Input Node">
    </LINK>
    <LINK srcnodeid="19" srcpinname="Sockets" dstnodeid="100" dstpinname="Socket">
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="151" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="7380" top="5190" width="285" height="240">
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="152">
+   <BOUNDS type="Node" left="5904" top="864" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Node" left="7380" top="5190" width="0" height="0">
+   <BOUNDS type="Box" left="5904" top="864" width="3360" height="330">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   <PIN pinname="String Type" slicecount="1" values="Filename">
    </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   <PIN pinname="Input String" slicecount="1" values="|Router (Network ZSocket) help.v4p|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="151" srcpinname="Y Output Value" dstnodeid="43" dstpinname="Frames Bin Size">
-   </LINK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.0">
+   </PACK>
    </PATCH>

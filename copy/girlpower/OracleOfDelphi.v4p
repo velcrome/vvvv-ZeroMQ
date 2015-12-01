@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\OracleOfDelphi.v4p" systemname="OracleOfDelphi" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\OracleOfDelphi.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\copy\girlpower\OracleOfDelphi.v4p" systemname="OracleOfDelphi" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\OracleOfDelphi.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="225" top="2700" width="15210" height="9135">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.1.0">
@@ -202,12 +202,12 @@
    <PIN pinname="X Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <NODE systemname="Oracle (Network ZSocket)" filename="Patterns\Oracle (Network ZSocket).v4p" nodename="Oracle (Network ZSocket)" componentmode="InAWindow" id="100">
+   <NODE systemname="Oracle (Network ZSocket)" filename="Patterns\Oracle (Network ZSocket).v4p" nodename="Oracle (Network ZSocket)" componentmode="Hidden" id="100">
    <BOUNDS type="Node" left="8042" top="6310" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="4577" top="1885" width="6930" height="8850">
    </BOUNDS>
-   <BOUNDS type="Window" left="16545" top="5460" width="6930" height="8850">
+   <BOUNDS type="Window" left="6408" top="1704" width="6924" height="8844">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -217,7 +217,7 @@
    </PIN>
    <PIN pinname="Answer" visible="1">
    </PIN>
-   <PIN pinname="OnData" visible="1">
+   <PIN pinname="OnData" visible="1" slicecount="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="21" srcpinname="Output Enum" dstnodeid="100" dstpinname="Protocol">
@@ -226,12 +226,12 @@
    </LINK>
    <LINK srcnodeid="103" srcpinname="Y Output Value" dstnodeid="100" dstpinname="Enable">
    </LINK>
-   <NODE systemname="Question (Network ZSocket)" filename="Patterns\Question (Network ZSocket).v4p" nodename="Question (Network ZSocket)" componentmode="InAWindow" id="97">
+   <NODE systemname="Question (Network ZSocket)" filename="Patterns\Question (Network ZSocket).v4p" nodename="Question (Network ZSocket)" componentmode="Hidden" id="97">
    <BOUNDS type="Node" left="2109" top="6144" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="-1753" top="1269" width="7725" height="9750">
    </BOUNDS>
-   <BOUNDS type="Window" left="-1" top="-1" width="7725" height="9750">
+   <BOUNDS type="Window" left="12144" top="756" width="7716" height="9744">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -300,12 +300,12 @@
    <PIN pinname="X Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <NODE systemname="Oracle (Network ZSocket)" filename="Patterns\Oracle (Network ZSocket).v4p" nodename="Oracle (Network ZSocket)" componentmode="InAWindow" id="104">
+   <NODE systemname="Oracle (Network ZSocket)" filename="Patterns\Oracle (Network ZSocket).v4p" nodename="Oracle (Network ZSocket)" componentmode="Hidden" id="104">
    <BOUNDS type="Node" left="11807" top="6235" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="8342" top="1810" width="6930" height="8850">
    </BOUNDS>
-   <BOUNDS type="Window" left="16545" top="5460" width="6930" height="8850">
+   <BOUNDS type="Window" left="6408" top="1704" width="6924" height="8844">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -315,7 +315,7 @@
    </PIN>
    <PIN pinname="Answer" visible="1">
    </PIN>
-   <PIN pinname="OnData" visible="1">
+   <PIN pinname="OnData" visible="1" slicecount="1" values="0">
    </PIN>
    </NODE>
    <LINK srcnodeid="109" srcpinname="Output Enum" dstnodeid="104" dstpinname="Protocol">
@@ -414,4 +414,6 @@
    </NODE>
    <LINK srcnodeid="115" srcpinname="Output Enum" dstnodeid="97" dstpinname="Protocol">
    </LINK>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.0">
+   </PACK>
    </PATCH>

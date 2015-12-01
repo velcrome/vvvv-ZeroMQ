@@ -1,51 +1,7 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\Patterns\Broker (Network ZSocket).v4p" systemname="Broker (Network ZSocket)" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\Patterns\Broker (Network ZSocket).v4p" scrollx="15" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\copy\girlpower\Patterns\Broker (Network ZSocket).v4p" systemname="Broker (Network ZSocket)" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\Patterns\Broker (Network ZSocket).v4p" scrollx="15" scrolly="0">
    <BOUNDS type="Window" left="11385" top="7710" width="9000" height="6000">
    </BOUNDS>
-   <NODE systemname="Router (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Router (Network ZSocket)" componentmode="Hidden" id="7">
-   <BOUNDS type="Node" left="2160" top="2760" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Port" visible="1" slicecount="1" values="4450">
-   </PIN>
-   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Sockets" visible="1">
-   </PIN>
-   <PIN pinname="Protocol" visible="1" slicecount="1" values="tcp">
-   </PIN>
-   <PIN pinname="Server" visible="1" slicecount="1" values="localhost">
-   </PIN>
-   </NODE>
-   <NODE systemname="Dealer (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Dealer (Network ZSocket)" componentmode="Hidden" id="5">
-   <BOUNDS type="Node" left="3585" top="2655" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Port" visible="1" slicecount="1" values="4452">
-   </PIN>
-   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Bind" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Sockets" visible="1">
-   </PIN>
-   <PIN pinname="Protocol" visible="1">
-   </PIN>
-   <PIN pinname="Server" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="Proxy (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\vvvv.zeromq.dll" nodename="Proxy (Network ZSocket)" componentmode="Hidden" id="3">
-   <BOUNDS type="Node" left="2160" top="3180" width="2910" height="270">
-   </BOUNDS>
-   <PIN pinname="Frontend Socket" visible="1">
-   </PIN>
-   <PIN pinname="Backend Socket" visible="1">
-   </PIN>
-   <PIN pinname="Enable" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="7" srcpinname="Sockets" dstnodeid="3" dstpinname="Frontend Socket">
-   </LINK>
-   <LINK srcnodeid="5" srcpinname="Sockets" dstnodeid="3" dstpinname="Backend Socket">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="2" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="5490" top="1410" width="480" height="480">
    </BOUNDS>
@@ -68,8 +24,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Enable">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="1" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2010" top="1620" width="795" height="240">
    </BOUNDS>
@@ -84,8 +38,6 @@
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
    </NODE>
-   <LINK srcnodeid="1" srcpinname="Y Output Value" dstnodeid="7" dstpinname="Port">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="0" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="3825" top="1470" width="795" height="240">
    </BOUNDS>
@@ -100,8 +52,6 @@
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
    </NODE>
-   <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="5" dstpinname="Port">
-   </LINK>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
    <PACK Name="addonpack" Version="34.1.0">
@@ -116,8 +66,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="Protocol">
    </PIN>
    </NODE>
-   <LINK srcnodeid="10" srcpinname="Output Enum" dstnodeid="5" dstpinname="Protocol">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="11" systemname="IOBox (String)">
    <BOUNDS type="Box" left="1830" top="990" width="795" height="240">
    </BOUNDS>
@@ -134,8 +82,6 @@
    <PIN pinname="Output String" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="11" srcpinname="Output String" dstnodeid="5" dstpinname="Server">
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="12" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="1275" top="1845" width="600" height="240">
    </BOUNDS>
@@ -144,12 +90,82 @@
    <PIN pinname="Input Enum" slicecount="1" visible="1" values="tcp">
    </PIN>
    </NODE>
+   <NODE systemname="Router (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Router (Network.ZeroMQ)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="2160" top="2760" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Port" visible="1" slicecount="1" values="4450">
+   </PIN>
+   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Sockets" visible="1">
+   </PIN>
+   <PIN pinname="Protocol" visible="1" slicecount="1" values="tcp">
+   </PIN>
+   <PIN pinname="Server" visible="1" slicecount="1" values="localhost">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Y Output Value" dstnodeid="7" dstpinname="Port">
+   </LINK>
    <LINK srcnodeid="12" srcpinname="Output Enum" dstnodeid="7" dstpinname="Protocol">
    </LINK>
    <LINK srcnodeid="11" srcpinname="Output String" dstnodeid="7" dstpinname="Server">
    </LINK>
-   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="5" dstpinname="Enable">
-   </LINK>
    <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="7" dstpinname="Enable">
    </LINK>
+   <NODE systemname="Dealer (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Dealer (Network.ZeroMQ)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="3585" top="2655" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Port" visible="1" slicecount="1" values="4452">
+   </PIN>
+   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Bind" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Sockets" visible="1">
+   </PIN>
+   <PIN pinname="Protocol" visible="1">
+   </PIN>
+   <PIN pinname="Server" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="5" dstpinname="Port">
+   </LINK>
+   <LINK srcnodeid="10" srcpinname="Output Enum" dstnodeid="5" dstpinname="Protocol">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Output String" dstnodeid="5" dstpinname="Server">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="5" dstpinname="Enable">
+   </LINK>
+   <NODE systemname="Proxy (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Proxy (Network.ZeroMQ)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="2160" top="3180" width="2910" height="270">
+   </BOUNDS>
+   <PIN pinname="Frontend Socket" visible="1">
+   </PIN>
+   <PIN pinname="Backend Socket" visible="1">
+   </PIN>
+   <PIN pinname="Enable" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Enable">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Sockets" dstnodeid="3" dstpinname="Frontend Socket">
+   </LINK>
+   <LINK srcnodeid="5" srcpinname="Sockets" dstnodeid="3" dstpinname="Backend Socket">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="13" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="5472" top="2880" width="3084" height="240">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5472" top="2880" width="2328" height="660">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="0" slicecount="1" values="|note that both parts of the Broker are BINDED.|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.0">
+   </PACK>
    </PATCH>

@@ -1,17 +1,12 @@
-﻿using NetMQ;
-using System;
-using System.ComponentModel.Composition;
-using System.Dynamic;
-using VVVV.Core.Logging;
+﻿using System;
 using VVVV.PluginInterfaces.V2;
-using VVVV.ZeroMQ.Nodes.Core;
 
 namespace VVVV.ZeroMQ.Nodes
 {
     using Options = VVVV.ZeroMQ.Nodes.Core.Options;
 
     #region PluginInfo
-    [PluginInfo(Name = "KeepAlive", Category = OPTION_CATEGORY, Help = "Limits a sockets internal message buffer", Tags = TAGS+", tcp", Author = AUTHOR)]
+    [PluginInfo(Name = "KeepAlive", Category = OPTION_CATEGORY, Help = "Finetune how long TCP will survive", Tags = TAGS+", tcp", Author = AUTHOR)]
     #endregion PluginInfo
     public class KeepAliveOptionsNode : AbstractOptionsNode
     {

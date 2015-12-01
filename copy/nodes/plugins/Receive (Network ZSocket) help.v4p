@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-zeromq\copy\plugins\Receive (Network ZSocket) help.v4p" systemname="Receive (Network ZSocket) help" filename="C:\dev\vvvv\vvvv-zeromq\copy\plugins\Receive (Network ZSocket) help.v4p" scrollx="30" scrolly="0">
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\copy\plugins\Receive (Network ZSocket) help.v4p" systemname="Receive (Network ZSocket) help" filename="C:\dev\vvvv\vvvv-zeromq\copy\plugins\Receive (Network ZSocket) help.v4p" scrollx="6336" scrolly="0">
    <BOUNDS type="Window" left="14460" top="0" width="14445" height="10785">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
@@ -141,39 +141,13 @@
    <NODE systemname="S+H (Raw)" nodename="S+H (Raw)" componentmode="Hidden" id="158">
    <BOUNDS type="Node" left="7125" top="4530" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input" visible="1">
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Set" visible="1">
+   <PIN pinname="Set" visible="1" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Receive (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Receive (Network ZSocket)" componentmode="Hidden" id="153">
-   <BOUNDS type="Node" left="7110" top="3930" width="4860" height="270">
-   </BOUNDS>
-   <BOUNDS type="Box" left="7110" top="3930" width="250" height="250">
-   </BOUNDS>
-   <PIN pinname="Frames" visible="1">
-   </PIN>
-   <PIN pinname="Frames Bin Size" visible="1">
-   </PIN>
-   <PIN pinname="Send" visible="1">
-   </PIN>
-   <PIN pinname="OnData" visible="1">
-   </PIN>
-   <PIN pinname="Message Count" visible="1">
-   </PIN>
-   <PIN pinname="Socket" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="153" srcpinname="Frames" dstnodeid="158" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="153" srcpinname="OnData" dstnodeid="158" dstpinname="Set" linkstyle="VHV" hiddenwhenlocked="1">
-   <LINKPOINT x="11910" y="4350">
-   </LINKPOINT>
-   <LINKPOINT x="7530" y="4350">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="S+H (Animation)" nodename="S+H (Animation)" componentmode="Hidden" id="159">
    <BOUNDS type="Node" left="8700" top="4530" width="100" height="100">
    </BOUNDS>
@@ -184,14 +158,6 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="153" srcpinname="Frames Bin Size" dstnodeid="159" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="153" srcpinname="OnData" dstnodeid="159" dstpinname="Set" linkstyle="VHV" hiddenwhenlocked="1">
-   <LINKPOINT x="11910" y="4350">
-   </LINKPOINT>
-   <LINKPOINT x="9105" y="4350">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="S+H (Animation)" nodename="S+H (Animation)" componentmode="Hidden" id="160">
    <BOUNDS type="Node" left="10305" top="4530" width="100" height="100">
    </BOUNDS>
@@ -202,14 +168,6 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="153" srcpinname="Message Count" dstnodeid="160" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="153" srcpinname="OnData" dstnodeid="160" dstpinname="Set" linkstyle="VHV" hiddenwhenlocked="1">
-   <LINKPOINT x="11910" y="4350">
-   </LINKPOINT>
-   <LINKPOINT x="10710" y="4350">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="161" systemname="IOBox (String)">
    <BOUNDS type="Box" left="7110" top="7620" width="2970" height="2400">
    </BOUNDS>
@@ -237,7 +195,7 @@
    <NODE systemname="AsString (Raw)" nodename="AsString (Raw)" componentmode="Hidden" id="162">
    <BOUNDS type="Node" left="7110" top="6975" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Encoding" slicecount="1" values="utf-8" visible="1">
+   <PIN pinname="Encoding" slicecount="1" visible="1" values="utf-8">
    </PIN>
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
@@ -289,7 +247,7 @@
    <NODE systemname="AsString (Raw)" nodename="AsString (Raw)" componentmode="Hidden" id="164">
    <BOUNDS type="Node" left="10545" top="7050" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Encoding" slicecount="1" values="utf-8" visible="1">
+   <PIN pinname="Encoding" slicecount="1" visible="1" values="utf-8">
    </PIN>
    <PIN pinname="Input" visible="1" slicecount="1" values="||">
    </PIN>
@@ -332,36 +290,6 @@
    </NODE>
    <LINK srcnodeid="159" srcpinname="Output" dstnodeid="167" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="Dealer (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Dealer (Network ZSocket)" componentmode="Hidden" id="19">
-   <BOUNDS type="Node" left="7095" top="3195" width="1935" height="270">
-   </BOUNDS>
-   <PIN pinname="Protocol" visible="1">
-   </PIN>
-   <PIN pinname="Port" visible="1">
-   </PIN>
-   <PIN pinname="Sockets" visible="1">
-   </PIN>
-   <PIN pinname="Valid" visible="1">
-   </PIN>
-   <PIN pinname="Server" visible="1" slicecount="1" values="127.0.0.1">
-   </PIN>
-   <BOUNDS type="Box" left="7095" top="3195">
-   </BOUNDS>
-   <PIN pinname="Bind" slicecount="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Enable">
-   </LINK>
-   <LINK srcnodeid="20" srcpinname="Output Enum" dstnodeid="19" dstpinname="Protocol">
-   </LINK>
-   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Port">
-   </LINK>
-   <LINK srcnodeid="19" srcpinname="Valid" dstnodeid="26" dstpinname="Y Input Value">
-   </LINK>
-   <LINK srcnodeid="74" srcpinname="Output String" dstnodeid="19" dstpinname="Server">
-   </LINK>
-   <LINK srcnodeid="19" srcpinname="Sockets" dstnodeid="153" dstpinname="Socket">
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="168" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="7755" top="6585" width="780" height="255">
    </BOUNDS>
@@ -388,8 +316,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="OnData">
    </PIN>
    </NODE>
-   <LINK srcnodeid="153" srcpinname="OnData" dstnodeid="169" dstpinname="Y Input Value">
-   </LINK>
    <NODE systemname="SetSlice (Spreads)" nodename="SetSlice (Spreads)" componentmode="Hidden" id="170">
    <BOUNDS type="Node" left="8490" top="5550" width="100" height="100">
    </BOUNDS>
@@ -486,4 +412,96 @@
    <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
    </NODE>
+   <NODE systemname="Dealer (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Dealer (Network.ZeroMQ)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="7095" top="3195" width="1935" height="270">
+   </BOUNDS>
+   <PIN pinname="Protocol" visible="1">
+   </PIN>
+   <PIN pinname="Port" visible="1">
+   </PIN>
+   <PIN pinname="Sockets" visible="1">
+   </PIN>
+   <PIN pinname="Valid" visible="1">
+   </PIN>
+   <PIN pinname="Server" visible="1" slicecount="1" values="127.0.0.1">
+   </PIN>
+   <BOUNDS type="Box" left="7095" top="3195">
+   </BOUNDS>
+   <PIN pinname="Bind" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Enable">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Output Enum" dstnodeid="19" dstpinname="Protocol">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Port">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Valid" dstnodeid="26" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="74" srcpinname="Output String" dstnodeid="19" dstpinname="Server">
+   </LINK>
+   <NODE systemname="Receive (Network.ZeroMQ Raw)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Receive (Network.ZeroMQ Raw)" componentmode="Hidden" id="153">
+   <BOUNDS type="Node" left="7110" top="3930" width="4860" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7110" top="3930" width="250" height="250">
+   </BOUNDS>
+   <PIN pinname="Frames" visible="1">
+   </PIN>
+   <PIN pinname="Frames Bin Size" visible="1">
+   </PIN>
+   <PIN pinname="Send" visible="1">
+   </PIN>
+   <PIN pinname="OnData" visible="1">
+   </PIN>
+   <PIN pinname="Message Count" visible="1">
+   </PIN>
+   <PIN pinname="Socket" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="153" srcpinname="Frames" dstnodeid="158" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="153" srcpinname="OnData" dstnodeid="158" dstpinname="Set" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="11910" y="4350">
+   </LINKPOINT>
+   <LINKPOINT x="7530" y="4350">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="153" srcpinname="Frames Bin Size" dstnodeid="159" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="153" srcpinname="OnData" dstnodeid="159" dstpinname="Set" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="11910" y="4350">
+   </LINKPOINT>
+   <LINKPOINT x="9105" y="4350">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="153" srcpinname="Message Count" dstnodeid="160" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="153" srcpinname="OnData" dstnodeid="160" dstpinname="Set" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="11910" y="4350">
+   </LINKPOINT>
+   <LINKPOINT x="10710" y="4350">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="153" srcpinname="OnData" dstnodeid="169" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Sockets" dstnodeid="153" dstpinname="Socket">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="179" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="528" top="6288" width="5100" height="600">
+   </BOUNDS>
+   <BOUNDS type="Box" left="528" top="6288" width="2940" height="552">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|There is an alternative Read node that circumvenes messy Raw business:|">
+   </PIN>
+   <PIN pinname="Output String" slicecount="1" visible="0" values="||">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Receive (Network.ZeroMQ Message)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.Message.dll" nodename="Receive (Network.ZeroMQ Message)" componentmode="Hidden" id="178">
+   <BOUNDS type="Node" left="3690" top="6444" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.0">
+   </PACK>
    </PATCH>

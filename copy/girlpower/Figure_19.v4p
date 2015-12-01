@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\apps\code\vvvv_45beta34.2_x64\packs\vvvv-ZeroMQ\nodes\girlpower\Figure_19.v4p" systemname="Figure_19" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\Figure_19.v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="0" top="0" width="10005" height="15645">
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\copy\girlpower\Figure_19.v4p" systemname="Figure_19" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\Figure_19.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="0" top="0" width="9996" height="13104">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
@@ -515,7 +515,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="0" top="5648" width="5130" height="8025">
    </BOUNDS>
-   <BOUNDS type="Window" left="15120" top="10215" width="5760" height="5385">
+   <BOUNDS type="Window" left="15468" top="6780" width="5760" height="5376">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -563,7 +563,7 @@
    </PIN>
    <PIN pinname="Success" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="9915" top="0" width="10860" height="10245">
+   <BOUNDS type="Window" left="9912" top="0" width="10860" height="10236">
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="273" srcpinname="Output" dstnodeid="253" dstpinname="Input String">
@@ -729,7 +729,7 @@
    </PIN>
    <PIN pinname="Success" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="9915" top="0" width="10860" height="10245">
+   <BOUNDS type="Window" left="9912" top="0" width="10860" height="10236">
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="300" srcpinname="Output" dstnodeid="301" dstpinname="Input String">
@@ -855,7 +855,7 @@
    </PIN>
    <PIN pinname="Success" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="9915" top="0" width="10860" height="10245">
+   <BOUNDS type="Window" left="9912" top="0" width="10860" height="10236">
    </BOUNDS>
    </NODE>
    <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="311">
@@ -875,7 +875,7 @@
    </PIN>
    <PIN pinname="Success" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="9915" top="0" width="10860" height="10245">
+   <BOUNDS type="Window" left="9912" top="0" width="10860" height="10236">
    </BOUNDS>
    </NODE>
    <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="312">
@@ -895,7 +895,9 @@
    </PIN>
    <PIN pinname="Success" visible="1">
    </PIN>
-   <BOUNDS type="Window" left="9915" top="0" width="10860" height="10245">
+   <BOUNDS type="Window" left="9912" top="0" width="10860" height="10236">
    </BOUNDS>
    </NODE>
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.0">
+   </PACK>
    </PATCH>

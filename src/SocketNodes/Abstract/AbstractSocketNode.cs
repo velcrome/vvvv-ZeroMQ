@@ -12,8 +12,9 @@ namespace VVVV.ZeroMQ.Nodes.Core
     public abstract class AbstractSocketNode<T> : IPluginEvaluate, IPartImportsSatisfiedNotification, IDisposable where T:NetMQSocket
     {
         protected const string AUTHOR = "velcrome";
-        protected const string SOCKET_CATEGORY = "Network ZSocket";
-        protected const string TAGS = "ZeroMQ";
+        protected const string SOCKET_CATEGORY = "Network.ZeroMQ";
+//        protected const string SOCKET_VERSION = "";
+        protected const string TAGS = "Socket";
 
         #region fields & pins
 //      Changing any part of this will dispose all         

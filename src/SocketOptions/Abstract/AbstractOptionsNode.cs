@@ -10,14 +10,11 @@ namespace VVVV.ZeroMQ.Nodes
 {
     using Options = VVVV.ZeroMQ.Nodes.Core.Options;
 
-    #region PluginInfo
-    [PluginInfo(Name = "Watermark", Category = "Options ZSocket", Help = "Limits a sockets internal message buffer", Tags = "ZeroMQ", Author = "velcrome")]
-    #endregion PluginInfo
     public abstract class AbstractOptionsNode : IPluginEvaluate
     {
         protected const string AUTHOR = "velcrome";
-        protected const string OPTION_CATEGORY = "Option ZSocket";
-        protected const string TAGS = "ZeroMQ";
+        protected const string OPTION_CATEGORY = "Network.ZeroMQ.Option";
+        protected const string TAGS = "";
 
         #region fields & pins
         [Input("SocketOptions", Order=-1)]

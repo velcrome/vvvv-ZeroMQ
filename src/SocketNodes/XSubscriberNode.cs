@@ -1,15 +1,10 @@
-﻿using NetMQ;
-using NetMQ.Sockets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using NetMQ.Sockets;
 using VVVV.PluginInterfaces.V2;
-using VVVV.ZeroMQ.Nodes;
 
 namespace VVVV.ZeroMQ.Nodes.Sockets
 {
     #region PluginInfo
-    [PluginInfo(Name = "XSubscriber", Category = SOCKET_CATEGORY, Help = "Creates a socket, use in conjunction with Publisher", Tags = TAGS, Author = AUTHOR)]
+    [PluginInfo(Name = "XSubscriber", Category = SOCKET_CATEGORY, Help = "Creates a socket, use in conjunction with Publisher", Tags = TAGS+", Broker", Author = AUTHOR)]
     #endregion PluginInfo
     public class XSubscriberSocketNode : AbstractFlexibleSocketNode<XSubscriberSocket>
     {

@@ -10,7 +10,7 @@ using VVVV.PluginInterfaces.V2;
 namespace VVVV.ZeroMQ
 {
     #region PluginInfo
-    [PluginInfo(Name = "Proxy", AutoEvaluate = true, Category = "Network ZSocket", Help = "Proxy for XPublisher and XSubscriber", Tags = "ZeroMQ", Author = "velcrome")]
+    [PluginInfo(Name = "Proxy", AutoEvaluate = true, Category = "Network.ZeroMQ", Help = "Proxy two sockets.", Tags = "Broker", Author = "velcrome")]
     #endregion PluginInfo
     public class ProxyNode : IPluginEvaluate, IDisposable
     {

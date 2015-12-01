@@ -10,7 +10,8 @@
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <OutputPath>..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\nodes\plugins</OutputPath>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-    <NuGetPackageImportStamp>2200b738</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -94,7 +95,7 @@
     <ItemGroup>
       <MyFiles Include="..\copy\**\*.*" />
     </ItemGroup>
-    <Microsoft.Build.Tasks.Copy SourceFiles="@(MyFiles)" DestinationFiles="@(MyFiles->'..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\nodes\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Microsoft.Build.Tasks.Copy SourceFiles="@(MyFiles)" DestinationFiles="@(MyFiles->'..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
   <ItemGroup>
     <None Include="packages.config" />
@@ -105,5 +106,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets'))" />
+    <Error Condition="!Exists('packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets'))" />
   </Target>
+  <Import Project="packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets" Condition="Exists('packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets')" />
 </Project>

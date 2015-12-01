@@ -1,10 +1,4 @@
-﻿using NetMQ;
-using System;
-using System.ComponentModel.Composition;
-using System.Dynamic;
-using VVVV.Core.Logging;
-using VVVV.PluginInterfaces.V2;
-using VVVV.ZeroMQ.Nodes.Core;
+﻿using VVVV.PluginInterfaces.V2;
 
 namespace VVVV.ZeroMQ.Nodes
 {

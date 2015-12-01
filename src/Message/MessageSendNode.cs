@@ -14,7 +14,7 @@ using Newtonsoft.Json.Linq;
 namespace VVVV.ZeroMQ
 {
     #region PluginInfo
-    [PluginInfo(Name = "Send", AutoEvaluate = true, Category = "Message ZSocket", Help = "Sends to a socket", Tags = "ZeroMQ", Author = "velcrome")]
+    [PluginInfo(Name = "Send", AutoEvaluate = true, Category = "Network.ZeroMQ", Version="Message", Help = "Sends to a socket", Tags = "", Author = "velcrome")]
     #endregion PluginInfo
     public class MessageSendNode : IPluginEvaluate
     {

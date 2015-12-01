@@ -4,7 +4,7 @@ using VVVV.PluginInterfaces.V2;
 namespace VVVV.ZeroMQ.Nodes.Sockets
 {
     #region PluginInfo
-    [PluginInfo(Name = "XPublisher", Category = SOCKET_CATEGORY, Help = "Creates a socket, use in conjunction with Subscribe", Tags = TAGS, Author = AUTHOR)]
+    [PluginInfo(Name = "XPublisher", Category = SOCKET_CATEGORY, Help = "Creates a socket, use in conjunction with Subscribe", Tags = TAGS+", Broker", Author = AUTHOR)]
     #endregion PluginInfo
     public class XPublisherSocketNode : AbstractFlexibleSocketNode<XPublisherSocket>
     {

@@ -1,10 +1,5 @@
-﻿using NetMQ;
-using NetMQ.Sockets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using NetMQ.Sockets;
 using VVVV.PluginInterfaces.V2;
-using VVVV.ZeroMQ.Nodes;
 
 namespace VVVV.ZeroMQ.Nodes.Sockets
 {

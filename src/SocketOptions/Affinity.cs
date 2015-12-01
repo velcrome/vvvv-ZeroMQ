@@ -1,17 +1,11 @@
-﻿using NetMQ;
-using System;
-using System.ComponentModel.Composition;
-using System.Dynamic;
-using VVVV.Core.Logging;
-using VVVV.PluginInterfaces.V2;
-using VVVV.ZeroMQ.Nodes.Core;
+﻿using VVVV.PluginInterfaces.V2;
 
 namespace VVVV.ZeroMQ.Nodes
 {
     using Options = VVVV.ZeroMQ.Nodes.Core.Options;
 
     #region PluginInfo
-    [PluginInfo(Name = "Affinity", Category = OPTION_CATEGORY, Help = "Configures the maximum time a Message will be kept AFTER the ", Tags = TAGS, Author = AUTHOR)]
+    [PluginInfo(Name = "Affinity", Category = OPTION_CATEGORY, Help = "Configures which core this socket will prefer.", Tags = TAGS, Author = AUTHOR)]
     #endregion PluginInfo
     public class AffinityOptionsNode : AbstractOptionsNode
     {
