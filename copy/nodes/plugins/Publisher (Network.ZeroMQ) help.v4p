@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\copy\plugins\Publisher (Network ZSocket) help.v4p" systemname="Publisher (Network ZSocket) help" filename="C:\dev\vvvv\vvvv-ZeroMQ\copy\plugins\Publisher (Network ZSocket) help.v4p" scrollx="0" scrolly="-1800">
-   <BOUNDS type="Window" left="0" top="0" width="14445" height="8790">
+   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\copy\nodes\plugins\Publisher (Network.ZeroMQ) help.v4p" systemname="Publisher (Network ZSocket) help" filename="C:\dev\vvvv\vvvv-ZeroMQ\copy\plugins\Publisher (Network ZSocket) help.v4p" scrollx="0" scrolly="-1800">
+   <BOUNDS type="Window" left="912" top="2904" width="14436" height="8784">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="8205" top="3795" width="480" height="480">
@@ -457,7 +457,7 @@
    </BOUNDS>
    <PIN pinname="String Type" slicecount="1" values="Filename">
    </PIN>
-   <PIN pinname="Input String" slicecount="1" values="|Subscriber (Network ZSocket) help.v4p|">
+   <PIN pinname="Input String" slicecount="1" values="|Subscriber (Network.ZeroMQ) help.v4p|">
    </PIN>
    </NODE>
    <NODE systemname="Publisher (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Publisher (Network.ZeroMQ)" componentmode="Hidden" id="19">
