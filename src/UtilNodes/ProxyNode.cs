@@ -86,7 +86,7 @@ namespace VVVV.ZeroMQ
                     }
                     catch (ArgumentException)
                     {
-                        FLogger.Log(LogType.Error, "\nvvvv.ZeroMQ: Socket already added to Poller in Proxy. Nothing to worry about.");
+                        FLogger.Log(LogType.Message, "\nvvvv.ZeroMQ: Socket already added to Poller in Proxy. Nothing to worry about.");
                     }
                     catch (ObjectDisposedException)
                     {

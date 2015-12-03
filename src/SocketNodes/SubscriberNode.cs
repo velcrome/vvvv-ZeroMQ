@@ -8,9 +8,12 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     #region PluginInfo
     [PluginInfo(Name = "Subscriber", Category = SOCKET_CATEGORY, Help = "Creates a socket, use in conjunction with Publisher", Tags = TAGS, Author = AUTHOR)]
     #endregion PluginInfo
-    public class SubscriberSocketNode : AbstractFlexibleSocketNode<SubscriberSocket>
+    public class SubscriberSocketNode : AbstractSocketNode<SubscriberSocket>
     {
         #region fields & pins
+        [Config("Bind", DefaultBoolean = false, IsSingle = true)]
+        public IDiffSpread<bool> ConfigBind;
+
         [Input("Topic", DefaultString = "Event")]
         public IDiffSpread<string> FTopic;
 
@@ -21,9 +24,12 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
         public override void OnImportsSatisfied()
         {
             base.OnImportsSatisfied();
+            ConfigBind.Changed += _ => Bind = ConfigBind[0];
+            NewSocket = () => Context.CreateSubscriberSocket();
 
             FTopic.Changed += FTopicChanged;
-         }
+        }
+
 
         private void FTopicChanged(IDiffSpread<string> spread)
         {
@@ -60,15 +66,5 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
             return true;
         }
 
-        protected override SubscriberSocket NewSocket()
-        {
-            return Context.CreateSubscriberSocket();
-        }
-
-
-        public override bool IsBindDefaultTrue()
-        {
-            return false;
-        }
     }
 }

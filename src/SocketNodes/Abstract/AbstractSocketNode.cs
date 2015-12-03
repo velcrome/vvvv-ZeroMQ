@@ -6,8 +6,9 @@ using System.Dynamic;
 using System.Linq;
 using VVVV.Core.Logging;
 using VVVV.PluginInterfaces.V2;
+using VVVV.ZeroMQ.Nodes.Core;
 
-namespace VVVV.ZeroMQ.Nodes.Core
+namespace VVVV.ZeroMQ.Nodes
 {
     public abstract class AbstractSocketNode<T> : IPluginEvaluate, IPartImportsSatisfiedNotification, IDisposable where T:NetMQSocket
     {
@@ -46,10 +47,27 @@ namespace VVVV.ZeroMQ.Nodes.Core
         [Import()]
         public ILogger FLogger;
 
-        protected bool Bind {get;set;}
+        bool bind;
+        protected bool Bind { get { return bind; }
+        set
+            {
+                // all enabled off
+                foreach (var address in WorkingSockets.ToArray())
+                    EnableSocket(false, Sockets[address], address);
+
+                bind = value;
+
+                // all on
+                foreach (var address in Sockets.Keys)
+                    EnableSocket(false, Sockets[address], address);
+            }
+        }
 
         protected Dictionary<string, T> Sockets = new Dictionary<string, T>();
         protected HashSet<string> WorkingSockets = new HashSet<string>();
+
+
+
 
         public NetMQContext Context
         {
@@ -66,7 +84,7 @@ namespace VVVV.ZeroMQ.Nodes.Core
 
         #region abstract Methods
 
-        protected abstract T NewSocket();
+        protected Func<T> NewSocket;
 
         #endregion abstract methods
 

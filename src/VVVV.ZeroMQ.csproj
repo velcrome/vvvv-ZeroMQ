@@ -74,7 +74,6 @@
     <Compile Include="UtilNodes\ProxyNode.cs" />
     <Compile Include="UtilNodes\ReceiveNode.cs" />
     <Compile Include="UtilNodes\SendNode.cs" />
-    <Compile Include="SocketNodes\Abstract\AbstractFlexibleSocketNode.cs" />
     <Compile Include="SocketNodes\Abstract\AbstractSocketNode.cs" />
     <Compile Include="SocketNodes\DealerNode.cs" />
     <Compile Include="SocketNodes\PairNode.cs" />

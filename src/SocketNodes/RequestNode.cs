@@ -6,31 +6,20 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     #region PluginInfo
     [PluginInfo(Name = "Request", Category = SOCKET_CATEGORY, Help = "Creates a socket, use in conjunction with Response", Tags = TAGS, Author = AUTHOR)]
     #endregion PluginInfo
-    public class RequestNode : AbstractFlexibleSocketNode<RequestSocket>
+    public class RequestNode : AbstractSocketNode<RequestSocket>
     {
         #region fields & pins
+
+        [Config("Bind", DefaultBoolean = false, IsSingle = true)]
+        public IDiffSpread<bool> ConfigBind;
+
         #endregion fields & pins
 
         public override void OnImportsSatisfied()
         {
             base.OnImportsSatisfied();
-        }
-
-        public override void Evaluate(int SpreadMax)
-        {
-            base.Evaluate(SpreadMax);
-
-        }
-
-        protected override RequestSocket NewSocket()
-        {
-            return Context.CreateRequestSocket();
-        }
-
-
-        public override bool IsBindDefaultTrue()
-        {
-            return false;
+            ConfigBind.Changed += _ => Bind = ConfigBind[0];
+            NewSocket = () => Context.CreateRequestSocket();
         }
     }
 }

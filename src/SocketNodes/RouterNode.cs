@@ -6,31 +6,23 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     #region PluginInfo
     [PluginInfo(Name = "Router", Category = SOCKET_CATEGORY, Help = "Creates a socket, use in conjunction with Dealer", Tags = TAGS, Author = AUTHOR)]
     #endregion PluginInfo
-    public class RouterSocketNode : AbstractFlexibleSocketNode<RouterSocket>
+    public class RouterSocketNode : AbstractSocketNode<RouterSocket>
     {
         #region fields & pins
+
+        [Config("Bind", DefaultBoolean = true, IsSingle = true)]
+        public IDiffSpread<bool> ConfigBind;
+
         #endregion fields & pins
 
         public override void OnImportsSatisfied()
         {
             base.OnImportsSatisfied();
-        }
-
-        public override void Evaluate(int SpreadMax)
-        {
-            base.Evaluate(SpreadMax);
+            ConfigBind.Changed += _ => Bind = ConfigBind[0];
+            NewSocket = () => Context.CreateRouterSocket();
 
         }
 
-        protected override RouterSocket NewSocket()
-        {
-            return Context.CreateRouterSocket();
-        }
 
-
-        public override bool IsBindDefaultTrue()
-        {
-           return true;
-        }
     }
 }

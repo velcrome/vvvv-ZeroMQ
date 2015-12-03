@@ -6,22 +6,21 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     #region PluginInfo
     [PluginInfo(Name = "XPublisher", Category = SOCKET_CATEGORY, Help = "Creates a socket, use in conjunction with Subscribe", Tags = TAGS+", Broker", Author = AUTHOR)]
     #endregion PluginInfo
-    public class XPublisherSocketNode : AbstractFlexibleSocketNode<XPublisherSocket>
+    public class XPublisherSocketNode : AbstractSocketNode<XPublisherSocket>
     {
-        public override void Evaluate(int SpreadMax)
+        #region fields & pins
+        [Config("Bind", DefaultBoolean = true, IsSingle = true)]
+        public IDiffSpread<bool> ConfigBind;
+
+        #endregion fields & pins
+
+        public override void OnImportsSatisfied()
         {
-            base.Evaluate(SpreadMax);
+            base.OnImportsSatisfied();
+            ConfigBind.Changed += _ => Bind = ConfigBind[0];
+            NewSocket = () => Context.CreateXPublisherSocket();
         }
 
-        protected override XPublisherSocket NewSocket()
-        {
-            return Context.CreateXPublisherSocket();
-        }
-
-        public override bool IsBindDefaultTrue()
-        {
-            return true;
-        }
 
     }
 }
