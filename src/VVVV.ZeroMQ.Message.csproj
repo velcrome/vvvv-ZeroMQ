@@ -68,6 +68,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <Import Project="packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets" Condition="Exists('packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets')" />
   <Import Project="packages\VVVV.Packs.Message.2.3\build\net40\Message.targets" Condition="Exists('packages\VVVV.Packs.Message.2.3\build\net40\Message.targets')" />
   <Import Project="packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets" Condition="Exists('packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -76,5 +77,6 @@
     </PropertyGroup>
     <Error Condition="!Exists('packages\VVVV.Packs.Message.2.3\build\net40\Message.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.Packs.Message.2.3\build\net40\Message.targets'))" />
     <Error Condition="!Exists('packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets'))" />
+    <Error Condition="!Exists('packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets'))" />
   </Target>
 </Project>

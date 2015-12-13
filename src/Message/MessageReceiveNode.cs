@@ -7,7 +7,7 @@ using VVVV.Core.Logging;
 using VVVV.Utils;
 using VVVV.Packs.Messaging;
 using VVVV.PluginInterfaces.V2;
-
+using System.IO;
 
 namespace VVVV.ZeroMQ
 {
@@ -23,6 +23,12 @@ namespace VVVV.ZeroMQ
 
         [Output("Message", AutoFlush = false)]
         public ISpread<Message> FOutput;
+
+        [Output("Meta", AutoFlush = false)]
+        public Pin<Stream> FMeta;
+
+        [Output("Meta Bin Size", AutoFlush = false)]
+        public Pin<int> FMetaBinSize;
 
         [Output("Message Count")]
         public ISpread<int> FSocketBin;
@@ -52,6 +58,11 @@ namespace VVVV.ZeroMQ
             FSocketBin.SliceCount = SpreadMax;
             FOutput.SliceCount = 0;
 
+
+            FMeta.SliceCount = 0;
+            FMetaBinSize.SliceCount = 0;
+            var doMeta = FMeta.IsConnected || FMetaBinSize.IsConnected;
+
             for (int socketid = 0; socketid < SpreadMax; socketid++)
             {
                 var socket = (NetMQSocket)FSocket[socketid];
@@ -70,10 +81,26 @@ namespace VVVV.ZeroMQ
                 {
                     try
                     {
-                        var msg = socket.ReceiveMultipartMessage(2);
-                        var s = System.Text.Encoding.UTF8.GetString(msg.Last.ToByteArray());
+                        var msg = socket.ReceiveMultipartMessage(2); // expect 2, but read all, nonetheless
 
-                        var result = JsonConvert.DeserializeObject(s);
+                        if (doMeta)
+                        {
+                            var mBin = 0;
+                            for (int i = 0; i < msg.FrameCount - 2; i++)
+                            {
+                                var stream = new MemoryStream();
+                                var f = msg[i];
+
+                                stream.Write(f.Buffer, 0, f.BufferSize);
+
+                                FMeta.Add(stream);
+                                mBin++;
+                            }
+                            FMetaBinSize.Add(mBin);
+                        }
+
+                        var payload = System.Text.Encoding.UTF8.GetString(msg.Last.ToByteArray());
+                        var result = JsonConvert.DeserializeObject(payload);
 
                         if (result is JObject)
                         {
@@ -99,6 +126,8 @@ namespace VVVV.ZeroMQ
             else FOnData[0] = true;
 
             FOutput.Flush();
+            FMeta.Flush();
+            FMetaBinSize.Flush();
         }
     }
 }

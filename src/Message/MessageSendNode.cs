@@ -58,13 +58,24 @@ namespace VVVV.ZeroMQ
                     continue;
                 }
 
-                FSuccess[socketid] = true; // if just one frame fails, it will turn to false
 
                 var dataBin = FInput[socketid];
                 var binCount = dataBin.SliceCount;
+
+                if (binCount == 0 || dataBin[0] == null) continue;
+
+                FSuccess[socketid] = true; // if just one frame fails, it will turn to false
+
                 for (int bin = 0; bin < binCount; bin++)
                 {
                     var message = dataBin[bin];
+
+                    if (message == null)
+                    {
+                        FLogger.Log(LogType.Warning, "vvvv.ZeroMQ: Null Message detected, dropped.\n");
+                        continue; // drop message silently
+                    }
+
                     var msg = new NetMQMessage();
                     msg.Append(message.Topic, Encoding.UTF8);
 
