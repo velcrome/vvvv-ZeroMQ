@@ -10,7 +10,8 @@
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <OutputPath>..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\nodes\plugins</OutputPath>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-    <NuGetPackageImportStamp>2200b738</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -33,8 +34,12 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="AsyncIO, Version=0.1.18.0, Culture=neutral, PublicKeyToken=44a94435bd6f33f8, processorArchitecture=MSIL">
+      <HintPath>packages\AsyncIO.0.1.18.0\lib\net40\AsyncIO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -53,11 +58,21 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
+    <Reference Include="VVVV.Packs.Messaging, Version=2.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\VVVV.Packs.Message.2.5\lib\net45\VVVV.Packs.Messaging.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="VVVV.Packs.Time, Version=0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\VVVV.Packs.Time.0.6\lib\net40\VVVV.Packs.Time.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="VVVV.Utils, Version=34.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\VVVV.Utils.34.2.0\lib\net40\VVVV.Utils.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
-    </Reference>    
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Message\MessageReceiveNode.cs" />
@@ -68,15 +83,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets" Condition="Exists('packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets')" />
-  <Import Project="packages\VVVV.Packs.Message.2.3\build\net40\Message.targets" Condition="Exists('packages\VVVV.Packs.Message.2.3\build\net40\Message.targets')" />
   <Import Project="packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets" Condition="Exists('packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\VVVV.Packs.Message.2.3\build\net40\Message.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.Packs.Message.2.3\build\net40\Message.targets'))" />
     <Error Condition="!Exists('packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.PluginInterfaces.34.2.0\build\net40\VVVV.PluginInterfaces.targets'))" />
-    <Error Condition="!Exists('packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.Packs.Time.0.5.5\build\net40\VVVV.Packs.Time.targets'))" />
   </Target>
 </Project>
