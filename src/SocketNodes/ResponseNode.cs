@@ -19,7 +19,6 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
         {
             base.OnImportsSatisfied();
             ConfigBind.Changed += _ => Bind = ConfigBind[0];
-            NewSocket = () => Context.CreateResponseSocket();
         }
 
 

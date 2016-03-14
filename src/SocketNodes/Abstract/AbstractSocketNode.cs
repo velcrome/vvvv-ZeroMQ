@@ -19,9 +19,6 @@ namespace VVVV.ZeroMQ.Nodes
 
         #region fields & pins
 //      Changing any part of this will dispose all         
-        [Input("Context", Visibility=PinVisibility.OnlyInspector)]
-        public IDiffSpread<NetMQContext> FContext;
-
         [Input("Protocol", DefaultEnumEntry = "tcp")]
         public IDiffSpread<TransportProtocolEnum> FProtocol;
 
@@ -67,26 +64,8 @@ namespace VVVV.ZeroMQ.Nodes
         protected HashSet<string> WorkingSockets = new HashSet<string>();
 
 
-
-
-        public NetMQContext Context
-        {
-            get
-            {
-                if (FContext.SliceCount > 0 && FContext[0] != null)
-                    return FContext[0];
-
-                else return NetMQContextDictionary.GetContext();
-            }
-        }
-
         #endregion fields & pins
 
-        #region abstract Methods
-
-        protected Func<T> NewSocket;
-
-        #endregion abstract methods
 
 
         #region enable/disable
@@ -163,68 +142,17 @@ namespace VVVV.ZeroMQ.Nodes
 
         #endregion enable/disable
 
-        #region subscribe
-        /// <summary>
-        /// Only Subscriber and XSubscriber can use this method
-        /// </summary>
-        /// <remarks>
-        /// Use at your own risk for other socket types
-        /// </remarks>
-        protected virtual bool Subscribe(bool enable, T socket, IEnumerable<string> topic)
-        {
-            try
-            {
-            #pragma warning disable 612, 618
-                if (enable)
-                    foreach (var t in topic) socket.Subscribe(t);
-                else foreach (var t in topic) socket.Unsubscribe(t);
-            #pragma warning restore 612, 618
-                return true;
-            }
-            catch (Exception e)
-            {
-                FLogger.Log(LogType.Error, "\nvvvv.ZeroMQ: " + (enable? "Subscribing":"Unsubscribing") + " threw an internal exception: " + e);
-//               throw e;
-            }
 
-            return false;
-        }
-        #endregion subscribe
 
         #region Socket Lifecycle
         public virtual void OnImportsSatisfied()
         {
-            var context = NetMQContext.Create();
-
             FPort.Changed += UpdatePort;
             FProtocol.Changed += UpdateProtocol;
             FAddress.Changed += UpdateAddress;
 
-            FContext.Changed += UpdateContext;
         }
 
-        private void UpdateContext(IDiffSpread<NetMQContext> spread)
-        {
-            // ALL sockets need to go now. 
-            foreach (var address in Sockets.Keys.ToArray())
-            {
-                try
-                {
-                    var socket = Sockets[address];
-                    EnableSocket(false, socket, address);
-                    Sockets[address].Dispose();
-                }
-                catch (Exception e)
-                {
-                    FLogger.Log(e, LogType.Warning);
-                }
-                Sockets.Remove(address);
-                WorkingSockets.Remove(address);
-            }
-
-            // recreate anew with new context
-            UpdateSockets();
-        }
 
         private void UpdateAddress(IDiffSpread<string> spread)
         {
@@ -277,7 +205,7 @@ namespace VVVV.ZeroMQ.Nodes
             {
                 try
                 {
-                    var s = NewSocket();
+                    var s = Activator.CreateInstance<T>();
                     Sockets[address] = s;
                 }
                 catch (NetMQException e)

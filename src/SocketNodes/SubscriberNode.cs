@@ -1,6 +1,8 @@
 ﻿using NetMQ.Sockets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using VVVV.Core.Logging;
 using VVVV.PluginInterfaces.V2;
 
 namespace VVVV.ZeroMQ.Nodes.Sockets
@@ -25,11 +27,26 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
         {
             base.OnImportsSatisfied();
             ConfigBind.Changed += _ => Bind = ConfigBind[0];
-            NewSocket = () => Context.CreateSubscriberSocket();
-
             FTopic.Changed += FTopicChanged;
         }
 
+        #region subscribe
+        protected virtual bool Subscribe(bool enable, SubscriberSocket socket, IEnumerable<string> topic)
+        {
+            try
+            {
+                if (enable)
+                    foreach (var t in topic) socket.Subscribe(t);
+                else foreach (var t in topic) socket.Unsubscribe(t);
+                return true;
+            }
+            catch (Exception e)
+            {
+                FLogger.Log(LogType.Error, "\nvvvv.ZeroMQ: " + (enable ? "Subscribing" : "Unsubscribing") + " threw an internal exception: " + e);
+            }
+            return false;
+        }
+        #endregion subscribe
 
         private void FTopicChanged(IDiffSpread<string> spread)
         {
