@@ -153,6 +153,7 @@ namespace VVVV.ZeroMQ.Nodes
 
         }
 
+        protected abstract NetMQSocket NewSocket(string address = null);
 
         private void UpdateAddress(IDiffSpread<string> spread)
         {
@@ -171,6 +172,7 @@ namespace VVVV.ZeroMQ.Nodes
 
         private void UpdateSockets()
         {
+
             var addresses = CreateAddresses().ToArray();
 
             var remove = (
@@ -205,7 +207,7 @@ namespace VVVV.ZeroMQ.Nodes
             {
                 try
                 {
-                    var s = Activator.CreateInstance<T>();
+                    var s = NewSocket() as T;
                     Sockets[address] = s;
                 }
                 catch (NetMQException e)
@@ -221,11 +223,13 @@ namespace VVVV.ZeroMQ.Nodes
 
         }
 
+
         #endregion Socket Lifecycle
 
         #region Evaluate
 
         public virtual void Evaluate(int SpreadMax) {
+            if (FEnable.SliceCount <= 0) return;
 
             var addresses = CreateAddresses(); // in proper spread order
 

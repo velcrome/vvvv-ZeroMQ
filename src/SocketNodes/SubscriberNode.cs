@@ -1,4 +1,5 @@
-﻿using NetMQ.Sockets;
+﻿using NetMQ;
+using NetMQ.Sockets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     public class SubscriberSocketNode : AbstractSocketNode<SubscriberSocket>
     {
         #region fields & pins
-        [Config("Bind", DefaultBoolean = false, IsSingle = true)]
+        [Input("Bind", Visibility = PinVisibility.Hidden, Order=int.MaxValue-1, DefaultBoolean = false, IsSingle = true)]
         public IDiffSpread<bool> ConfigBind;
 
         [Input("Topic", DefaultString = "Event")]
@@ -22,6 +23,10 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
         protected List<string> Topic = new List<string>();
 
         #endregion fields & pins
+        protected override NetMQSocket NewSocket(string address)
+        {
+            return new SubscriberSocket(address);
+        }
 
         public override void OnImportsSatisfied()
         {

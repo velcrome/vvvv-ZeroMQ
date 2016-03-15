@@ -1,4 +1,5 @@
-﻿using NetMQ.Sockets;
+﻿using NetMQ;
+using NetMQ.Sockets;
 using System;
 using System.Collections.Generic;
 using VVVV.Core.Logging;
@@ -13,10 +14,14 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     {
         #region fields & pins
 
-        [Config("Bind", DefaultBoolean = true, IsSingle = true)]
+        [Input("Bind", Visibility = PinVisibility.Hidden, Order=int.MaxValue-1, DefaultBoolean = true, IsSingle = true)]
         public IDiffSpread<bool> ConfigBind;
 
         #endregion fields & pins
+        protected override NetMQSocket NewSocket(string address)
+        {
+            return new XSubscriberSocket(address);
+        }
 
         public override void OnImportsSatisfied()
         {

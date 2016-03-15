@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\copy\nodes\plugins\test.v4p" scrollx="0" scrolly="15" systemname="test" filename="C:\dev\vvvv\vvvv-ZeroMQ\test.v4p">
-   <BOUNDS type="Window" left="7605" top="2565" width="9150" height="6000">
+   <PATCH nodename="C:\dev\vvvv\vvvv-zeromq\copy\nodes\plugins\test.v4p" scrollx="0" scrolly="0" systemname="test" filename="C:\dev\vvvv\vvvv-ZeroMQ\test.v4p">
+   <BOUNDS type="Window" left="7605" top="2565" width="12945" height="7365">
    </BOUNDS>
    <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InABox" id="67">
    <BOUNDS type="Node" left="3754" top="1716" width="100" height="100">
@@ -72,12 +72,6 @@
    </PACK>
    <PACK Name="addonpack" Version="34.1.0">
    </PACK>
-   <NODE systemname="Context (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Context (Network.ZeroMQ)" componentmode="Hidden" id="85">
-   <BOUNDS type="Node" left="1620" top="120" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Context" visible="1">
-   </PIN>
-   </NODE>
    <NODE id="80" systemname="Pair (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Pair (Network.ZeroMQ)" componentmode="Hidden">
    <BOUNDS type="Node" left="1710" top="750" width="100" height="100">
    </BOUNDS>
@@ -88,8 +82,6 @@
    <PIN pinname="Context" visible="1" pintype="Input" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="85" srcpinname="Context" dstnodeid="80" dstpinname="Context">
-   </LINK>
    <NODE systemname="Pair (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Pair (Network.ZeroMQ)" componentmode="Hidden" id="79">
    <BOUNDS type="Node" left="210" top="1140" width="100" height="100">
    </BOUNDS>
