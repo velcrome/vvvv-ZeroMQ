@@ -34,6 +34,10 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MsgPack, Version=0.6.0.0, Culture=neutral, PublicKeyToken=a2625990d5dc0167, processorArchitecture=MSIL">
+      <HintPath>packages\MsgPack.Cli.0.6.8\lib\net45\MsgPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NetMQ, Version=4.0.0.0, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
       <HintPath>packages\NetMQ.4.0.0.0-beta\lib\net40\NetMQ.dll</HintPath>
       <Private>True</Private>
@@ -54,8 +58,8 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
-    <Reference Include="VVVV.Packs.Messaging, Version=2.2.5917.28091, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.Packs.Message.2.5.1-alpha\lib\net45\VVVV.Packs.Messaging.dll</HintPath>
+    <Reference Include="VVVV.Packs.Messaging, Version=2.5.6015.26663, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\VVVV.Packs.Message.2.5.4-alpha\lib\net45\VVVV.Packs.Messaging.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="VVVV.Packs.Time, Version=0.6, Culture=neutral, processorArchitecture=MSIL">

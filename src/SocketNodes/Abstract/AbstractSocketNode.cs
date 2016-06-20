@@ -14,7 +14,6 @@ namespace VVVV.ZeroMQ.Nodes
     {
         protected const string AUTHOR = "velcrome";
         protected const string SOCKET_CATEGORY = "Network.ZeroMQ";
-//        protected const string SOCKET_VERSION = "";
         protected const string TAGS = "Socket";
 
         #region fields & pins
