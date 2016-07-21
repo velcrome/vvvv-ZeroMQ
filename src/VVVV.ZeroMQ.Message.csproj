@@ -63,7 +63,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.Packs.Messaging, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.Packs.Message.2.6.2-alpha\lib\net46\VVVV.Packs.Messaging.dll</HintPath>
+      <HintPath>packages\VVVV.Packs.Message.2.6.4-alpha\lib\net46\VVVV.Packs.Messaging.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
