@@ -10,10 +10,8 @@
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <OutputPath>..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\nodes\plugins</OutputPath>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <Optimize>False</Optimize>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
@@ -27,18 +25,11 @@
     <DebugType>None</DebugType>
     <DebugSymbols>False</DebugSymbols>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.ComponentModel.Composition.CodePlex, Version=2.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.System.ComponentModel.Composition.Codeplex.2.5.0\lib\net40\System.ComponentModel.Composition.CodePlex.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="AsyncIO, Version=0.1.26.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AsyncIO, Version=0.1.26.0, Culture=neutral,  processorArchitecture=MSIL">
       <HintPath>packages\AsyncIO.0.1.26.0\lib\net40\AsyncIO.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
@@ -47,12 +38,20 @@
       <HintPath>packages\NetMQ.4.0.0-rc5\lib\net40\NetMQ.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.Composition.CodePlex, Version=2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\VVVV.System.ComponentModel.Composition.Codeplex.2.5.0\lib\net40\System.ComponentModel.Composition.CodePlex.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="VVVV.Core, Version=34.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.Core.34.104.0-develop-1603\lib\net46\VVVV.Core.dll</HintPath>
+      <HintPath>packages\VVVV.Core.34.103.0-develop-1598\lib\net46\VVVV.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.Utils, Version=34.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.Utils.34.104.0-develop-1603\lib\net46\VVVV.Utils.dll</HintPath>
+      <HintPath>packages\VVVV.Utils.34.103.0-develop-1598\lib\net46\VVVV.Utils.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -92,11 +91,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="packages\VVVV.PluginInterfaces.34.104.0-develop-1603\build\net46\VVVV.PluginInterfaces.targets" Condition="Exists('packages\VVVV.PluginInterfaces.34.104.0-develop-1603\build\net46\VVVV.PluginInterfaces.targets')" />
+  <Import Project="packages\VVVV.PluginInterfaces.34.103.0-develop-1598\build\net46\VVVV.PluginInterfaces.targets" Condition="Exists('packages\VVVV.PluginInterfaces.34.103.0-develop-1598\build\net46\VVVV.PluginInterfaces.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\VVVV.PluginInterfaces.34.104.0-develop-1603\build\net46\VVVV.PluginInterfaces.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.PluginInterfaces.34.104.0-develop-1603\build\net46\VVVV.PluginInterfaces.targets'))" />
+    <Error Condition="!Exists('packages\VVVV.PluginInterfaces.34.103.0-develop-1598\build\net46\VVVV.PluginInterfaces.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.PluginInterfaces.34.103.0-develop-1598\build\net46\VVVV.PluginInterfaces.targets'))" />
   </Target>
 </Project>
