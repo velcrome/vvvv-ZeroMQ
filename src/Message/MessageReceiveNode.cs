@@ -1,10 +1,7 @@
 ﻿using NetMQ;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.ComponentModel.Composition;
 using VVVV.Core.Logging;
-using VVVV.Utils;
 using VVVV.Packs.Messaging;
 using VVVV.PluginInterfaces.V2;
 using System.IO;
@@ -113,7 +110,7 @@ namespace VVVV.ZeroMQ
                         var payload = msg.Last.ToByteArray();
 
                         var result = Serializer.UnpackSingleObject(payload);
-
+    
                         FOutput.Add(result);
                         sBin++;
                     }
