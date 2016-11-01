@@ -14,7 +14,7 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     public class SubscriberSocketNode : AbstractSocketNode<SubscriberSocket>
     {
         #region fields & pins
-        [Input("Bind", Visibility = PinVisibility.Hidden, Order=int.MaxValue-1, DefaultBoolean = false, IsSingle = true)]
+        [Input("Bind", Visibility = PinVisibility.True, Order=int.MaxValue-1, DefaultBoolean = false, IsSingle = true)]
         public IDiffSpread<bool> ConfigBind;
 
         [Input("Topic", DefaultString = "Event")]

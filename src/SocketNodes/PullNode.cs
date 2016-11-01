@@ -11,7 +11,7 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     {
         #region fields & pins
 
-        [Input("Bind", Visibility = PinVisibility.Hidden, Order=int.MaxValue-1, DefaultBoolean = false, IsSingle = true)]
+        [Input("Bind", Visibility = PinVisibility.True, Order=int.MaxValue-1, DefaultBoolean = false, IsSingle = true)]
         public IDiffSpread<bool> ConfigBind;
 
         #endregion fields & pins
