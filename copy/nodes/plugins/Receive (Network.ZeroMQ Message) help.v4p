@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\copy\nodes\plugins\Receive (Network.ZeroMQ Message) help.v4p" systemname="Receive (Network ZSocket) help" filename="C:\dev\vvvv\vvvv-zeromq\copy\plugins\Receive (Network ZSocket) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "https://vvvv.org/versions/vvvv50alpha34.106.dtd" >
+   <PATCH nodename="C:\apps\code\vvvv_50alpha34.106_x64\packs\vvvv-ZeroMQ\nodes\plugins\Receive (Network.ZeroMQ Message) help.v4p" systemname="Receive (Network ZSocket) help" filename="C:\dev\vvvv\vvvv-zeromq\copy\plugins\Receive (Network ZSocket) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="11316" top="-96" width="11724" height="12456">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
@@ -24,7 +24,7 @@
    </NODE>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="34.101.0">
    </PACK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="20" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="6450" top="2445" width="555" height="270">
@@ -230,22 +230,6 @@
    <LINKPOINT x="3540" y="7266">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="Safe (Message.Keep)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="Safe (Message.Keep)" componentmode="Hidden" id="184">
-   <BOUNDS type="Node" left="7104" top="6456" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Internal Count" visible="1">
-   </PIN>
-   <PIN pinname="Reset" slicecount="1" values="0">
-   </PIN>
-   <BOUNDS type="Box" left="7104" top="6456">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="184" srcpinname="Output" dstnodeid="180" dstpinname="Input">
-   </LINK>
    <NODE systemname="Router (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Router (Network.ZeroMQ)" componentmode="Hidden" id="19">
    <BOUNDS type="Node" left="7095" top="3195" width="1935" height="270">
    </BOUNDS>
@@ -288,8 +272,6 @@
    <PIN pinname="Value Type" slicecount="1" values="Integer">
    </PIN>
    </NODE>
-   <LINK srcnodeid="184" srcpinname="Internal Count" dstnodeid="185" dstpinname="Y Input Value">
-   </LINK>
    <NODE systemname="Info (Message)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="Info (Message)" componentmode="Hidden" id="186" hiddenwhenlocked="1">
    <BOUNDS type="Node" left="8628" top="6804" width="100" height="100">
    </BOUNDS>
@@ -320,20 +302,6 @@
    </NODE>
    <LINK srcnodeid="186" srcpinname="Output" dstnodeid="187" dstpinname="Input String" hiddenwhenlocked="1">
    </LINK>
-   <NODE systemname="Hold (Message.Keep)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="Hold (Message.Keep)" componentmode="Hidden" id="197" hiddenwhenlocked="1">
-   <BOUNDS type="Node" left="8628" top="6396" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <BOUNDS type="Box" left="8628" top="6396">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|last diffs|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="197" srcpinname="Output" dstnodeid="186" dstpinname="Input" hiddenwhenlocked="1">
-   </LINK>
    <NODE systemname="Topic (Message)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="Topic (Message)" componentmode="Hidden" id="198">
    <BOUNDS type="Node" left="7104" top="6012" width="100" height="100">
    </BOUNDS>
@@ -344,32 +312,16 @@
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Split (Message Formular)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="Split (Message Formular)" componentmode="Hidden" id="200">
-   <BOUNDS type="Node" left="7344" top="4728" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Configuration" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Autolearn Type" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Topic" visible="1">
-   </PIN>
-   <BOUNDS type="Box" left="7344" top="4728">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="153" srcpinname="Message" dstnodeid="200" dstpinname="Input">
-   </LINK>
    <NODE systemname="Add (String)" nodename="Add (String)" componentmode="Hidden" id="201">
    <BOUNDS type="Node" left="7344" top="5628" width="2304" height="276">
    </BOUNDS>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="text">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Input 2" visible="1" slicecount="1" values="Client">
    </PIN>
-   <PIN pinname="Intersperse" slicecount="1" values="Dot" visible="1">
+   <PIN pinname="Intersperse" slicecount="1" visible="1" values="Dot">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|append origin to topic|">
    </PIN>
@@ -378,8 +330,6 @@
    <PIN pinname="Input 3" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="200" srcpinname="Topic" dstnodeid="201" dstpinname="Input 1">
-   </LINK>
    <LINK srcnodeid="201" srcpinname="Output" dstnodeid="198" dstpinname="Topic">
    </LINK>
    <LINK srcnodeid="153" srcpinname="Message" dstnodeid="198" dstpinname="Input" linkstyle="VHV">
@@ -400,8 +350,6 @@
    </NODE>
    <LINK srcnodeid="153" srcpinname="Meta" dstnodeid="202" dstpinname="Input">
    </LINK>
-   <LINK srcnodeid="198" srcpinname="Output" dstnodeid="184" dstpinname="Input">
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="203" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="9096" top="4320" width="840" height="264">
    </BOUNDS>
@@ -413,8 +361,6 @@
    <LINK srcnodeid="203" srcpinname="Output Enum" dstnodeid="202" dstpinname="Encoding">
    </LINK>
    <LINK srcnodeid="202" srcpinname="Output" dstnodeid="201" dstpinname="Input 3">
-   </LINK>
-   <LINK srcnodeid="198" srcpinname="Output" dstnodeid="197" dstpinname="Input">
    </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="207" systemname="IOBox (String)">
    <BOUNDS type="Node" left="192" top="3912" width="5664" height="240">
@@ -456,4 +402,60 @@
    </NODE>
    <LINK srcnodeid="209" srcpinname="Output Enum" dstnodeid="201" dstpinname="Intersperse">
    </LINK>
+   <NODE systemname="SafeKeep (Message)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="SafeKeep (Message)" componentmode="Hidden" id="184">
+   <BOUNDS type="Node" left="7104" top="6456" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Internal Count" visible="1">
+   </PIN>
+   <PIN pinname="Reset" slicecount="1" values="0">
+   </PIN>
+   <BOUNDS type="Box" left="7104" top="6456">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="184" srcpinname="Output" dstnodeid="180" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="184" srcpinname="Internal Count" dstnodeid="185" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="198" srcpinname="Output" dstnodeid="184" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Split (Message Formular)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="Split (Message Formular)" componentmode="Hidden" id="200">
+   <BOUNDS type="Node" left="7344" top="4728" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Autolearn Type" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Topic" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="7344" top="4728">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="153" srcpinname="Message" dstnodeid="200" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="200" srcpinname="Topic" dstnodeid="201" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="HoldKeep (Message)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="HoldKeep (Message)" componentmode="Hidden" id="197" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="8628" top="6396" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="8628" top="6396">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="197" srcpinname="Output" dstnodeid="186" dstpinname="Input" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="198" srcpinname="Output" dstnodeid="197" dstpinname="Input">
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.7">
+   </PACK>
    </PATCH>
