@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\copy\girlpower\Patterns\Oracle (Network ZSocket).v4p" systemname="Oracle (Network ZSocket)" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\Oracle (Network ZSocket).v4p" scrollx="60" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.106.dtd" >
+   <PATCH nodename="C:\Work\vvvv-ZeroMQ\copy\girlpower\Patterns\Oracle (Network ZSocket).v4p" systemname="Oracle (Network ZSocket)" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\Oracle (Network ZSocket).v4p" scrollx="60" scrolly="0">
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="0" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="5985" top="495" width="435" height="480">
    </BOUNDS>
@@ -179,6 +179,8 @@
    </BOUNDS>
    <BOUNDS type="Node" left="2415" top="500" width="750" height="240">
    </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="tcp">
+   </PIN>
    </NODE>
    <LINK srcnodeid="6" srcpinname="Output" dstnodeid="2" dstpinname="Input">
    </LINK>
@@ -186,7 +188,7 @@
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="34.101.0">
    </PACK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="19" systemname="IOBox (String)">
    <BOUNDS type="Box" left="3735" top="450" width="795" height="240">
@@ -351,5 +353,9 @@
    <LINK srcnodeid="15" srcpinname="Success" dstnodeid="5" dstpinname="Y Input Value">
    </LINK>
    <PACK Name="vvvv-ZeroMQ" Version="0.5.0">
+   </PACK>
+   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
+   </PACK>
+   <PACK Name="ÎmagePack" Version="0.2.0">
    </PACK>
    </PATCH>
