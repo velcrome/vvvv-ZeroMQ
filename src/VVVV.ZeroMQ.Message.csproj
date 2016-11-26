@@ -8,7 +8,7 @@
     <RootNamespace>VVVV.ZeroMQ.Message.Nodes</RootNamespace>
     <AssemblyName>VVVV.ZeroMQ.Message</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <OutputPath>..\build\vvvv-ZeroMQ\$(Platform)\$(Configuration)\nodes\plugins</OutputPath>
+    <OutputPath>..\build\$(Platform)\$(Configuration)\nodes\plugins</OutputPath>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
