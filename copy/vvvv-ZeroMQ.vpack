@@ -1,0 +1,24 @@
+<vpack>
+  <meta>
+    <name>vvvv-ZeroMQ</name>
+    <source>https://github.com/velcrome/vvvv-ZeroMQ</source>
+    <author>velcrome</author>
+      <dependencies>
+        <dependency>
+          <name>vvvv-Message</name>
+          <source>vpms://raw.githubusercontent.com/velcrome/vvvv-Message/develop/copy/vvvv-Message.vpack</source>
+        </dependency-->
+      </dependencies>
+      </meta>
+  <install>
+    Download(
+      "https://github.com/velcrome/vvvvv-ZeroMQ/releases/download/0.5.1/vvvv-ZeroMQ.zip",
+      VPM.TempDir + "\\vvvv-ZeroMQ.zip"
+    );
+    Extract(VPM.TempDir + "\\vvvv-ZeroMQ.zip", Pack.TempDir + "\\extract");
+	  CopyDir(
+	    Pack.TempDir + "\\extract",
+	    VVVV.Dir + "\\packs\\vvvv-ZeroMQ"
+	  );
+  </install>
+</vpack>
