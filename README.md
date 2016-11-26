@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/lehgakdm9h4i69cd/branch/master?pendingText=Master%20Pending&failingText=Master%20Fail&passingText=Master%20OK&svg=true)](https://ci.appveyor.com/project/velcrome/vvvv-zeromq/branch/master) [![Build status](https://ci.appveyor.com/api/projects/status/lehgakdm9h4i69cd/branch/develop?pendingText=Develop%20Pending&failingText=Develop%20Fail&passingText=Develop%20OK&svg=true)](https://ci.appveyor.com/project/velcrome/vvvv-zeromq/branch/develop)
+
 Introduction
 ============
 
