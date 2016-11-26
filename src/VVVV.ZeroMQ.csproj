@@ -8,7 +8,7 @@
     <RootNamespace>VVVV.ZeroMQ.Nodes</RootNamespace>
     <AssemblyName>VVVV.ZeroMQ</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <OutputPath>..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\nodes\plugins</OutputPath>
+    <OutputPath>..\build\vvvv-ZeroMQ\$(Platform)\$(Configuration)\nodes\plugins</OutputPath>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -86,7 +86,7 @@
     <ItemGroup>
       <MyFiles Include="..\copy\**\*.*" />
     </ItemGroup>
-    <Microsoft.Build.Tasks.Copy SourceFiles="@(MyFiles)" DestinationFiles="@(MyFiles->'..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Microsoft.Build.Tasks.Copy SourceFiles="@(MyFiles)" DestinationFiles="@(MyFiles->'..\build\vvvv-ZeroMQ\$(Platform)\$(Configuration)\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
   <ItemGroup>
     <None Include="packages.config" />

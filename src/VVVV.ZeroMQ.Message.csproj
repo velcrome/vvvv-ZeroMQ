@@ -8,7 +8,7 @@
     <RootNamespace>VVVV.ZeroMQ.Message.Nodes</RootNamespace>
     <AssemblyName>VVVV.ZeroMQ.Message</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <OutputPath>..\build\vvvv-ZeroMQ_$(Configuration)_$(Platform)\nodes\plugins</OutputPath>
+    <OutputPath>..\build\vvvv-ZeroMQ\$(Platform)\$(Configuration)\nodes\plugins</OutputPath>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -36,7 +36,7 @@
     </Reference>
     <Reference Include="MsgPack, Version=0.7.0.0, Culture=neutral, PublicKeyToken=a2625990d5dc0167, processorArchitecture=MSIL">
       <HintPath>packages\MsgPack.Cli.0.7.1\lib\net45\MsgPack.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="NetMQ, Version=4.0.0.0, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
       <HintPath>packages\NetMQ.4.0.0-rc5\lib\net40\NetMQ.dll</HintPath>
@@ -56,7 +56,7 @@
     </Reference>
     <Reference Include="VVVV.Packs.Messaging, Version=2.6.6149.26685, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\VVVV.Packs.Message.2.7-rc\lib\net46\VVVV.Packs.Messaging.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.Utils, Version=34.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\VVVV.Utils.34.103.0-develop-1598\lib\net46\VVVV.Utils.dll</HintPath>
