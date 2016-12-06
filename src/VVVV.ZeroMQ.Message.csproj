@@ -34,17 +34,24 @@
       <Private>True</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="MsgPack, Version=0.7.0.0, Culture=neutral, PublicKeyToken=a2625990d5dc0167, processorArchitecture=MSIL">
-      <HintPath>packages\MsgPack.Cli.0.7.1\lib\net45\MsgPack.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="MsgPack">
+      <HintPath>packages\MsgPack.Cli.0.8.0\lib\net46\MsgPack.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="NetMQ, Version=4.0.0.0, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
       <HintPath>packages\NetMQ.4.0.0-rc5\lib\net40\NetMQ.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SharpMessage, Version=2.8.6.101, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SharpMessage">
       <HintPath>packages\SharpMessage.2.8.6-develop101\lib\net46\SharpMessage.dll</HintPath>
       <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,10 +64,12 @@
     <Reference Include="VVVV.Core, Version=34.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\VVVV.Core.34.103.0-develop-1598\lib\net46\VVVV.Core.dll</HintPath>
       <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="VVVV.Utils, Version=34.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\VVVV.Utils.34.103.0-develop-1598\lib\net46\VVVV.Utils.dll</HintPath>
       <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="VVVV.Packs.Time, Version=0.6, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\VVVV.Packs.Time.0.6\lib\net40\VVVV.Packs.Time.dll</HintPath>
