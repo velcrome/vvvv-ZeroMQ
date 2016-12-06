@@ -12,7 +12,7 @@
   </meta>
   <install>
     Download(
-      "https://github.com/velcrome/vvvv-ZeroMQ/releases/download/0.5.1/vvvv-ZeroMQ.zip",
+      "https://github.com/velcrome/vvvv-ZeroMQ/releases/download/0.5.2/vvvv-ZeroMQ.zip",
       VPM.TempDir + "\\vvvv-ZeroMQ.zip"
     );
     Extract(VPM.TempDir + "\\vvvv-ZeroMQ.zip", Pack.TempDir + "\\extract");
