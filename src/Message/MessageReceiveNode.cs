@@ -1,20 +1,19 @@
 ﻿using NetMQ;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.ComponentModel.Composition;
 using VVVV.Core.Logging;
-using VVVV.Utils;
 using VVVV.Packs.Messaging;
 using VVVV.PluginInterfaces.V2;
 using System.IO;
+using MsgPack.Serialization;
+using VVVV.Packs.Messaging.Serializing;
 
 namespace VVVV.ZeroMQ
 {
     #region PluginInfo
     [PluginInfo(Name = "Receive", AutoEvaluate = true, Category = "Network.ZeroMQ", Version="Message", Help = "Receives from a socket", Tags = "", Author = "velcrome")]
     #endregion PluginInfo
-    public class MessageReceiveNode : IPluginEvaluate
+    public class MessageReceiveNode : IPluginEvaluate, IPartImportsSatisfiedNotification
     {
         #region fields & pins
 
@@ -39,7 +38,16 @@ namespace VVVV.ZeroMQ
         [Import()]
         public ILogger FLogger;
 
+        protected MessagePackSerializer<Message> Serializer;
+
         #endregion fields & pins
+        public void OnImportsSatisfied()
+        {
+            var context = new SerializationContext();
+            context.CompatibilityOptions.PackerCompatibilityOptions = MsgPack.PackerCompatibilityOptions.PackBinaryAsRaw;
+            context.Serializers.RegisterOverride(new MsgPackMessageSerializer(context));
+            Serializer = MessagePackSerializer.Get<Message>(context);
+        }
 
         public void Evaluate(int SpreadMax)
         {
@@ -99,14 +107,12 @@ namespace VVVV.ZeroMQ
                             FMetaBinSize.Add(mBin);
                         }
 
-                        var payload = System.Text.Encoding.UTF8.GetString(msg.Last.ToByteArray());
-                        var result = JsonConvert.DeserializeObject(payload);
+                        var payload = msg.Last.ToByteArray();
 
-                        if (result is JObject)
-                        {
-                            FOutput.Add((result as JObject).ToObject<Message>());
-                            sBin++;
-                        }
+                        var result = Serializer.UnpackSingleObject(payload);
+    
+                        FOutput.Add(result);
+                        sBin++;
                     }
                     catch (Exception e)
                     {

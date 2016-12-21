@@ -1,22 +1,19 @@
 ﻿using NetMQ;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.IO;
 using System.Text;
 using VVVV.Core.Logging;
 using VVVV.PluginInterfaces.V2;
 using VVVV.Packs.Messaging;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using MsgPack.Serialization;
+using VVVV.Packs.Messaging.Serializing;
 
 namespace VVVV.ZeroMQ
 {
     #region PluginInfo
     [PluginInfo(Name = "Send", AutoEvaluate = true, Category = "Network.ZeroMQ", Version="Message", Help = "Sends to a socket", Tags = "", Author = "velcrome")]
     #endregion PluginInfo
-    public class MessageSendNode : IPluginEvaluate
+    public class MessageSendNode : IPluginEvaluate, IPartImportsSatisfiedNotification
     {
         #region fields & pins
 
@@ -35,7 +32,17 @@ namespace VVVV.ZeroMQ
         [Import()]
         public ILogger FLogger;
 
+        protected MessagePackSerializer<Message> Serializer;
+
         #endregion fields & pins
+
+        public void OnImportsSatisfied()
+        {
+            var context = new SerializationContext();
+            context.CompatibilityOptions.PackerCompatibilityOptions = MsgPack.PackerCompatibilityOptions.PackBinaryAsRaw;
+            context.Serializers.RegisterOverride(new MsgPackMessageSerializer(context));
+            Serializer = MessagePackSerializer.Get<Message>(context);
+        }
 
         public void Evaluate(int SpreadMax)
         {
@@ -79,14 +86,8 @@ namespace VVVV.ZeroMQ
                     var msg = new NetMQMessage();
                     msg.Append(message.Topic, Encoding.UTF8);
 
-                    JsonSerializer ser = new JsonSerializer();
-                    JsonSerializerSettings settings = new JsonSerializerSettings();
-                    settings.Formatting = Formatting.None;
-                    settings.TypeNameHandling = TypeNameHandling.None;
-
-
-                    string json = JsonConvert.SerializeObject(message, settings);
-                    msg.Append(json, Encoding.UTF8);
+                    var raw = Serializer.PackSingleObject(message);
+                    msg.Append(raw);
 
                     try
                     {
@@ -116,6 +117,7 @@ namespace VVVV.ZeroMQ
                 }
             }
         }
+
 
     }
 }

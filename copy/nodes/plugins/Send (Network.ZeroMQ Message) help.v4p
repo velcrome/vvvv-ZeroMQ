@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\dev\vvvv\vvvv-ZeroMQ\copy\nodes\plugins\Send (Network.ZeroMQ Message) help.v4p" systemname="Send (Network ZSocket) help" filename="C:\dev\vvvv\vvvv-zeromq\copy\plugins\Send (Network ZSocket) help.v4p" scrollx="0" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.106.dtd" >
+   <PATCH nodename="C:\apps\code\vvvv_50alpha34.106_x64\packs\vvvv-ZeroMQ\nodes\plugins\Send (Network.ZeroMQ Message) help.v4p" systemname="Send (Network ZSocket) help" filename="C:\dev\vvvv\vvvv-zeromq\copy\plugins\Send (Network ZSocket) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="0" top="0" width="14436" height="8364">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3" systemname="IOBox (Value Advanced)">
@@ -24,7 +24,7 @@
    </NODE>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
-   <PACK Name="addonpack" Version="34.1.0">
+   <PACK Name="addonpack" Version="34.101.0">
    </PACK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="20" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="5250" top="3045" width="555" height="270">
@@ -306,64 +306,6 @@
    <PIN pinname="Output String" visible="1">
    </PIN>
    </NODE>
-   <NODE id="171" systemname="Create (Message.Keep Formular)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="Create (Message.Keep Formular)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
-   <PIN pinname="Name" visible="1" pintype="Input" slicecount="2" values="|Everything you know|,|Is Wrong|">
-   </PIN>
-   <BOUNDS type="Node" left="8112" top="5376" width="5496" height="276">
-   </BOUNDS>
-   <PIN pinname="RGB" visible="1" pintype="Input" slicecount="1" values="|0.00000,1.00000,0.00000,1.00000|">
-   </PIN>
-   <PIN pinname="Topic" visible="1" slicecount="1" pintype="Input" values="Test">
-   </PIN>
-   <PIN pinname="Output" visible="1" pintype="Output">
-   </PIN>
-   <PIN pinname="Autolearn Type" slicecount="1" pintype="Configuration" values="0">
-   </PIN>
-   <PIN pinname="Configuration" slicecount="1" pintype="Configuration" values="|Color RGB, string Name, bool[4] Switch|">
-   </PIN>
-   <PIN pinname="Switch" visible="1" pintype="Input">
-   </PIN>
-   <BOUNDS type="Box" left="552" top="12" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="AutoSense" pintype="Input" visible="-1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Verbose" pintype="Input" visible="-1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Message Formular" pintype="Input" visible="1" slicecount="1" values="None">
-   </PIN>
-   <PIN pinname="RGB Bin Size" pintype="Input" visible="0" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Name Bin Size" pintype="Input" visible="0" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Switch Bin Size" pintype="Input" visible="0" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="Update" pintype="Input" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Count" pintype="Input" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Window Handle" pintype="Output">
-   </PIN>
-   <PIN pinname="ID" pintype="Output" visible="-1">
-   </PIN>
-   <PIN pinname="Changed Message" pintype="Output" visible="1">
-   </PIN>
-   <PIN pinname="Message Diff" pintype="Output" visible="1">
-   </PIN>
-   <PIN pinname="Internal Count" pintype="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="175" srcpinname="Output" dstnodeid="171" dstpinname="RGB">
-   </LINK>
-   <LINK srcnodeid="174" srcpinname="Output String" dstnodeid="171" dstpinname="Topic">
-   </LINK>
-   <LINK srcnodeid="173" srcpinname="Y Output Value" dstnodeid="171" dstpinname="Switch">
-   </LINK>
-   <LINK srcnodeid="172" srcpinname="Y Output Value" dstnodeid="171" dstpinname="Update">
-   </LINK>
    <NODE systemname="GetSlice (String)" nodename="GetSlice (String)" componentmode="Hidden" id="179">
    <BOUNDS type="Node" left="10536" top="4788" width="1020" height="276">
    </BOUNDS>
@@ -375,8 +317,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="177" srcpinname="Output String" dstnodeid="179" dstpinname="Input">
-   </LINK>
-   <LINK srcnodeid="179" srcpinname="Output" dstnodeid="171" dstpinname="Name">
    </LINK>
    <NODE systemname="OR (Boolean Spectral)" nodename="OR (Boolean Spectral)" componentmode="Hidden" id="180">
    <BOUNDS type="Node" left="11016" top="3000" width="100" height="100">
@@ -427,23 +367,15 @@
    <NODE systemname="Switch (Node Input)" nodename="Switch (Node Input)" componentmode="Hidden" id="186">
    <BOUNDS type="Node" left="7608" top="6096" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input 2" visible="1">
+   <PIN pinname="Input 2" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Input 1" visible="1">
+   <PIN pinname="Input 1" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    <PIN pinname="Switch" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="171" srcpinname="Output" dstnodeid="186" dstpinname="Input 2" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="171" srcpinname="Message Diff" dstnodeid="186" dstpinname="Input 1" linkstyle="VHV">
-   <LINKPOINT x="11760" y="5796">
-   </LINKPOINT>
-   <LINKPOINT x="7896" y="5796">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="187" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="6636" top="4572" width="480" height="480">
    </BOUNDS>
@@ -466,22 +398,6 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="187" srcpinname="Y Output Value" dstnodeid="186" dstpinname="Switch">
-   </LINK>
-   <NODE systemname="Change (Message.Spread)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="Change (Message.Spread)" componentmode="Hidden" id="188">
-   <BOUNDS type="Node" left="11760" top="6156" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Change" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="171" srcpinname="Output" dstnodeid="188" dstpinname="Input" linkstyle="VHV" hiddenwhenlocked="1">
-   <LINKPOINT x="8172" y="5898">
-   </LINKPOINT>
-   <LINKPOINT x="11760" y="5898">
-   </LINKPOINT>
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="189" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="11772" top="6720" width="480" height="480">
    </BOUNDS>
@@ -496,8 +412,6 @@
    <PIN pinname="Behavior" slicecount="1" values="Toggle">
    </PIN>
    </NODE>
-   <LINK srcnodeid="188" srcpinname="Change" dstnodeid="189" dstpinname="Y Input Value">
-   </LINK>
    <NODE systemname="Blinker (Animation)" nodename="Blinker (Animation)" componentmode="Hidden" id="190">
    <BOUNDS type="Node" left="11016" top="3372" width="100" height="100">
    </BOUNDS>
@@ -545,5 +459,139 @@
    <LINK srcnodeid="191" srcpinname="Y Output Value" dstnodeid="192" dstpinname="Send">
    </LINK>
    <LINK srcnodeid="186" srcpinname="Output" dstnodeid="192" dstpinname="Message">
+   </LINK>
+   <NODE id="171" systemname="ConfigKeep (Message Formular)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="ConfigKeep (Message Formular)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <PIN pinname="Name" visible="1" pintype="Input" slicecount="2" values="|Everything you know|,|Is Wrong|">
+   </PIN>
+   <BOUNDS type="Node" left="8112" top="5376" width="5496" height="276">
+   </BOUNDS>
+   <PIN pinname="RGB" visible="1" pintype="Input" slicecount="1" values="|0.00000,1.00000,0.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Topic" visible="1" slicecount="1" pintype="Input" values="Test">
+   </PIN>
+   <PIN pinname="Output" visible="1" pintype="Output">
+   </PIN>
+   <PIN pinname="Autolearn Type" slicecount="1" pintype="Configuration" values="0">
+   </PIN>
+   <PIN pinname="Configuration" slicecount="1" pintype="Configuration" values="|Color RGB, string Name, bool[4] Switch|">
+   </PIN>
+   <PIN pinname="Switch" visible="1" pintype="Input">
+   </PIN>
+   <BOUNDS type="Box" left="552" top="12" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" pintype="Configuration" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="AutoSense" pintype="Input" visible="-1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Verbose" pintype="Input" visible="-1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Message Formular" pintype="Input" visible="1" slicecount="1" values="None">
+   </PIN>
+   <PIN pinname="RGB Bin Size" pintype="Input" visible="0" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Name Bin Size" pintype="Input" visible="0" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Switch Bin Size" pintype="Input" visible="0" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Update" pintype="Input" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Count" pintype="Input" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Window Handle" pintype="Output">
+   </PIN>
+   <PIN pinname="ID" pintype="Output" visible="-1">
+   </PIN>
+   <PIN pinname="Changed Message" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Message Diff" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Internal Count" pintype="Output" visible="1">
+   </PIN>
+   <PIN pinname="Force" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="175" srcpinname="Output" dstnodeid="171" dstpinname="RGB">
+   </LINK>
+   <LINK srcnodeid="174" srcpinname="Output String" dstnodeid="171" dstpinname="Topic">
+   </LINK>
+   <LINK srcnodeid="173" srcpinname="Y Output Value" dstnodeid="171" dstpinname="Switch">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="Y Output Value" dstnodeid="171" dstpinname="Update">
+   </LINK>
+   <LINK srcnodeid="179" srcpinname="Output" dstnodeid="171" dstpinname="Name">
+   </LINK>
+   <LINK srcnodeid="171" srcpinname="Output" dstnodeid="186" dstpinname="Input 2" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="171" srcpinname="Message Diff" dstnodeid="186" dstpinname="Input 1" linkstyle="VHV">
+   <LINKPOINT x="11760" y="5796">
+   </LINKPOINT>
+   <LINKPOINT x="7896" y="5796">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Change (Message)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="Change (Message)" componentmode="Hidden" id="188">
+   <BOUNDS type="Node" left="11760" top="6156" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Change" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="188" srcpinname="Change" dstnodeid="189" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="171" srcpinname="Output" dstnodeid="188" dstpinname="Input" linkstyle="VHV" hiddenwhenlocked="1">
+   <LINKPOINT x="8172" y="5898">
+   </LINKPOINT>
+   <LINKPOINT x="11760" y="5898">
+   </LINKPOINT>
+   </LINK>
+   <PACK Name="vvvv-Message" Version="2.7">
+   </PACK>
+   <NODE systemname="HoldKeep (Message)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="HoldKeep (Message)" componentmode="Hidden" id="193">
+   <BOUNDS type="Node" left="13215" top="5775" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="171" srcpinname="Message Diff" dstnodeid="193" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Info (Message)" filename="%VVVV%\packs\vvvv-Message\nodes\plugins\VVVV.Nodes.Messaging.dll" nodename="Info (Message)" componentmode="Hidden" id="194">
+   <BOUNDS type="Node" left="13125" top="6330" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="193" srcpinname="Output" dstnodeid="194" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="195">
+   <BOUNDS type="Box" left="12870" top="6885" width="2790" height="1140">
+   </BOUNDS>
+   <BOUNDS type="Node" left="12870" top="6885" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="194" srcpinname="Output" dstnodeid="195" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="OnOpen (VVVV)" nodename="OnOpen (VVVV)" componentmode="Hidden" id="196">
+   <BOUNDS type="Node" left="6675" top="5370" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Simulate" visible="1">
+   </PIN>
+   <PIN pinname="Bang" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="187" srcpinname="Y Output Value" dstnodeid="196" dstpinname="Simulate">
+   </LINK>
+   <LINK srcnodeid="196" srcpinname="Bang" dstnodeid="186" dstpinname="Switch">
    </LINK>
    </PATCH>

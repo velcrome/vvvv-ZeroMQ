@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.106.dtd" >
-   <PATCH nodename="C:\Work\vvvv-ZeroMQ\copy\girlpower\Patterns\Worker  (Network ZSocket).v4p" systemname="Worker (Network ZSocket)" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\Worker  (Network ZSocket).v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="C:\apps\code\vvvv_50alpha34.106_x64\packs\vvvv-ZeroMQ\girlpower\Patterns\Worker  (Network ZSocket).v4p" systemname="Worker (Network ZSocket)" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\Worker  (Network ZSocket).v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="14370" top="0" width="6450" height="9900">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="27" systemname="IOBox (Value Advanced)">
@@ -294,7 +294,7 @@
    </LINK>
    <LINK srcnodeid="33" srcpinname="Output" dstnodeid="20" dstpinname="Set">
    </LINK>
-   <NODE id="1" systemname="Pull (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ_Release_x64\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Pull (Network.ZeroMQ)" componentmode="Hidden">
+   <NODE id="1" systemname="Pull (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Pull (Network.ZeroMQ)" componentmode="Hidden">
    <PIN pinname="Sockets" visible="1">
    </PIN>
    <BOUNDS type="Node" left="1260" top="1395" width="1185" height="270">
@@ -322,7 +322,7 @@
    </LINK>
    <LINK srcnodeid="10" srcpinname="Output String" dstnodeid="1" dstpinname="Server">
    </LINK>
-   <NODE systemname="Push (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ_Release_x64\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Push (Network.ZeroMQ)" componentmode="Hidden" id="2">
+   <NODE systemname="Push (Network.ZeroMQ)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Push (Network.ZeroMQ)" componentmode="Hidden" id="2">
    <BOUNDS type="Node" left="3345" top="1395" width="1335" height="270">
    </BOUNDS>
    <PIN pinname="Protocol" visible="1" slicecount="1" values="inproc">
@@ -350,7 +350,7 @@
    </LINK>
    <LINK srcnodeid="28" srcpinname="Y Output Value" dstnodeid="2" dstpinname="Port">
    </LINK>
-   <NODE systemname="Receive (Network.ZeroMQ Raw)" filename="%VVVV%\packs\vvvv-ZeroMQ_Release_x64\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Receive (Network.ZeroMQ Raw)" componentmode="Hidden" id="0">
+   <NODE systemname="Receive (Network.ZeroMQ Raw)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Receive (Network.ZeroMQ Raw)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="1260" top="1860" width="1005" height="270">
    </BOUNDS>
    <PIN pinname="Socket" visible="1" slicecount="1" values="||">
@@ -370,7 +370,7 @@
    </LINK>
    <LINK srcnodeid="1" srcpinname="Sockets" dstnodeid="0" dstpinname="Socket">
    </LINK>
-   <NODE systemname="Send (Network.ZeroMQ Message)" filename="%VVVV%\packs\vvvv-ZeroMQ_Release_x64\nodes\plugins\VVVV.ZeroMQ.Message.dll" nodename="Send (Network.ZeroMQ Message)" componentmode="Hidden" id="3">
+   <NODE systemname="Send (Network.ZeroMQ Raw)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\plugins\VVVV.ZeroMQ.dll" nodename="Send (Network.ZeroMQ Raw)" componentmode="Hidden" id="3">
    <BOUNDS type="Node" left="3345" top="4425" width="1740" height="270">
    </BOUNDS>
    <PIN pinname="Socket" visible="1" slicecount="1" values="||">
@@ -402,8 +402,6 @@
    </LINK>
    <LINK srcnodeid="2" srcpinname="Sockets" dstnodeid="3" dstpinname="Socket">
    </LINK>
-   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
-   </PACK>
-   <PACK Name="ÎmagePack" Version="0.2.0">
+   <PACK Name="vvvv-ZeroMQ" Version="0.5.0">
    </PACK>
    </PATCH>

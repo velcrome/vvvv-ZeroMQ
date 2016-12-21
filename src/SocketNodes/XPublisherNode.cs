@@ -1,4 +1,5 @@
-﻿using NetMQ.Sockets;
+﻿using NetMQ;
+using NetMQ.Sockets;
 using VVVV.PluginInterfaces.V2;
 
 namespace VVVV.ZeroMQ.Nodes.Sockets
@@ -9,16 +10,19 @@ namespace VVVV.ZeroMQ.Nodes.Sockets
     public class XPublisherSocketNode : AbstractSocketNode<XPublisherSocket>
     {
         #region fields & pins
-        [Config("Bind", DefaultBoolean = true, IsSingle = true)]
+        [Input("Bind", Visibility = PinVisibility.True, Order=int.MaxValue-1, DefaultBoolean = true, IsSingle = true)]
         public IDiffSpread<bool> ConfigBind;
 
         #endregion fields & pins
+        protected override NetMQSocket NewSocket(string address)
+        {
+            return new XPublisherSocket(address);
+        }
 
         public override void OnImportsSatisfied()
         {
             base.OnImportsSatisfied();
             ConfigBind.Changed += _ => Bind = ConfigBind[0];
-            NewSocket = () => Context.CreateXPublisherSocket();
         }
 
 

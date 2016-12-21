@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.106.dtd" >
-   <PATCH nodename="C:\Work\vvvv-ZeroMQ\copy\girlpower\Figure_19.v4p" systemname="Figure_19" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\Figure_19.v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="210" top="0" width="9990" height="13095">
+   <PATCH nodename="C:\apps\code\vvvv_50alpha34.106_x64\packs\vvvv-ZeroMQ\girlpower\Figure_19.v4p" systemname="Figure_19" filename="C:\dev\vvvv\vvvv-ZeroMQ\assets\girlpower\Figure_19.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="0" top="0" width="11505" height="13095">
    </BOUNDS>
    <PACK Name="VVVV.Packs" Version="0.1.0">
    </PACK>
@@ -474,12 +474,12 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <NODE systemname="Ventilator (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\girlpower\Patterns\Ventilator (Network ZSocket).v4p" nodename="Ventilator (Network ZSocket)" componentmode="Hidden" id="209">
+   <NODE systemname="Ventilator (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\girlpower\Patterns\Ventilator (Network ZSocket).v4p" nodename="Ventilator (Network ZSocket)" componentmode="InAWindow" id="209">
    <BOUNDS type="Node" left="257" top="2581" width="4860" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="0" top="60" width="5865" height="6600">
    </BOUNDS>
-   <BOUNDS type="Window" left="9945" top="8880" width="5235" height="6720">
+   <BOUNDS type="Window" left="11430" top="675" width="5235" height="6720">
    </BOUNDS>
    <PIN pinname="Protocol" visible="1">
    </PIN>
@@ -510,12 +510,12 @@
    </LINK>
    <LINK srcnodeid="259" srcpinname="Y Output Value" dstnodeid="209" dstpinname="Job Count">
    </LINK>
-   <NODE systemname="Sink (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\girlpower\Patterns\Sink (Network ZSocket).v4p" nodename="Sink (Network ZSocket)" componentmode="Hidden" id="265">
+   <NODE systemname="Sink (Network ZSocket)" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\girlpower\Patterns\Sink (Network ZSocket).v4p" nodename="Sink (Network ZSocket)" componentmode="InAWindow" id="265">
    <BOUNDS type="Node" left="480" top="9660" width="5190" height="270">
    </BOUNDS>
    <BOUNDS type="Box" left="0" top="5648" width="5130" height="8025">
    </BOUNDS>
-   <BOUNDS type="Window" left="15030" top="8850" width="5760" height="5370">
+   <BOUNDS type="Window" left="11340" top="7740" width="5760" height="5370">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -545,30 +545,6 @@
    <LINK srcnodeid="265" srcpinname="OnData" dstnodeid="206" dstpinname="Y Input Value">
    </LINK>
    <LINK srcnodeid="266" srcpinname="Y Output Value" dstnodeid="265" dstpinname="Frame Queue Count">
-   </LINK>
-   <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="273">
-   <BOUNDS type="Node" left="435" top="6720" width="3225" height="270">
-   </BOUNDS>
-   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Port Out" visible="1" slicecount="1" values="4454">
-   </PIN>
-   <PIN pinname="Port In" visible="1" slicecount="1" values="4452">
-   </PIN>
-   <PIN pinname="Address" visible="1" slicecount="1" values="localhost">
-   </PIN>
-   <PIN pinname="Protocol" visible="1" slicecount="1" values="tcp">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Success" visible="1">
-   </PIN>
-   <BOUNDS type="Window" left="10035" top="0" width="10860" height="10230">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="273" srcpinname="Output" dstnodeid="253" dstpinname="Input String">
-   </LINK>
-   <LINK srcnodeid="273" srcpinname="Success" dstnodeid="184" dstpinname="Y Input Value">
    </LINK>
    <NODE id="175" nodename="IOBox (String)" componentmode="InABox" systemname="IOBox (String)">
    <BOUNDS type="Box" left="1230" top="6045" width="735" height="240">
@@ -614,10 +590,6 @@
    <PIN pinname="Pin Visibility" slicecount="1" values="False">
    </PIN>
    </NODE>
-   <LINK srcnodeid="173" srcpinname="Y Output Value" dstnodeid="273" dstpinname="Enable">
-   </LINK>
-   <LINK srcnodeid="175" srcpinname="Output String" dstnodeid="273" dstpinname="Address">
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="292" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="450" top="6045" width="630" height="240">
    </BOUNDS>
@@ -629,9 +601,9 @@
    </PIN>
    <PIN pinname="Pin Visibility" slicecount="1" values="False">
    </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="292" srcpinname="Output Enum" dstnodeid="273" dstpinname="Protocol">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="293" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2010" top="6045" width="525" height="255">
    </BOUNDS>
@@ -649,9 +621,9 @@
    </PIN>
    <PIN pinname="Pin Visibility" slicecount="1" values="False">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="293" srcpinname="Y Output Value" dstnodeid="273" dstpinname="Port In">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="294" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2805" top="6045" width="450" height="240">
    </BOUNDS>
@@ -669,9 +641,9 @@
    </PIN>
    <PIN pinname="Pin Visibility" slicecount="1" values="False">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="294" srcpinname="Y Output Value" dstnodeid="273" dstpinname="Port Out">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="302" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7815" top="7335" width="540" height="240">
    </BOUNDS>
@@ -712,30 +684,6 @@
    <PIN pinname="Input String" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="300">
-   <BOUNDS type="Node" left="4635" top="6735" width="3225" height="270">
-   </BOUNDS>
-   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Port Out" visible="1" slicecount="1" values="4454">
-   </PIN>
-   <PIN pinname="Port In" visible="1" slicecount="1" values="4452">
-   </PIN>
-   <PIN pinname="Address" visible="1" slicecount="1" values="localhost">
-   </PIN>
-   <PIN pinname="Protocol" visible="1" slicecount="1" values="tcp">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Success" visible="1">
-   </PIN>
-   <BOUNDS type="Window" left="10035" top="0" width="10860" height="10230">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="300" srcpinname="Output" dstnodeid="301" dstpinname="Input String">
-   </LINK>
-   <LINK srcnodeid="300" srcpinname="Success" dstnodeid="302" dstpinname="Y Input Value">
-   </LINK>
    <NODE id="299" nodename="IOBox (String)" componentmode="InABox" systemname="IOBox (String)">
    <BOUNDS type="Box" left="5430" top="6060" width="735" height="240">
    </BOUNDS>
@@ -780,10 +728,6 @@
    <PIN pinname="Pin Visibility" slicecount="1" values="False">
    </PIN>
    </NODE>
-   <LINK srcnodeid="298" srcpinname="Y Output Value" dstnodeid="300" dstpinname="Enable">
-   </LINK>
-   <LINK srcnodeid="299" srcpinname="Output String" dstnodeid="300" dstpinname="Address">
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="297" systemname="IOBox (Enumerations)">
    <BOUNDS type="Box" left="4650" top="6060" width="630" height="240">
    </BOUNDS>
@@ -795,9 +739,9 @@
    </PIN>
    <PIN pinname="Pin Visibility" slicecount="1" values="False">
    </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="297" srcpinname="Output Enum" dstnodeid="300" dstpinname="Protocol">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="296" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="6210" top="6060" width="525" height="255">
    </BOUNDS>
@@ -815,9 +759,9 @@
    </PIN>
    <PIN pinname="Pin Visibility" slicecount="1" values="False">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="296" srcpinname="Y Output Value" dstnodeid="300" dstpinname="Port In">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="295" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="7005" top="6060" width="450" height="240">
    </BOUNDS>
@@ -835,73 +779,123 @@
    </PIN>
    <PIN pinname="Pin Visibility" slicecount="1" values="False">
    </PIN>
-   </NODE>
-   <LINK srcnodeid="295" srcpinname="Y Output Value" dstnodeid="300" dstpinname="Port Out">
-   </LINK>
-   <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="308">
-   <BOUNDS type="Node" left="8835" top="6750" width="795" height="270">
-   </BOUNDS>
-   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
+   <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Port Out" visible="1" slicecount="1" values="4454">
-   </PIN>
-   <PIN pinname="Port In" visible="1" slicecount="1" values="4452">
-   </PIN>
-   <PIN pinname="Address" visible="1" slicecount="1" values="localhost">
-   </PIN>
-   <PIN pinname="Protocol" visible="1" slicecount="1" values="tcp">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Success" visible="1">
-   </PIN>
-   <BOUNDS type="Window" left="10035" top="0" width="10860" height="10230">
-   </BOUNDS>
-   </NODE>
-   <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="311">
-   <BOUNDS type="Node" left="8835" top="7200" width="795" height="270">
-   </BOUNDS>
-   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Port Out" visible="1" slicecount="1" values="4454">
-   </PIN>
-   <PIN pinname="Port In" visible="1" slicecount="1" values="4452">
-   </PIN>
-   <PIN pinname="Address" visible="1" slicecount="1" values="localhost">
-   </PIN>
-   <PIN pinname="Protocol" visible="1" slicecount="1" values="tcp">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Success" visible="1">
-   </PIN>
-   <BOUNDS type="Window" left="10035" top="0" width="10860" height="10230">
-   </BOUNDS>
-   </NODE>
-   <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\nodes\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="312">
-   <BOUNDS type="Node" left="8820" top="6270" width="795" height="270">
-   </BOUNDS>
-   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Port Out" visible="1" slicecount="1" values="4454">
-   </PIN>
-   <PIN pinname="Port In" visible="1" slicecount="1" values="4452">
-   </PIN>
-   <PIN pinname="Address" visible="1" slicecount="1" values="localhost">
-   </PIN>
-   <PIN pinname="Protocol" visible="1" slicecount="1" values="tcp">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Success" visible="1">
-   </PIN>
-   <BOUNDS type="Window" left="10035" top="0" width="10860" height="10230">
-   </BOUNDS>
    </NODE>
    <PACK Name="vvvv-ZeroMQ" Version="0.5.0">
    </PACK>
-   <PACK Name="vvvv-ZeroMQ_Release_x64" Version="0.5.0">
-   </PACK>
-   <PACK Name="ÎmagePack" Version="0.2.0">
-   </PACK>
+   <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="313">
+   <BOUNDS type="Node" left="450" top="6630" width="3210" height="270">
+   </BOUNDS>
+   <PIN pinname="Protocol" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Address" visible="1">
+   </PIN>
+   <PIN pinname="Port In" visible="1">
+   </PIN>
+   <PIN pinname="Port Out" visible="1">
+   </PIN>
+   <PIN pinname="Enable" visible="1">
+   </PIN>
+   <BOUNDS type="Window" left="20040" top="4530" width="6450" height="9900">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="292" srcpinname="Output Enum" dstnodeid="313" dstpinname="Protocol">
+   </LINK>
+   <LINK srcnodeid="313" srcpinname="Output" dstnodeid="253" dstpinname="Input String">
+   </LINK>
+   <LINK srcnodeid="175" srcpinname="Output String" dstnodeid="313" dstpinname="Address">
+   </LINK>
+   <LINK srcnodeid="293" srcpinname="Y Output Value" dstnodeid="313" dstpinname="Port In">
+   </LINK>
+   <LINK srcnodeid="294" srcpinname="Y Output Value" dstnodeid="313" dstpinname="Port Out">
+   </LINK>
+   <LINK srcnodeid="173" srcpinname="Y Output Value" dstnodeid="313" dstpinname="Enable">
+   </LINK>
+   <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="314">
+   <BOUNDS type="Node" left="4635" top="6630" width="3210" height="270">
+   </BOUNDS>
+   <PIN pinname="Protocol" visible="1" slicecount="1" values="tcp">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Address" visible="1" slicecount="1" values="localhost">
+   </PIN>
+   <PIN pinname="Port In" visible="1" slicecount="1" values="4452">
+   </PIN>
+   <PIN pinname="Port Out" visible="1" slicecount="1" values="4454">
+   </PIN>
+   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
+   </PIN>
+   <BOUNDS type="Window" left="19455" top="3315" width="6450" height="9900">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="297" srcpinname="Output Enum" dstnodeid="314" dstpinname="Protocol">
+   </LINK>
+   <LINK srcnodeid="314" srcpinname="Output" dstnodeid="301" dstpinname="Input String">
+   </LINK>
+   <LINK srcnodeid="299" srcpinname="Output String" dstnodeid="314" dstpinname="Address">
+   </LINK>
+   <LINK srcnodeid="296" srcpinname="Y Output Value" dstnodeid="314" dstpinname="Port In">
+   </LINK>
+   <LINK srcnodeid="295" srcpinname="Y Output Value" dstnodeid="314" dstpinname="Port Out">
+   </LINK>
+   <LINK srcnodeid="298" srcpinname="Y Output Value" dstnodeid="314" dstpinname="Enable">
+   </LINK>
+   <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="315">
+   <BOUNDS type="Node" left="8880" top="6750" width="795" height="270">
+   </BOUNDS>
+   <PIN pinname="Protocol" visible="1" slicecount="1" values="tcp">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Address" visible="1" slicecount="1" values="localhost">
+   </PIN>
+   <PIN pinname="Port In" visible="1" slicecount="1" values="4452">
+   </PIN>
+   <PIN pinname="Port Out" visible="1" slicecount="1" values="4454">
+   </PIN>
+   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
+   </PIN>
+   <BOUNDS type="Window" left="17040" top="555" width="6450" height="9900">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="316">
+   <BOUNDS type="Node" left="8865" top="6300" width="795" height="270">
+   </BOUNDS>
+   <PIN pinname="Protocol" visible="1" slicecount="1" values="tcp">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Address" visible="1" slicecount="1" values="localhost">
+   </PIN>
+   <PIN pinname="Port In" visible="1" slicecount="1" values="4452">
+   </PIN>
+   <PIN pinname="Port Out" visible="1" slicecount="1" values="4454">
+   </PIN>
+   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
+   </PIN>
+   <BOUNDS type="Window" left="17805" top="1230" width="6450" height="9900">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="" filename="%VVVV%\packs\vvvv-ZeroMQ\girlpower\Patterns\Worker  (Network ZSocket).v4p" nodename="" componentmode="InAWindow" id="317">
+   <BOUNDS type="Node" left="8835" top="5850" width="795" height="270">
+   </BOUNDS>
+   <PIN pinname="Protocol" visible="1" slicecount="1" values="tcp">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Address" visible="1" slicecount="1" values="localhost">
+   </PIN>
+   <PIN pinname="Port In" visible="1" slicecount="1" values="4452">
+   </PIN>
+   <PIN pinname="Port Out" visible="1" slicecount="1" values="4454">
+   </PIN>
+   <PIN pinname="Enable" visible="1" slicecount="1" values="1">
+   </PIN>
+   <BOUNDS type="Window" left="18600" top="2265" width="6450" height="9900">
+   </BOUNDS>
+   </NODE>
    </PATCH>

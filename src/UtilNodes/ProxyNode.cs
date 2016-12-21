@@ -28,14 +28,14 @@ namespace VVVV.ZeroMQ
         [Import()]
         public ILogger FLogger;
 
-        protected Poller Poll = new Poller();
+        protected NetMQPoller Poll = new NetMQPoller();
         protected List<Proxy> Proxies = new List<Proxy>();
 
         #endregion fields & pins
 
         public ProxyNode()
         {
-            Poll.PollTillCancelledNonBlocking();
+            Poll.RunAsync();
         }
 
         public void Evaluate(int SpreadMax)
@@ -82,7 +82,7 @@ namespace VVVV.ZeroMQ
                     // FRONTEND
                     try
                     {
-                        Poll.AddSocket(frontend);
+                        Poll.Add(frontend);
                     }
                     catch (ArgumentException)
                     {
@@ -96,7 +96,7 @@ namespace VVVV.ZeroMQ
                     // BACKEND                    
                     try
                     {
-                        Poll.AddSocket(backend);
+                        Poll.Add(backend);
                     }
                     catch (ArgumentException)
                     {
@@ -126,7 +126,7 @@ namespace VVVV.ZeroMQ
 
         public void Dispose()
         {
-            if (Poll.IsStarted) Poll.CancelAndJoin();
+            if (Poll.IsRunning) Poll.StopAsync();
             Poll.Dispose();
         }
     }
