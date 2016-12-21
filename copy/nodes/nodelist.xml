@@ -1,0 +1,321 @@
+<!DOCTYPE NODELIST ><NODELIST version="45beta34.2"><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Proxy (Network.ZeroMQ)" name="Proxy" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="-1" type="Plugin" arguments="VVVV.ZeroMQ.ProxyNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Broker
+</TAGS><HELP>Proxy two sockets.
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Frontend Socket" direction="Input" subtype="IReceivingSocket" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Backend Socket" direction="Input" subtype="IReceivingSocket" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><TODO>Help patch "Proxy (Network.ZeroMQ) help.v4p" not found
+</TODO>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Receive (Network.ZeroMQ Raw)" name="Receive" category="Network.ZeroMQ" version="Raw" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="-1" type="Plugin" arguments="VVVV.ZeroMQ.ReceiveNode" ibs="0,0" iws="0,0" icm="0"><TAGS>ZeroMQ
+</TAGS><HELP>Receives from a socket
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Socket" direction="Input" subtype="IReceivingSocket" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Frames" direction="Output" subtype="Raw -&gt;" slicemode="Manual" visibility="True">
+</PIN><PIN name="Frames Bin Size" direction="Output" subtype="Integer" slicemode="Manual" visibility="True">
+</PIN><PIN name="Message Count" direction="Output" subtype="Integer" slicemode="Manual" visibility="True">
+</PIN><PIN name="OnData" direction="Output" subtype="Trigger" slicemode="Single" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Send (Network.ZeroMQ Raw)" name="Send" category="Network.ZeroMQ" version="Raw" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="-1" type="Plugin" arguments="VVVV.ZeroMQ.SendNode" ibs="0,0" iws="0,0" icm="0"><HELP>Sends to a socket
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Socket" direction="Input" subtype="IOutgoingSocket" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Frames" direction="Input" subtype="-&gt; Raw" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Frames Bin Size" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Send" direction="Input" subtype="Trigger" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Success" direction="Output" subtype="Trigger" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Affinity (Network.ZeroMQ.Option)" name="Affinity" category="Network.ZeroMQ.Option" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.AffinityOptionsNode" ibs="0,0" iws="0,0" icm="0"><HELP>Configures which core this socket will prefer.
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Affinity" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="SocketOptions" direction="Input" subtype="Options" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="SocketOptions" direction="Output" subtype="Options" slicemode="Manual" visibility="True">
+</PIN><TODO>Help patch "Affinity (Network.ZeroMQ.Option) help.v4p" not found
+</TODO>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Endian (Network.ZeroMQ.Option)" name="Endian" category="Network.ZeroMQ.Option" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.EndianOptionsNode" ibs="0,0" iws="0,0" icm="0"><HELP>Change the Endian, Default is BigEndian
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Little Endian" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="SocketOptions" direction="Input" subtype="Options" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="SocketOptions" direction="Output" subtype="Options" slicemode="Manual" visibility="True">
+</PIN><TODO>Help patch "Endian (Network.ZeroMQ.Option) help.v4p" not found
+</TODO>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Linger (Network.ZeroMQ.Option)" name="Linger" category="Network.ZeroMQ.Option" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.LingerOptionsNode" ibs="0,0" iws="0,0" icm="0"><HELP>Configures the maximum time a Message will be kept AFTER the socket closed.
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Linger" direction="Input" subtype="TimeSpan" slicemode="UpStream" visibility="True">
+</PIN><PIN name="SocketOptions" direction="Input" subtype="Options" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="SocketOptions" direction="Output" subtype="Options" slicemode="Manual" visibility="True">
+</PIN><TODO>Help patch "Linger (Network.ZeroMQ.Option) help.v4p" not found
+</TODO>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Watermark (Network.ZeroMQ.Option)" name="Watermark" category="Network.ZeroMQ.Option" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.WatermarkOptionsNode" ibs="0,0" iws="0,0" icm="0"><HELP>Limits a sockets internal message buffer
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Send High Watermark" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Receive High Watermark" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="SocketOptions" direction="Input" subtype="Options" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="SocketOptions" direction="Output" subtype="Options" slicemode="Manual" visibility="True">
+</PIN><TODO>Help patch "Watermark (Network.ZeroMQ.Option) help.v4p" not found
+</TODO>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="KeepAlive (Network.ZeroMQ.Option)" name="KeepAlive" category="Network.ZeroMQ.Option" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.KeepAliveOptionsNode" ibs="0,0" iws="0,0" icm="0"><TAGS>, tcp
+</TAGS><HELP>Finetune how long TCP will survive
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Period" direction="Input" subtype="TimeSpan" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Maximum Retry Time" direction="Input" subtype="TimeSpan" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="SocketOptions" direction="Input" subtype="Options" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="SocketOptions" direction="Output" subtype="Options" slicemode="Manual" visibility="True">
+</PIN><TODO>Help patch "KeepAlive (Network.ZeroMQ.Option) help.v4p" not found
+</TODO>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Dealer (Network.ZeroMQ)" name="Dealer" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.Sockets.DealerSocketNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Socket
+</TAGS><HELP>Creates a socket, use in conjunction with Router
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Bind" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="Protocol" direction="Input" subtype="VVVV.ZeroMQ.Nodes.TransportProtocolEnum" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Server" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Port" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Options" direction="Input" subtype="Options" slicemode="UpStream" visibility="Hidden">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Sockets" direction="Output" subtype="DealerSocket" slicemode="Manual" visibility="True">
+</PIN><PIN name="Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Pair (Network.ZeroMQ)" name="Pair" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.Sockets.PairSocketNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Socket
+</TAGS><HELP>Creates a socket, use in conjunction with another Pair
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Bind" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="Protocol" direction="Input" subtype="VVVV.ZeroMQ.Nodes.TransportProtocolEnum" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Server" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Port" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Options" direction="Input" subtype="Options" slicemode="UpStream" visibility="Hidden">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Sockets" direction="Output" subtype="PairSocket" slicemode="Manual" visibility="True">
+</PIN><PIN name="Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Publisher (Network.ZeroMQ)" name="Publisher" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.Sockets.PublisherSocketNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Socket
+</TAGS><HELP>Creates a socket, use in conjunction with Subscribe
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Bind" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="Protocol" direction="Input" subtype="VVVV.ZeroMQ.Nodes.TransportProtocolEnum" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Server" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Port" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Options" direction="Input" subtype="Options" slicemode="UpStream" visibility="Hidden">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Sockets" direction="Output" subtype="PublisherSocket" slicemode="Manual" visibility="True">
+</PIN><PIN name="Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Pull (Network.ZeroMQ)" name="Pull" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.Sockets.PullSocketNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Socket
+</TAGS><HELP>Creates a socket, use in conjunction with Pull
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Bind" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="Protocol" direction="Input" subtype="VVVV.ZeroMQ.Nodes.TransportProtocolEnum" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Server" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Port" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Options" direction="Input" subtype="Options" slicemode="UpStream" visibility="Hidden">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Sockets" direction="Output" subtype="PullSocket" slicemode="Manual" visibility="True">
+</PIN><PIN name="Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Push (Network.ZeroMQ)" name="Push" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.Sockets.PushSocketNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Socket
+</TAGS><HELP>Creates a socket, use in conjunction with Pull
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Bind" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="Protocol" direction="Input" subtype="VVVV.ZeroMQ.Nodes.TransportProtocolEnum" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Server" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Port" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Options" direction="Input" subtype="Options" slicemode="UpStream" visibility="Hidden">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Sockets" direction="Output" subtype="PushSocket" slicemode="Manual" visibility="True">
+</PIN><PIN name="Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Request (Network.ZeroMQ)" name="Request" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.Sockets.RequestNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Socket
+</TAGS><HELP>Creates a socket, use in conjunction with Response
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Bind" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="Protocol" direction="Input" subtype="VVVV.ZeroMQ.Nodes.TransportProtocolEnum" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Server" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Port" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Options" direction="Input" subtype="Options" slicemode="UpStream" visibility="Hidden">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Sockets" direction="Output" subtype="RequestSocket" slicemode="Manual" visibility="True">
+</PIN><PIN name="Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Response (Network.ZeroMQ)" name="Response" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.Sockets.ResponseNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Socket
+</TAGS><HELP>Creates a socket, use in conjunction with Request
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Bind" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="Protocol" direction="Input" subtype="VVVV.ZeroMQ.Nodes.TransportProtocolEnum" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Server" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Port" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Options" direction="Input" subtype="Options" slicemode="UpStream" visibility="Hidden">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Sockets" direction="Output" subtype="ResponseSocket" slicemode="Manual" visibility="True">
+</PIN><PIN name="Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Router (Network.ZeroMQ)" name="Router" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.Sockets.RouterSocketNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Socket
+</TAGS><HELP>Creates a socket, use in conjunction with Dealer
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Bind" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="Protocol" direction="Input" subtype="VVVV.ZeroMQ.Nodes.TransportProtocolEnum" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Server" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Port" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Options" direction="Input" subtype="Options" slicemode="UpStream" visibility="Hidden">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Sockets" direction="Output" subtype="RouterSocket" slicemode="Manual" visibility="True">
+</PIN><PIN name="Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Subscriber (Network.ZeroMQ)" name="Subscriber" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.Sockets.SubscriberSocketNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Socket
+</TAGS><HELP>Creates a socket, use in conjunction with Publisher
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Bind" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="Topic" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Protocol" direction="Input" subtype="VVVV.ZeroMQ.Nodes.TransportProtocolEnum" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Server" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Port" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Options" direction="Input" subtype="Options" slicemode="UpStream" visibility="Hidden">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Sockets" direction="Output" subtype="SubscriberSocket" slicemode="Manual" visibility="True">
+</PIN><PIN name="Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="XPublisher (Network.ZeroMQ)" name="XPublisher" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.Sockets.XPublisherSocketNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Socket, Broker
+</TAGS><HELP>Creates a socket, use in conjunction with Subscribe
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Bind" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="Protocol" direction="Input" subtype="VVVV.ZeroMQ.Nodes.TransportProtocolEnum" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Server" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Port" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Options" direction="Input" subtype="Options" slicemode="UpStream" visibility="Hidden">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Sockets" direction="Output" subtype="XPublisherSocket" slicemode="Manual" visibility="True">
+</PIN><PIN name="Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="XSubscriber (Network.ZeroMQ)" name="XSubscriber" category="Network.ZeroMQ" version="" filename="plugins\VVVV.ZeroMQ.dll" ignore="0" autoevaluate="0" type="Plugin" arguments="VVVV.ZeroMQ.Nodes.Sockets.XSubscriberSocketNode" ibs="0,0" iws="0,0" icm="0"><TAGS>Socket, Broker
+</TAGS><HELP>Creates a socket, use in conjunction with Publisher
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Bind" direction="Input" subtype="Boolean" slicemode="Single" visibility="True">
+</PIN><PIN name="Protocol" direction="Input" subtype="VVVV.ZeroMQ.Nodes.TransportProtocolEnum" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Server" direction="Input" subtype="" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Port" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Options" direction="Input" subtype="Options" slicemode="UpStream" visibility="Hidden">
+</PIN><PIN name="Enable" direction="Input" subtype="Boolean" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Sockets" direction="Output" subtype="XSubscriberSocket" slicemode="Manual" visibility="True">
+</PIN><PIN name="Valid" direction="Output" subtype="Boolean" slicemode="Manual" visibility="True">
+</PIN><TODO>Help patch "XSubscriber (Network.ZeroMQ) help.v4p" not found
+</TODO>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Receive (Network.ZeroMQ Message)" name="Receive" category="Network.ZeroMQ" version="Message" filename="plugins\VVVV.ZeroMQ.Message.dll" ignore="0" autoevaluate="-1" type="Plugin" arguments="VVVV.ZeroMQ.MessageReceiveNode" ibs="0,0" iws="0,0" icm="0"><HELP>Receives from a socket
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Socket" direction="Input" subtype="IReceivingSocket" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Message" direction="Output" subtype="Message" slicemode="Manual" visibility="True">
+</PIN><PIN name="Meta" direction="Output" subtype="Raw -&gt;" slicemode="Manual" visibility="True">
+</PIN><PIN name="Meta Bin Size" direction="Output" subtype="Integer" slicemode="Manual" visibility="True">
+</PIN><PIN name="Message Count" direction="Output" subtype="Integer" slicemode="Manual" visibility="True">
+</PIN><PIN name="OnData" direction="Output" subtype="Trigger" slicemode="Single" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.DotNetPluginFactory" systemname="Send (Network.ZeroMQ Message)" name="Send" category="Network.ZeroMQ" version="Message" filename="plugins\VVVV.ZeroMQ.Message.dll" ignore="0" autoevaluate="-1" type="Plugin" arguments="VVVV.ZeroMQ.MessageSendNode" ibs="0,0" iws="0,0" icm="0"><HELP>Sends to a socket
+</HELP><AUTHOR>velcrome
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Socket" direction="Input" subtype="IOutgoingSocket" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Message" direction="Input" subtype="Message" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Message Bin Size" direction="Input" subtype="Integer" slicemode="UpStream" visibility="True">
+</PIN><PIN name="Send" direction="Input" subtype="Trigger" slicemode="UpStream" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="False">
+</PIN><PIN name="Success" direction="Output" subtype="Trigger" slicemode="Manual" visibility="True">
+</PIN>
+</NODE><NODE factory="VVVV.Hosting.Factories.PatchFactory" systemname="AsID (Raw)" name="AsID" category="Raw" version="" filename="modules\AsID (Raw).v4p" ignore="0" autoevaluate="0" type="Module" arguments="" ibs="0,0" iws="0,0" icm="2"><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Evaluate" direction="Input" subtype="Boolean" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Header" direction="Input" subtype="generic" slicemode="Spread" visibility="True">
+</PIN><PIN name="Format" direction="Input" subtype="VVVV.PluginInterfaces.V2.ValueTypeFormat" slicemode="Spread" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Patch" direction="Output" subtype="Patch -&gt;" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="ID" direction="Output" subtype="merged subtype" slicemode="Spread" visibility="True">
+</PIN><TODO>Help patch "AsID (Raw) help.v4p" not found
+</TODO>
+</NODE><NODE factory="VVVV.Hosting.Factories.PatchFactory" systemname="AsTopic (Raw)" name="AsTopic" category="Raw" version="" filename="modules\AsTopic (Raw).v4p" ignore="0" autoevaluate="0" type="Module" arguments="" ibs="0,0" iws="0,0" icm="2"><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Evaluate" direction="Input" subtype="Boolean" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Header" direction="Input" subtype="generic" slicemode="Spread" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Patch" direction="Output" subtype="Patch -&gt;" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Topic" direction="Output" subtype="merged subtype" slicemode="Spread" visibility="True">
+</PIN><TODO>Help patch "AsTopic (Raw) help.v4p" not found
+</TODO>
+</NODE><NODE factory="VVVV.Hosting.Factories.PatchFactory" systemname="AvoidNIL (Raw)" name="AvoidNIL" category="Raw" version="" filename="modules\AvoidNIL (Raw).v4p" ignore="0" autoevaluate="0" type="Module" arguments="" ibs="0,0" iws="0,0" icm="2"><TAGS>empty
+</TAGS><HELP>Replaces an empty string spread with a default string.
+</HELP><AUTHOR>kalle
+</AUTHOR><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Evaluate" direction="Input" subtype="Boolean" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Default" direction="Input" subtype="generic" slicemode="Spread" visibility="True">
+</PIN><PIN name="Input" direction="Input" subtype="generic" slicemode="Spread" visibility="True">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Patch" direction="Output" subtype="Patch -&gt;" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Is NIL" direction="Output" subtype="merged subtype" slicemode="Spread" visibility="True">
+</PIN><PIN name="Output" direction="Output" subtype="generic" slicemode="Spread" visibility="True">
+</PIN><TODO>Help patch "AvoidNIL (Raw) help.v4p" not found
+</TODO>
+</NODE><NODE factory="VVVV.Hosting.Factories.PatchFactory" systemname="Timestamp (String)" name="Timestamp" category="String" version="" filename="modules\Timestamp (String).v4p" ignore="0" autoevaluate="0" type="Module" arguments="" ibs="0,0" iws="0,0" icm="2"><PIN name="Descriptive Name" direction="Configuration" subtype="" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Evaluate" direction="Input" subtype="Boolean" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="ID" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Patch" direction="Output" subtype="Patch -&gt;" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Window Handle" direction="Output" subtype="Integer" slicemode="Single" visibility="OnlyInspector">
+</PIN><PIN name="Timestamp" direction="Output" subtype="merged subtype" slicemode="Spread" visibility="True">
+</PIN><TODO>Help patch "Timestamp (String) help.v4p" not found
+</TODO>
+</NODE>
+</NODELIST>
