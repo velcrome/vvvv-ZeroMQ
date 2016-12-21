@@ -10,6 +10,8 @@
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <OutputPath>..\build\$(Platform)\$(Configuration)\nodes\plugins</OutputPath>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -36,7 +38,7 @@
     </Reference>
     <Reference Include="MsgPack">
       <HintPath>packages\MsgPack.Cli.0.8.0\lib\net46\MsgPack.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="NetMQ, Version=4.0.0.0, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
@@ -45,7 +47,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="SharpMessage">
@@ -61,19 +63,17 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.ServiceModel" />
-    <Reference Include="VVVV.Core, Version=34.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.Core.34.103.0-develop-1598\lib\net46\VVVV.Core.dll</HintPath>
+    <Reference Include="VVVV.Core, Version=35.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\VVVV.Core.35.0.0\lib\net46\VVVV.Core.dll</HintPath>
       <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="VVVV.Utils, Version=34.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.Utils.34.103.0-develop-1598\lib\net46\VVVV.Utils.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="VVVV.Packs.Time, Version=0.6, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\VVVV.Packs.Time.0.6\lib\net40\VVVV.Packs.Time.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VVVV.Utils, Version=35.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\VVVV.Utils.35.0.0\lib\net46\VVVV.Utils.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -86,11 +86,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="packages\VVVV.PluginInterfaces.34.103.0-develop-1598\build\net46\VVVV.PluginInterfaces.targets" Condition="Exists('packages\VVVV.PluginInterfaces.34.103.0-develop-1598\build\net46\VVVV.PluginInterfaces.targets')" />
+  <Import Project="packages\VVVV.PluginInterfaces.35.0.0\build\net46\VVVV.PluginInterfaces.targets" Condition="Exists('packages\VVVV.PluginInterfaces.35.0.0\build\net46\VVVV.PluginInterfaces.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\VVVV.PluginInterfaces.34.103.0-develop-1598\build\net46\VVVV.PluginInterfaces.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.PluginInterfaces.34.103.0-develop-1598\build\net46\VVVV.PluginInterfaces.targets'))" />
+    <Error Condition="!Exists('packages\VVVV.PluginInterfaces.35.0.0\build\net46\VVVV.PluginInterfaces.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.PluginInterfaces.35.0.0\build\net46\VVVV.PluginInterfaces.targets'))" />
   </Target>
 </Project>
