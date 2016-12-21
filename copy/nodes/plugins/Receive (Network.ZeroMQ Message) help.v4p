@@ -1,4 +1,4 @@
-<!DOCTYPE PATCH  SYSTEM "https://vvvv.org/versions/vvvv50alpha34.106.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.106.dtd" >
    <PATCH nodename="C:\apps\code\vvvv_50alpha34.106_x64\packs\vvvv-ZeroMQ\nodes\plugins\Receive (Network.ZeroMQ Message) help.v4p" systemname="Receive (Network ZSocket) help" filename="C:\dev\vvvv\vvvv-zeromq\copy\plugins\Receive (Network ZSocket) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="11316" top="-96" width="11724" height="12456">
    </BOUNDS>
