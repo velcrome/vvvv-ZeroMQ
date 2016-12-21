@@ -6,7 +6,7 @@
     <dependencies>
       <dependency>
         <name>vvvv-Message</name>
-        <source>vpms://raw.githubusercontent.com/velcrome/vvvv-Message/develop/copy/vvvv-Message.vpack</source>
+        <source>vpms://raw.githubusercontent.com/velcrome/vvvv-Message/master/copy/vvvv-Message.vpack</source>
       </dependency>
     </dependencies>
   </meta>
