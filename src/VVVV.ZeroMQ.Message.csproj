@@ -50,10 +50,10 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="SharpMessage, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\SharpMessage.2.9.0\lib\net46\SharpMessage.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="SharpMessage, Version=2.9.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\SharpMessage.2.9.3\lib\net46\SharpMessage.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -67,13 +67,14 @@
       <HintPath>packages\VVVV.Core.35.0.0\lib\net46\VVVV.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="VVVV.Packs.Time, Version=0.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.Packs.Time.0.6\lib\net40\VVVV.Packs.Time.dll</HintPath>
+    <Reference Include="VVVV.Packs.Timing, Version=0.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\VVVV.Packs.Timing.0.8.2\lib\net46\VVVV.Packs.Timing.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="VVVV.Utils, Version=35.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\VVVV.Utils.35.0.0\lib\net46\VVVV.Utils.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
