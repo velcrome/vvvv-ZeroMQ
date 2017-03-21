@@ -41,19 +41,20 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="NetMQ, Version=4.0.0.0, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
-      <HintPath>packages\NetMQ.4.0.0-rc5\lib\net40\NetMQ.dll</HintPath>
+    <Reference Include="NetMQ, Version=4.0.0.1, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
+      <HintPath>packages\NetMQ.4.0.0.1\lib\net40\NetMQ.dll</HintPath>
       <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>      
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="SharpMessage, Version=2.9.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\SharpMessage.2.9.3\lib\net46\SharpMessage.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="SharpMessage, Version=2.9.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\SharpMessage.2.9.8\lib\net46\SharpMessage.dll</HintPath>
       <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -64,18 +65,19 @@
     </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="VVVV.Core, Version=35.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.Core.35.0.0\lib\net46\VVVV.Core.dll</HintPath>
+      <HintPath>packages\VVVV.Core.35.2.0\lib\net46\VVVV.Core.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="VVVV.Packs.Timing, Version=0.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.Packs.Timing.0.8.2\lib\net46\VVVV.Packs.Timing.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="VVVV.Packs.Timing, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\VVVV.Packs.Timing.0.8.3\lib\net46\VVVV.Packs.Timing.dll</HintPath>
       <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="VVVV.Utils, Version=35.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.Utils.35.0.0\lib\net46\VVVV.Utils.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\VVVV.Utils.35.2.0\lib\net46\VVVV.Utils.dll</HintPath>
       <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -87,11 +89,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="packages\VVVV.PluginInterfaces.35.0.0\build\net46\VVVV.PluginInterfaces.targets" Condition="Exists('packages\VVVV.PluginInterfaces.35.0.0\build\net46\VVVV.PluginInterfaces.targets')" />
+  <Import Project="packages\VVVV.PluginInterfaces.35.2.0\build\net46\VVVV.PluginInterfaces.targets" Condition="Exists('packages\VVVV.PluginInterfaces.35.2.0\build\net46\VVVV.PluginInterfaces.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\VVVV.PluginInterfaces.35.0.0\build\net46\VVVV.PluginInterfaces.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.PluginInterfaces.35.0.0\build\net46\VVVV.PluginInterfaces.targets'))" />
+    <Error Condition="!Exists('packages\VVVV.PluginInterfaces.35.2.0\build\net46\VVVV.PluginInterfaces.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\VVVV.PluginInterfaces.35.2.0\build\net46\VVVV.PluginInterfaces.targets'))" />
   </Target>
 </Project>

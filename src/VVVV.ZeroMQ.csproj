@@ -34,9 +34,10 @@
       <Private>True</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="NetMQ, Version=4.0.0.0, Culture=neutral, PublicKeyToken=a6decef4ddc58b3a, processorArchitecture=MSIL">
-      <HintPath>packages\NetMQ.4.0.0-rc5\lib\net40\NetMQ.dll</HintPath>
+    <Reference Include="NetMQ, Version=4.0.0.0">
+      <HintPath>packages\NetMQ.4.0.0.1\lib\net40\NetMQ.dll</HintPath>
       <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,10 +49,12 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="VVVV.Core, Version=35.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\VVVV.Core.35.0.0\lib\net46\VVVV.Core.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
     <Reference Include="VVVV.Utils, Version=35.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\VVVV.Utils.35.0.0\lib\net46\VVVV.Utils.dll</HintPath>
+      <HintPath>packages\VVVV.Utils.35.2.0\lib\net46\VVVV.Utils.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
