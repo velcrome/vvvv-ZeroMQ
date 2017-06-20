@@ -47,9 +47,6 @@
       <Private>True</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-      <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="SharpMessage, Version=2.9.9.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\SharpMessage.2.9.9\lib\net46\SharpMessage.dll</HintPath>
       <Private>True</Private>
